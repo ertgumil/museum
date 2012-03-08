@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UIGC2</class>
+ <widget class="QMainWindow" name="UIGC2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UIGC2</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="GLWidget" name="contextGL" native="true"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <widget class="QMenu" name="menuColor_fons">
+    <property name="title">
+     <string>Color fons</string>
+    </property>
+    <addaction name="actionBlau"/>
+   </widget>
+   <widget class="QMenu" name="menuVisualitzacio">
+    <property name="title">
+     <string>Visualitzacio</string>
+    </property>
+    <addaction name="action4_vistas"/>
+    <addaction name="actionProjeccio"/>
+    <addaction name="actionOrtogonal"/>
+    <addaction name="action1_vista"/>
+   </widget>
+   <addaction name="menuColor_fons"/>
+   <addaction name="menuVisualitzacio"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionBlau">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Blau</string>
+   </property>
+  </action>
+  <action name="action4_vistas">
+   <property name="text">
+    <string>4 vistas</string>
+   </property>
+  </action>
+  <action name="actionProjeccio">
+   <property name="text">
+    <string>Projeccio</string>
+   </property>
+  </action>
+  <action name="actionOrtogonal">
+   <property name="text">
+    <string>Ortogonal</string>
+   </property>
+  </action>
+  <action name="action1_vista">
+   <property name="text">
+    <string>1 vista</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>GLWidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>SetBackgoundBlue()</slot>
+    <slot>SetBackgroundBlue()</slot>
+    <slot>OrthoView()</slot>
+    <slot>SeveralViews()</slot>
+    <slot>ProjView()</slot>
+    <slot>FullView()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionBlau</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>SetBackgroundBlue()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action4_vistas</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>SeveralViews()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOrtogonal</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>OrthoView()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionProjeccio</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>ProjView()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action1_vista</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>FullView()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
