@@ -6,80 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>302</width>
+    <height>309</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>UIGC2</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QFrame" name="frame">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
     <item>
      <widget class="GLWidget" name="contextGL" native="true"/>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>600</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="baseSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <widget class="QMenu" name="menuColor_fons">
-    <property name="title">
-     <string>Color fons</string>
-    </property>
-    <addaction name="actionBlau"/>
-   </widget>
-   <widget class="QMenu" name="menuVisualitzacio">
-    <property name="title">
-     <string>Visualitzacio</string>
-    </property>
-    <addaction name="action4_vistas"/>
-    <addaction name="actionProjeccio"/>
-    <addaction name="actionOrtogonal"/>
-    <addaction name="action1_vista"/>
-   </widget>
-   <addaction name="menuColor_fons"/>
-   <addaction name="menuVisualitzacio"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -89,33 +32,58 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>302</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <widget class="QMenu" name="menuColor_Fons">
+    <property name="styleSheet">
+     <string>background-color: rgb(255, 255, 255);
+</string>
+    </property>
+    <property name="title">
+     <string>Color Fons</string>
+    </property>
+    <addaction name="actionBlau"/>
+   </widget>
+   <widget class="QMenu" name="menuOpcions">
+    <property name="title">
+     <string>Opcions</string>
+    </property>
+    <addaction name="actionVista_perspectiva"/>
+    <addaction name="actionVista_Ortogonal"/>
+   </widget>
+   <addaction name="menuColor_Fons"/>
+   <addaction name="menuOpcions"/>
+  </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionBlau">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
    <property name="text">
     <string>Blau</string>
    </property>
   </action>
-  <action name="action4_vistas">
+  <action name="actionVista_perspectiva">
    <property name="text">
-    <string>4 vistas</string>
+    <string>Vista Perspectiva</string>
    </property>
   </action>
-  <action name="actionProjeccio">
+  <action name="actionVista_Ortogonal">
    <property name="text">
-    <string>Projeccio</string>
-   </property>
-  </action>
-  <action name="actionOrtogonal">
-   <property name="text">
-    <string>Ortogonal</string>
-   </property>
-  </action>
-  <action name="action1_vista">
-   <property name="text">
-    <string>1 vista</string>
+    <string>Vista Ortogonal</string>
    </property>
   </action>
  </widget>
@@ -124,15 +92,12 @@
   <customwidget>
    <class>GLWidget</class>
    <extends>QWidget</extends>
-   <header>GLWidget.h</header>
+   <header>glwidget.h</header>
    <container>1</container>
    <slots>
-    <slot>SetBackgoundBlue()</slot>
     <slot>SetBackgroundBlue()</slot>
-    <slot>OrthoView()</slot>
-    <slot>SeveralViews()</slot>
-    <slot>ProjView()</slot>
-    <slot>FullView()</slot>
+    <slot>SetVistaProjeccio()</slot>
+    <slot>SetVistaOrtogonal()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -149,74 +114,45 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>402</x>
-     <y>257</y>
+     <x>150</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>action4_vistas</sender>
+   <sender>actionVista_Ortogonal</sender>
    <signal>triggered()</signal>
    <receiver>contextGL</receiver>
-   <slot>SeveralViews()</slot>
+   <slot>SetVistaOrtogonal()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>402</x>
-     <y>257</y>
+     <x>150</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>actionOrtogonal</sender>
+   <sender>actionVista_perspectiva</sender>
    <signal>triggered()</signal>
    <receiver>contextGL</receiver>
-   <slot>OrthoView()</slot>
+   <slot>SetVistaProjeccio()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>402</x>
-     <y>257</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionProjeccio</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>ProjView()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>402</x>
-     <y>257</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>action1_vista</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>FullView()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>402</x>
-     <y>257</y>
+     <x>150</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>SetBackgroundBlue()</slot>
+ </slots>
 </ui>

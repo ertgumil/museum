@@ -18,6 +18,8 @@
 #include <QGLShaderProgram>
 #include "Model.h"
 #include "Util.h"
+#include "cameracontrol.h"
+#include "objectloader.h"
 
 
 class GLWidget : public QGLWidget {
@@ -68,6 +70,8 @@ private:
 
     QGLShaderProgram m_shader;
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };
+
+    CModel3DS* escena;
 };
 
 #endif  /* _GLWIDGET_H */

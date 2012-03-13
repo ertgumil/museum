@@ -7,6 +7,7 @@ using namespace std;
 
 GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
     setMouseTracking(true);
+    escena = new CModel3DS("Sala1.3ds");
 }
 
 
@@ -19,7 +20,7 @@ desactivar alguns flags del pipeline per tal de controlar com es fa el renderitz
 void GLWidget::initializeGL() {
 
     // ***********************************************************
-    // Test de suport OpenGL 2.0 (necessàris per carregar shaders)
+    // Test de suport OpenGL 2.0 (necess� ris per carregar shaders)
 #ifndef __APPLE__
     glewInit();
 
@@ -34,7 +35,7 @@ void GLWidget::initializeGL() {
     }
 #endif
     // ****************************************************
-    m_project=false;
+    m_project=true;
     m_viewer=true;
     isMoving = false;
     isZoom = false;
@@ -51,14 +52,59 @@ void GLWidget::initializeGL() {
     m_ull_y = 1.0f;
     m_ull_z = 1.0f;
 
+    float w = width();
+    float h = height();
+
+    glViewport(0, 0, w, h);
+
+    /*
+    // ****************************************************
+    // C� rrega dels shaders (per a les pr� ctiques 2, 3 i 4)
+    bool result;
+    result = m_shader.addShaderFromSourceFile( QGLShader::Vertex, "./simple.vert" );
+    if ( !result )
+        qDebug() << "Vertex: " << m_shader.log();
+    else
+        qDebug() << "Vertex shader works!";
+    result = m_shader.addShaderFromSourceFile( QGLShader::Fragment, "./simple.frag" );
+    if ( !result )
+        qDebug() << "Fragment: " << m_shader.log();
+    else
+        qDebug() << "Fragment shader works!";
+    result = m_shader.link();
+    if ( !result )
+        qDebug() << "Link: " << m_shader.log();
+    else
+        qDebug() << "Shaders link: OK!";
+    result = m_shader.bind();
+    if ( !result )
+        qDebug() << "Bind: " << m_shader.log();
+    else
+        qDebug() << "Shaders bind: OK!";
+    // ****************************************************
+    */
+
+
+    //CameraControl::getInstance()->ChangeVisualMode();
+
     this->setFocusPolicy(Qt::StrongFocus);  //Necessari pels events de teclat
 
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glEnable(GL_DEPTH_TEST);  //Activem el test de profunditat
-    project(5.0f, 5.0f, 5.0f);
+    glShadeModel(GL_SMOOTH);
+
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHTING);
+
+    GLfloat pos[] = {0.0, 0.0, 10.0};
+    glLightfv(GL_LIGHT0, GL_POSITION, pos);
+
+   // project(0.0f, 5.0f, 5.0f);
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
+    escena->CreateVBO();
+
 }
 
 /**
@@ -68,11 +114,11 @@ mida d'aquest context.
 Idees: Això depèn de com configurem el volum de visualització i els contextos de renderitzat.
 */
 void GLWidget::resizeGL(int w, int h) {
-
     glViewport(0, 0, w, h);
-    project(5.0f, 5.0f, 5.0f);
-    glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
-    glLoadIdentity();           //netejar la matriu actual
+    CameraControl::getInstance()->ConfigureAspect(float(w)/float(h));
+   // project(5.0f, 5.0f, 5.0f);
+    //glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
+   // glLoadIdentity();           //netejar la matriu actual
 }
 
 /**
@@ -80,7 +126,7 @@ Acció: Aquesta funció es crida per dibuixar el contingut del context OpenGL.
 Objectiu: Haureu de visualitzar un cub creat per vosaltres amb primitives OpenGL. *No afegiu CAP primitiva referent al
 model en aquesta funció*, poseu-les al mètode dibuixa de la classe Model.
 Idees: En aquesta funció s'han de re-inicialitzar alguns buffers per no mesclar amb imatges renderitzades amb
-anterioritat, configurar el punt de vista de la càmera per si hi ha canvis, cridar a les funcions de dibuixat i finalment
+anterioritat, configurar el punt de vista de la c� mera per si hi ha canvis, cridar a les funcions de dibuixat i finalment
 gestionar el re-dibuixat si s'escau.
  */
 void GLWidget::paintGL() {
@@ -92,18 +138,14 @@ void GLWidget::paintGL() {
     glColor3f(1,1,1);   //color negro de fondo
     glLoadIdentity();   //limpiar la matriz actual
 
-    if (m_viewer) {
 
-        glViewport(0, 0, width(), height());
-        project(m_ull_x,m_ull_y,m_ull_z);
 
-        glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
-        glLoadIdentity();           //netejar la matriu actual
+    CameraControl::getInstance()->PutCam();
+    //Model::getInstance()->DibuixaGrid();
+    //Model::getInstance()->DibuixaCub();
 
-        Model::getInstance()->DibuixaCub();
-    } else {
-        view4(); //Funció per visualitzar les 4 vistes. Punt 8.
-    }
+    glPolygonMode(GL_FRONT, GL_TRIANGLES);
+    escena->Draw();
 
     glFlush();  //Aplica accions
 }
@@ -148,18 +190,22 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     betaCamera = (betaCamera + (event->x() - xCamera));
 
     if(isMoving && !isMouseReleased) {
-        m_ull_x = cos(alphaCamera*3.14/180)*cos(betaCamera*3.14/180);
+        /*m_ull_x = cos(alphaCamera*3.14/180)*cos(betaCamera*3.14/180);
         m_ull_y = sin(alphaCamera*3.14/180)*cos(betaCamera*3.14/180);
-        m_ull_z = sin(betaCamera*3.14/180);
+        m_ull_z = sin(betaCamera*3.14/180);*/
+        //cout<< "clicked  " <<   float(int(betaCamera)%360) <<endl;
+
+        //CameraControl::getInstance()->RotateCam(event->x() - xCamera);
+
 
     }
 
     if (isZoom && !isMouseReleased) {
-        m_R +=event->y() - yCamera ;
-
+        CameraControl::getInstance()->RotateCam(event->x() - xCamera);
     }
     xCamera = event->x();
     yCamera = event->y();
+    //CameraControl::getInstance()->ViewCam(event->x() - xCamera,event->y() - yCamera);
     updateGL();
 }
 
@@ -171,7 +217,7 @@ Objectiu: gestionar els events generats pel teclat.
 void GLWidget::keyPressEvent(QKeyEvent* event) {
 
     switch( event->key() ) {
-        case Qt::Key_Up:
+        /*case Qt::Key_Up:
             m_ull_x  = m_R*cos((alphaCamera+10)*3.14/180)*cos((alphaCamera+10)*3.14/180);
             cout << "L" << endl;
             updateGL();
@@ -203,7 +249,39 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
         case Qt::Key_Minus:
             m_R -=3 ;
             updateGL();
-          break;
+          break;*/
+            case Qt::Key_Up:
+            CameraControl::getInstance()->RefreshTarget(-1,0,0);
+                updateGL();
+              break;
+
+            case Qt::Key_Down:
+                CameraControl::getInstance()->RefreshTarget(1,0,0);
+                updateGL();
+              break;
+            case Qt::Key_Right:
+                 CameraControl::getInstance()->RefreshTarget(0,-1,0);
+                 updateGL();
+              break;
+
+            case Qt::Key_Left:
+                CameraControl::getInstance()->RefreshTarget(0,1,0);
+                updateGL();
+              break;
+            case Qt::Key_Plus:
+                      CameraControl::getInstance()->RefreshZoom(-10);
+                updateGL();
+              break;
+
+            case Qt::Key_Minus:
+              CameraControl::getInstance()->RefreshZoom(10);
+                updateGL();
+              break;
+            case Qt::Key_0:
+                CameraControl::getInstance()->ChangeVisualMode();
+                updateGL();
+                break;
+
     }
 }
 
@@ -217,11 +295,11 @@ void GLWidget::project(float x, float y, float z)
     float k = w/h;
     float R = 1.0f;
     //1. Centrem L'objecte
-    Model::getInstance()->Torna_Desp(pos);
+    //Model::getInstance()->Torna_Desp(pos);
     glTranslatef(-pos[0],-pos[1],-pos[2]);
 
     //2. Carreguem BoundingBox
-    Model::getInstance()->BoundingBox(BB);
+    //Model::getInstance()->BoundingBox(BB);
 
     //3. Calcul de la diagonal.
     pos[0] = BB[3] - BB[0];
@@ -249,7 +327,7 @@ void GLWidget::project(float x, float y, float z)
     else{
         R=1.0f;
         //5. calcul del radi
-        float r=sqrt(3)/2;
+        float r=sqrt(3.0)/2;
 
         //escalat
         float FE = 2*r/(diagonal+m_R);
@@ -291,7 +369,7 @@ void GLWidget::view4(){  ///funció per fer les 4 vistes. Punt 8.
     glScissor(0,h_middle,w_middle,h-h_marg);
     glLoadIdentity();           //netejar la matriu actual
     glClear(GL_COLOR_BUFFER_BIT);
-    Model::getInstance()->DibuixaCub();
+    //Model::getInstance()->DibuixaCub();
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -305,7 +383,7 @@ void GLWidget::view4(){  ///funció per fer les 4 vistes. Punt 8.
     glViewport(w_middle,h_middle,w-w_marg,h-h_marg); //Finestra 2, - 100 perque deixar marge.
     glScissor  ( w_middle,h_middle,w-w_marg,h-h_marg);
     glClear(GL_COLOR_BUFFER_BIT);
-    Model::getInstance()->DibuixaCub();
+    //Model::getInstance()->DibuixaCub();
     //////////////////////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////Finestra 3//////////////////////////////////
@@ -317,7 +395,7 @@ void GLWidget::view4(){  ///funció per fer les 4 vistes. Punt 8.
     glScissor(0,0,w_middle,h_middle);
     glLoadIdentity();           //netejar la matriu actual
     glClear(GL_COLOR_BUFFER_BIT);
-    Model::getInstance()->DibuixaCub();
+    //Model::getInstance()->DibuixaCub();
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -330,7 +408,7 @@ void GLWidget::view4(){  ///funció per fer les 4 vistes. Punt 8.
     glViewport(w_middle,0,w-w_marg,h_middle); //Finestra 4
     glScissor(w_middle,0,w-w_marg,h_middle);
     glClear(GL_COLOR_BUFFER_BIT);
-    Model::getInstance()->DibuixaCub();
+    //Model::getInstance()->DibuixaCub();
     //////////////////////////////////////////////////////////////////////////////////////////
 
     glDisable(GL_SCISSOR_TEST);
