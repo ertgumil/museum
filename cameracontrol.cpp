@@ -10,6 +10,9 @@ float CameraControl::Pitch = 1.0f;
 float CameraControl::Zoom = 40.0f;
 bool CameraControl::VisualMode = true;
 
+
+float angleCamY = asin(30.0f/40.0f);
+
 CameraControl::CameraControl()
 {
 }
@@ -74,7 +77,7 @@ void CameraControl::ChangeVisualMode(){
        Cam[2] = 0.1f;
        Cam[3] = Zoom + 40.0f;
        AngleCam = 1.0f;
-
+       angleCamY = asin(Eye[2]/Eye[1]);
 
     }
     else{ /// Camara FPS
@@ -161,19 +164,19 @@ float* CameraControl::getTarget(){
 void CameraControl::RefreshTarget(float x,float y, float z){
 
     if(VisualMode){
-        if(AngleCam>-45 && AngleCam<45){
+       if(AngleCam>-45 && AngleCam<45){
             Target[0] += x;
-            Target[1] += y;
+            Target[1] += -y;
             Target[2] += z;
         }
         if(AngleCam>45 && AngleCam<135){
-            Target[0] += -y;
+            Target[0] += y;
             Target[1] += x;
             Target[2] += z;
         }
         if(AngleCam>135 && AngleCam<225){
             Target[0] += -x;
-            Target[1] += -y;
+            Target[1] += y;
             Target[2] += z;
         }
         if(AngleCam>225 && AngleCam<315){
@@ -182,18 +185,18 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Target[2] += z;
         }
         if(AngleCam>-315 && AngleCam<-225){
-            Target[0] += -y;
+            Target[0] += y;
             Target[1] += x;
             Target[2] += z;
         }
         if(AngleCam>-225 && AngleCam<-135){
             Target[0] += -x;
-            Target[1] += -y;
+            Target[1] += y;
             Target[2] += z;
         }
         if(AngleCam>-135 && AngleCam<-45){
-            Target[0] += y;
-            Target[1] += -x;
+            Target[0] += -y;
+            Target[1] += x;
             Target[2] += z;
         }
     }
@@ -203,12 +206,14 @@ void CameraControl::RefreshTarget(float x,float y, float z){
 
 void CameraControl::RefreshZoom(float zoom){
     Zoom += zoom;
-    Cam[3]+=zoom;
+    if (Zoom < 3.0f) Zoom = 3.0f;
+    else Cam[3]+=zoom;
 
     float rads = AngleCam*3.14/180;
 
 
     Eye[0] = Zoom*cos(rads);
     Eye[1] = Zoom*sin(rads);
+    Eye[2] = Zoom*sin(angleCamY);
 
 }
