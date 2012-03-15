@@ -219,33 +219,37 @@ void CameraControl::RefreshTarget(float x,float y, float z){
        // Eye[2] += z;
         float rads = AngleCam*3.14/180;
 
-        //Solo va hacia adelante
-        Eye[0] += x;
-        Eye[1] += y;
-        Eye[2] = Eye[2];
-
-/*
+        /*
         //Solo va hacia adelante
         Eye[0] += cos(rads);
         Eye[1] += sin(rads);
         Eye[2] = Eye[2];
+        */
 
-
-        //va hacia atras
-        Eye[0] -= cos(rads);
-        Eye[1] -= sin(rads);
-        Eye[2] = Eye[2];
-
-        //va hacia la izquierda
-        Eye[0] += sin(rads);
-        Eye[1] += cos(rads);
-        Eye[2] = Eye[2];
-
-        //va hacia la derecha
-        Eye[0] -= sin(rads);
-        Eye[1] -= cos(rads);
-        Eye[2] = Eye[2];*/
-
+        if (x > 0) {
+            //va hacia atras
+            Eye[0] -= cos(rads);
+            Eye[1] -= sin(rads);
+            Eye[2] = Eye[2];
+        }
+        else if (x < 0) {
+            //Solo va hacia adelante
+            Eye[0] += cos(rads);
+            Eye[1] += sin(rads);
+            Eye[2] = Eye[2];
+        }
+        if (y > 0) {
+            //va hacia la derecha
+            Eye[0] -= sin(rads);
+            Eye[1] -= cos(rads);
+            Eye[2] = Eye[2];
+        }
+        else if(y < 0) {
+            //va hacia la izquierda
+            Eye[0] += sin(rads);
+            Eye[1] += cos(rads);
+            Eye[2] = Eye[2];
+        }
 
     }
 
