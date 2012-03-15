@@ -263,21 +263,43 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
             m_R -=3 ;
             updateGL();
           break;*/
+
             case Qt::Key_Up:
-            CameraControl::getInstance()->RefreshTarget(-1,0,0);
+            CameraControl::getInstance()->RefreshTarget(0,0,1);
                 updateGL();
               break;
 
             case Qt::Key_Down:
-                CameraControl::getInstance()->RefreshTarget(1,0,0);
+                CameraControl::getInstance()->RefreshTarget(0,0,-1);
                 updateGL();
               break;
+
+                /*
             case Qt::Key_Right:
                  CameraControl::getInstance()->RefreshTarget(0,-1,0);
                  updateGL();
               break;
 
             case Qt::Key_Left:
+                CameraControl::getInstance()->RefreshTarget(0,1,0);
+                updateGL();
+              break;
+            */
+            case Qt::Key_W:
+            CameraControl::getInstance()->RefreshTarget(-1,0,0);
+                updateGL();
+              break;
+
+            case Qt::Key_S:
+                CameraControl::getInstance()->RefreshTarget(1,0,0);
+                updateGL();
+              break;
+            case Qt::Key_D:
+                 CameraControl::getInstance()->RefreshTarget(0,-1,0);
+                 updateGL();
+              break;
+
+            case Qt::Key_A:
                 CameraControl::getInstance()->RefreshTarget(0,1,0);
                 updateGL();
               break;

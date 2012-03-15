@@ -250,7 +250,12 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Eye[1] += cos(rads);
             Eye[2] = Eye[2];
         }
-
+        if (z > 0) {
+            Eye[2] += 0.1;
+        }
+        else if (z < 0) {
+            Eye[2] -= 0.1;
+        }
     }
 
 }
