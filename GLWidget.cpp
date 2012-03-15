@@ -93,11 +93,24 @@ void GLWidget::initializeGL() {
     glEnable(GL_DEPTH_TEST);  //Activem el test de profunditat
     glShadeModel(GL_SMOOTH);
 
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHTING);
+    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat mat_shininess[] = { 50.0 };
 
-    GLfloat pos[] = {0.0, 0.0, 10.0};
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glShadeModel (GL_SMOOTH);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+
+
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    GLfloat pos[] = {300.0, 300.0, 300.0};
     glLightfv(GL_LIGHT0, GL_POSITION, pos);
+
 
    // project(0.0f, 5.0f, 5.0f);
 

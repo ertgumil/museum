@@ -73,7 +73,6 @@ void CModel3DS::CreateVBO()
                         for(unsigned int i = 0;i < 3;i++)
                         {
                                 memcpy(&vertices[FinishedFaces*3 + i], mesh->pointL[face->points[ i ]].pos, sizeof(Lib3dsVector));
-                                //memcpy(&normals[FinishedFaces*3 + i],mesh->pointL[face->normal[i]].pos, sizeof(Lib3dsVector));
                                 //      face->
                         }
                         FinishedFaces++;
@@ -101,6 +100,7 @@ void CModel3DS::CreateVBO()
 }
 
 // Render the model using Vertex Buffer Objects
+// Render the model using Vertex Buffer Objects
 void CModel3DS:: Draw() const
 {
         Q_ASSERT(m_TotalFaces != 0);
@@ -118,7 +118,6 @@ void CModel3DS:: Draw() const
         glVertexPointer(3, GL_FLOAT, 0, NULL);
 
         // Render the triangles
-        //glDrawArrays(GL_TRIANGLES, 0, m_TotalFaces * 3);
         glDrawArrays(GL_TRIANGLES, 0, m_TotalFaces * 3);
 
         glDisableClientState(GL_VERTEX_ARRAY);

@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Tue 13. Mar 10:28:50 2012
-**      by: Qt User Interface Compiler version 4.8.0
+** Created: Thu Mar 15 10:00:12 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -22,7 +22,7 @@
 #include <QtGui/QStatusBar>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
-#include "glwidget.h"
+#include "GLWidget.h"
 
 QT_BEGIN_NAMESPACE
 
