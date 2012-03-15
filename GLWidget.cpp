@@ -7,7 +7,7 @@ using namespace std;
 
 GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
     setMouseTracking(true);
-    escena = new CModel3DS("Sala1.3ds");
+    escena = new CModel3DS("models/Sala1.3ds");
 }
 
 
