@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>302</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -92,7 +92,7 @@
   <customwidget>
    <class>GLWidget</class>
    <extends>QWidget</extends>
-   <header>glwidget.h</header>
+   <header>GLWidget.h</header>
    <container>1</container>
    <slots>
     <slot>SetBackgroundBlue()</slot>
