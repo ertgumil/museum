@@ -54,6 +54,16 @@ void CameraControl::RotateCam(float alpha){
         Eye[0] = Zoom*cos(rads);
         Eye[1] = Zoom*sin(rads);
     }
+    else
+    {
+        AngleCam= float(int(AngleCam+alpha)%360);
+
+        float rads = AngleCam*3.14/180;
+
+
+        Target[0] = Zoom*cos(rads);
+        Target[1] = Zoom*sin(rads);
+    }
 }
 
 
@@ -85,12 +95,16 @@ void CameraControl::ChangeVisualMode(){
        Eye[1] = 0.0f;
        Eye[2] = 1.0f;
 
+       Zoom = 5.0f;
+
        Target[0] = 5.0f;
        Target[1] = 0.0f;
-       Target[2] = 1.0f;
+       Target[2] = 0.0f;
+
+       AngleCam = 1.0f;
 
        Cam[0] = 30.0f;
-       Cam[1]= 1.0f;
+       Cam[1]= Cam[1];
        Cam[2] = 0.1f;
        Cam[3] = 50.0f;
     }
@@ -101,8 +115,8 @@ void CameraControl::ChangeVisualMode(){
 void CameraControl::ConfigureCam(float angle, float aspect,float near, float far){
     Cam[0] = angle;
     Cam[1] = aspect;
-    //Cam[2] = near;
-    //Cam[3] = far;
+    Cam[2] = near;
+    Cam[3] = far;
 
 }
 
@@ -142,7 +156,7 @@ void CameraControl::PutCam(){
     if (VisualMode)
         gluLookAt(Eye[0]+Target[0],Eye[1]+Target[1],Eye[2]+Target[2], Target[0], Target[1], Target[2], 0.0f, 0.0f, 1.0f);
     else
-        gluLookAt(Eye[0],Eye[1],Eye[2], Target[0], Target[1], Target[2], 0.0f, 0.0f, 1.0f);
+        gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
 
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
@@ -200,20 +214,44 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Target[2] += z;
         }
     }
+    else{
+       // Eye[0] += -x;
+       // Eye[1] += -y;
+       // Eye[2] += z;
+        float rads = AngleCam*3.14/180;
+
+        //Solo va hacia adelante
+      /*  Eye[0] += cos(rads);
+        Eye[1] += sin(rads);
+        Eye[2] = Eye[2];
+
+        //va hacia atras
+        Eye[0] -= cos(rads);
+        Eye[1] -= sin(rads);
+        Eye[2] = Eye[2];*/
+        Eye[0] += sin(rads);
+        Eye[1] += cos(rads);
+        Eye[2] = Eye[2];
+
+
+    }
 
 }
 
 
 void CameraControl::RefreshZoom(float zoom){
-    Zoom += zoom;
-    if (Zoom < 3.0f) Zoom = 3.0f;
-    else Cam[3]+=zoom;
+    if(VisualMode)
+    {
+        Zoom += zoom;
+        if (Zoom < 3.0f) Zoom = 3.0f;
+        else Cam[3]+=zoom;
 
-    float rads = AngleCam*3.14/180;
+        float rads = AngleCam*3.14/180;
 
 
-    Eye[0] = Zoom*cos(rads);
-    Eye[1] = Zoom*sin(rads);
-    Eye[2] = Zoom*sin(angleCamY);
+        Eye[0] = Zoom*cos(rads);
+        Eye[1] = Zoom*sin(rads);
+        Eye[2] = Zoom*sin(angleCamY);
+    }
 
 }
