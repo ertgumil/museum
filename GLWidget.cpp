@@ -20,7 +20,7 @@ desactivar alguns flags del pipeline per tal de controlar com es fa el renderitz
 void GLWidget::initializeGL() {
 
     // ***********************************************************
-    // Test de suport OpenGL 2.0 (necess√ ris per carregar shaders)
+    // Test de suport OpenGL 2.0 (necess ris per carregar shaders)
 #ifndef __APPLE__
     glewInit();
 
@@ -59,7 +59,7 @@ void GLWidget::initializeGL() {
 
     /*
     // ****************************************************
-    // C√ rrega dels shaders (per a les pr√ ctiques 2, 3 i 4)
+    // C rrega dels shaders (per a les pr ctiques 2, 3 i 4)
     bool result;
     result = m_shader.addShaderFromSourceFile( QGLShader::Vertex, "./simple.vert" );
     if ( !result )
@@ -139,7 +139,7 @@ Acci√≥: Aquesta funci√≥ es crida per dibuixar el contingut del context OpenGL.
 Objectiu: Haureu de visualitzar un cub creat per vosaltres amb primitives OpenGL. *No afegiu CAP primitiva referent al
 model en aquesta funci√≥*, poseu-les al m√®tode dibuixa de la classe Model.
 Idees: En aquesta funci√≥ s'han de re-inicialitzar alguns buffers per no mesclar amb imatges renderitzades amb
-anterioritat, configurar el punt de vista de la c√ mera per si hi ha canvis, cridar a les funcions de dibuixat i finalment
+anterioritat, configurar el punt de vista de la c mera per si hi ha canvis, cridar a les funcions de dibuixat i finalment
 gestionar el re-dibuixat si s'escau.
  */
 void GLWidget::paintGL() {
@@ -458,4 +458,5 @@ void GLWidget::SetBackgroundBlue(){
    glClearColor(0.0,0.0,1.0,0.0);
    updateGL();
 }
+
 

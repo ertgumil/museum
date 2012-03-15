@@ -1,6 +1,7 @@
 #include "cameracontrol.h"
 #include "math.h"
 
+
 CameraControl* CameraControl::instance = NULL;
 float CameraControl::Target[3] = {0.0f,0.0f,0.0f};
 float CameraControl::Eye[3]= {40.0f,0.0f,30.0f};
@@ -9,8 +10,6 @@ float CameraControl::AngleCam = 1.0f;
 float CameraControl::Pitch = 1.0f;
 float CameraControl::Zoom = 40.0f;
 bool CameraControl::VisualMode = true;
-
-
 float angleCamY = asin(30.0f/40.0f);
 
 CameraControl::CameraControl()
@@ -18,7 +17,7 @@ CameraControl::CameraControl()
 }
 
 CameraControl::~CameraControl(){
-
+    delete(instance);
 }
 
 
@@ -92,7 +91,7 @@ void CameraControl::ChangeVisualMode(){
     }
     else{ /// Camara FPS
        Eye[0] = 0.0f;
-       Eye[1] = 0.0f;
+       Eye[1] = -6.0f;
        Eye[2] = 1.0f;
 
        Zoom = 5.0f;
@@ -221,10 +220,17 @@ void CameraControl::RefreshTarget(float x,float y, float z){
         float rads = AngleCam*3.14/180;
 
         //Solo va hacia adelante
+        Eye[0] += x;
+        Eye[1] += y;
+        Eye[2] = Eye[2];
+
+/*
+        //Solo va hacia adelante
         Eye[0] += cos(rads);
         Eye[1] += sin(rads);
         Eye[2] = Eye[2];
-/*
+
+
         //va hacia atras
         Eye[0] -= cos(rads);
         Eye[1] -= sin(rads);
