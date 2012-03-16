@@ -251,10 +251,14 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Eye[2] = Eye[2];
         }
         if (z > 0) {
-            Eye[2] += 0.1;
+            //Eye[2] += 0.1;
+            //AngleCam+=1;
+            Target[2] += sin(rads);
         }
         else if (z < 0) {
-            Eye[2] -= 0.1;
+            //Eye[2] -= 0.1;
+            //AngleCam-=1;
+            Target[2] -= sin(rads);
         }
     }
 
