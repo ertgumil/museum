@@ -25,7 +25,6 @@
 #include "coldetimpl.h"
 #include "mytritri.h"
 #include <assert.h>
-
 __CD__BEGIN
 
 class Check

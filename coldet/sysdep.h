@@ -28,7 +28,9 @@
 ///////////////////////////////////////////////////
 // g++ compiler on most systems
 ///////////////////////////////////////////////////
-#ifdef GCC
+//#ifdef GCC
+//#ifdef __GNUG__
+#ifdef __linux__
 
 typedef unsigned long DWORD;
 DWORD GetTickCount();
