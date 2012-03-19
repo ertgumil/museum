@@ -1,4 +1,5 @@
 #include "cameracontrol.h"
+#include "collisionmanager.h"
 #include "math.h"
 
 
@@ -191,18 +192,8 @@ void CameraControl::RefreshTarget(float x,float y, float z){
         }
     }
     else{
-       // Eye[0] += -x;
-       // Eye[1] += -y;
-       // Eye[2] += z;
+        float oldEye[3] = {Eye[0],Eye[1],Eye[2]};
         float rads = AngleCam*3.14/180;
-
-        /*
-        //Solo va hacia adelante
-        Eye[0] += cos(rads);
-        Eye[1] += sin(rads);
-        Eye[2] = Eye[2];
-        */
-
         if (x > 0) {
             //va hacia atras
             Eye[0] -= cos(rads);
@@ -237,6 +228,8 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             //AngleCam-=1;
             Target[2] -= sin(rads);
         }
+        if(CollisionManager::getInstance()->TestCollision(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
+
     }
 
 }
