@@ -33,7 +33,15 @@ SOURCES += main.cpp \
     lib3ds/background.c \
     lib3ds/atmosphere.c \
     cameracontrol.cpp \
-    collisionmanager.cpp
+    collisionmanager.cpp \
+    coldet/src/box.cpp \
+    coldet/src/box_bld.cpp \
+    coldet/src/coldet.cpp \
+    coldet/src/coldet_bld.cpp \
+    coldet/src/math3d.cpp \
+    coldet/src/mytritri.cpp \
+    coldet/src/sysdep.cpp \
+    coldet/src/tritri.c
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -61,10 +69,18 @@ HEADERS += uigc2.h \
     lib3ds/background.h \
     lib3ds/atmosphere.h \
     cameracontrol.h \
-    collisionmanager.h
+    collisionmanager.h \
+    coldet/src/box.h \
+    coldet/src/coldet.h \
+    coldet/src/coldetimpl.h \
+    coldet/src/math3d.h \
+    coldet/src/mytritri.h \
+    coldet/src/sysdep.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \
     lib3ds/types.txt \
     lib3ds/Makefile.in \
-    lib3ds/Makefile.am
+    lib3ds/Makefile.am \
+    coldet/src/coldet.dsp \
+    coldet/src/makefile.g++

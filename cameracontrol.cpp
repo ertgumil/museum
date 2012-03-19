@@ -69,7 +69,7 @@ void CameraControl::ChangeVisualMode(){
     else{ /// Camara FPS
        Eye[0] = 0.0f;
        Eye[1] = -6.0f;
-       Eye[2] = 1.0f;
+       Eye[2] = 2.0f;
 
        Zoom = 5.0f;
 
