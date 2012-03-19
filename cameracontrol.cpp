@@ -21,26 +21,6 @@ CameraControl::~CameraControl(){
 }
 
 
-void CameraControl::ViewCam(float alpha,float beta){
-    AngleCam= float(int(AngleCam+alpha)%360);
-
-    float rads = AngleCam*3.14/180;
-
-    Zoom = 10;
-
-    Target[0] = Zoom*cos(rads);
-    Target[2] = Zoom*sin(rads);
-
-   /* Pitch= float(Pitch+alpha);
-
-    rads = Pitch*3.14/180;
-
-
-    Target[1] = Zoom*cos(rads);
-*/
-
-}
-
 void CameraControl::RotateCam(float alpha,float beta){
     AngleCam= float(int(AngleCam+alpha)%360);
     PitchCam= float(int(PitchCam+beta)%180);

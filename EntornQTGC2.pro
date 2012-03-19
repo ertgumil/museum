@@ -1,20 +1,16 @@
-#-------------------------------------------------
-#
+# -------------------------------------------------
 # Project created by QtCreator 2012-02-23T13:11:34
-#
-#-------------------------------------------------
+# -------------------------------------------------
+unix:LIBS += -lGLEW
 
-unix: LIBS += -lGLEW
-
-#Llibreria OpenGl
-QT += core gui opengl
-
+# Llibreria OpenGl
+QT += core \
+    gui \
+    opengl
 TARGET = EntornQTGC2
 TEMPLATE = app
-
-
-SOURCES += main.cpp\
-        uigc2.cpp \
+SOURCES += main.cpp \
+    uigc2.cpp \
     Model.cpp \
     GLWidget.cpp \
     objectloader.cpp \
@@ -36,9 +32,9 @@ SOURCES += main.cpp\
     lib3ds/camera.c \
     lib3ds/background.c \
     lib3ds/atmosphere.c \
-    cameracontrol.cpp
-
-HEADERS  += uigc2.h \
+    cameracontrol.cpp \
+    collisionmanager.cpp
+HEADERS += uigc2.h \
     Util.h \
     Model.h \
     GLWidget.h \
@@ -64,14 +60,11 @@ HEADERS  += uigc2.h \
     lib3ds/camera.h \
     lib3ds/background.h \
     lib3ds/atmosphere.h \
-    cameracontrol.h
-
-FORMS    += uigc2.ui
-
-OTHER_FILES += \
-    simple.vert \
+    cameracontrol.h \
+    collisionmanager.h
+FORMS += uigc2.ui
+OTHER_FILES += simple.vert \
     simple.frag \
     lib3ds/types.txt \
     lib3ds/Makefile.in \
     lib3ds/Makefile.am
-

@@ -36,7 +36,6 @@ public:
     void RefreshTarget(float,float,float);
     void RefreshZoom(float);
     void RotateCam(float,float);
-    void ViewCam(float,float);
 
 
 
