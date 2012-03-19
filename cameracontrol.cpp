@@ -7,7 +7,7 @@ float CameraControl::Target[3] = {0.0f,0.0f,0.0f};
 float CameraControl::Eye[3]= {40.0f,0.0f,30.0f};
 float CameraControl::Cam[4]= {30.0f,1.0f,0.1f,100.0f};
 float CameraControl::AngleCam = 1.0f;
-float CameraControl::Pitch = 1.0f;
+float CameraControl::PitchCam = 1.0f;
 float CameraControl::Zoom = 40.0f;
 bool CameraControl::VisualMode = true;
 float angleCamY = asin(30.0f/40.0f);
@@ -41,27 +41,23 @@ void CameraControl::ViewCam(float alpha,float beta){
 
 }
 
-void CameraControl::RotateCam(float alpha){
+void CameraControl::RotateCam(float alpha,float beta){
+    AngleCam= float(int(AngleCam+alpha)%360);
+    PitchCam= float(int(PitchCam+beta)%180);
+
+    float rads = AngleCam*3.14/180;
     if(VisualMode)
     {
-
-        AngleCam= float(int(AngleCam+alpha)%360);
-
-        float rads = AngleCam*3.14/180;
-
-
         Eye[0] = Zoom*cos(rads);
         Eye[1] = Zoom*sin(rads);
     }
     else
     {
-        AngleCam= float(int(AngleCam+alpha)%360);
+        float pitchs = PitchCam*3.14/180;
 
-        float rads = AngleCam*3.14/180;
-
-
-        Target[0] = Zoom*cos(rads);
-        Target[1] = Zoom*sin(rads);
+        Target[0] = Zoom*cos(rads)*cos(pitchs);
+        Target[1] = Zoom*sin(rads)*cos(pitchs);
+        Target[2] = -Zoom*sin(pitchs);
     }
 }
 
@@ -101,6 +97,7 @@ void CameraControl::ChangeVisualMode(){
        Target[2] = 0.0f;
 
        AngleCam = 1.0f;
+       PitchCam = 1.0f;
 
        Cam[0] = 30.0f;
        Cam[1]= Cam[1];

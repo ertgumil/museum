@@ -214,7 +214,7 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     }
 
     if (isZoom && !isMouseReleased) {
-        CameraControl::getInstance()->RotateCam(event->x() - xCamera);
+        CameraControl::getInstance()->RotateCam(event->x() - xCamera, event->y() - yCamera);
     }
     xCamera = event->x();
     yCamera = event->y();

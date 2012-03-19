@@ -35,7 +35,7 @@ public:
     float* getTarget();
     void RefreshTarget(float,float,float);
     void RefreshZoom(float);
-    void RotateCam(float);
+    void RotateCam(float,float);
     void ViewCam(float,float);
 
 
@@ -46,7 +46,7 @@ private:
         static float Eye[3];
         static float Cam[4];
         static float AngleCam;
-        static float Pitch;
+        static float PitchCam;
         static float Zoom;
         static bool VisualMode;
 };
