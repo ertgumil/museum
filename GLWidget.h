@@ -35,6 +35,7 @@ public slots:
     void OrthoView();
     void ProjView();
     void FullView();
+    void LoadFiles();
 
 protected:
     void initializeGL();

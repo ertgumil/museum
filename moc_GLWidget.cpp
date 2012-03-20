@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GLWidget.h'
 **
-** Created: Mon Mar 19 10:59:34 2012
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
+** Created: Tue Mar 20 17:02:40 2012
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'GLWidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.2. It"
+#error "This file was generated using the moc from 4.7.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,10 +20,10 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_GLWidget[] = {
 
  // content:
-       4,       // revision
+       5,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,7 @@ static const uint qt_meta_data_GLWidget[] = {
       45,    9,    9,    9, 0x0a,
       57,    9,    9,    9, 0x0a,
       68,    9,    9,    9, 0x0a,
+      79,    9,    9,    9, 0x0a,
 
        0        // eod
 };
@@ -43,7 +44,7 @@ static const uint qt_meta_data_GLWidget[] = {
 static const char qt_meta_stringdata_GLWidget[] = {
     "GLWidget\0\0SetBackgroundBlue()\0"
     "SeveralViews()\0OrthoView()\0ProjView()\0"
-    "FullView()\0"
+    "FullView()\0LoadFiles()\0"
 };
 
 const QMetaObject GLWidget::staticMetaObject = {
@@ -80,9 +81,10 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 2: OrthoView(); break;
         case 3: ProjView(); break;
         case 4: FullView(); break;
+        case 5: LoadFiles(); break;
         default: ;
         }
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

@@ -1,4 +1,5 @@
 #include <QtGui/QMouseEvent>
+#include <QFileDialog>
 #include "GLWidget.h"
 #include <iostream>
 #include <math.h>
@@ -481,4 +482,15 @@ void GLWidget::SetBackgroundBlue(){
    updateGL();
 }
 
+
+void GLWidget::LoadFiles(){
+    QDir directory;
+
+    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
+    if ( path.isNull() == false )
+    {
+        directory.setPath(path);
+        cout << path.toStdString() << endl;
+    }
+}
 
