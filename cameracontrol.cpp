@@ -63,7 +63,7 @@ void CameraControl::ChangeVisualMode(){
        Cam[2] = 0.1f;
        Cam[3] = Zoom + 40.0f;
        AngleCam = 1.0f;
-       angleCamY = asin(Eye[2]/Eye[1]);
+       angleCamY = asin(Eye[2]/Eye[0]);
 
     }
     else{ /// Camara FPS
