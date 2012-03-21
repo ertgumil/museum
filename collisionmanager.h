@@ -12,6 +12,8 @@
 #include <GL/glu.h>
 #endif
 
+#include "coldet/src/coldet.h"
+
 class CollisionManager
 {
 public:
@@ -20,8 +22,11 @@ public:
     static CollisionManager* getInstance();
     bool TestCollision(float,float,float);
 
+
 private:
         static CollisionManager* instance;
+        CollisionModel3D* m_pCollObj;
+        void AddTriangle(float[3], float[3], float[3]);
 };
 
 #endif // COLLISIONMANAGER_H
