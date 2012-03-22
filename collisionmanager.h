@@ -23,6 +23,7 @@ public:
     bool TestCollisionSphere(float,float,float);
     void AddTriangle(float* vertex1, float* vertex2, float* vertex3);
     void FinalizeCollisionObject();
+    bool TestCollisionRay(float* pointCol,float* origin,float direction);
 
 private:
         static CollisionManager* instance;
