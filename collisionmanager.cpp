@@ -40,3 +40,14 @@ void CollisionManager::FinalizeCollisionObject()
 {
     m_pCollObj->finalize();
 }
+
+bool CollisionManager::TestCollisionRay(float* pointCol,float* origin,float *direction)
+{
+    float near = 0;
+    float far = 100;
+    if (m_pCollObj->rayCollision(origin,direction,near,true,far))
+    {
+        m_pCollObj->getCollisionPoint(pointCol,true);
+    }
+    return true;
+}
