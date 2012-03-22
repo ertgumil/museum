@@ -228,7 +228,7 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             //AngleCam-=1;
             Target[2] -= sin(rads);
         }
-        if(CollisionManager::getInstance()->TestCollision(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
+        if(CollisionManager::getInstance()->TestCollisionSphere(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
 
     }
 

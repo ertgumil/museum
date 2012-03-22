@@ -13,7 +13,7 @@
 #include <math.h>
 #include <QGraphicsRectItem>
 #include <QPointer>
-
+#include "collisionmanager.h"
 
 // Load 3DS model
 CModel3DS::CModel3DS(std:: string filename)
@@ -62,6 +62,10 @@ void CModel3DS::CreateVBO()
 
         Lib3dsMesh * mesh;
         unsigned int FinishedFaces = 0;
+
+
+
+
         // Loop through all the meshes
         for(mesh = m_model->meshes;mesh != NULL;mesh = mesh->next)
         {
@@ -75,10 +79,16 @@ void CModel3DS::CreateVBO()
                                 memcpy(&vertices[FinishedFaces*3 + i], mesh->pointL[face->points[ i ]].pos, sizeof(Lib3dsVector));
                                 //      face->
                         }
+                        //// Add triangle for Collision detection.
+                        CollisionManager::getInstance()->AddTriangle(vertices[FinishedFaces*3],vertices[FinishedFaces*3+1],vertices[FinishedFaces*3+2]);
+
                         FinishedFaces++;
                 }
 
+
         }
+        ////all scena in it.
+        CollisionManager::getInstance()->FinalizeCollisionObject();
 
         // Generate a Vertex Buffer Object and store it with our vertices
         glGenBuffers(1, &m_VertexVBO);

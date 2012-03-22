@@ -20,13 +20,14 @@ public:
     CollisionManager();
     ~CollisionManager();
     static CollisionManager* getInstance();
-    bool TestCollision(float,float,float);
-
+    bool TestCollisionSphere(float,float,float);
+    void AddTriangle(float* vertex1, float* vertex2, float* vertex3);
+    void FinalizeCollisionObject();
 
 private:
         static CollisionManager* instance;
-        CollisionModel3D* m_pCollObj;
-        void AddTriangle(float[3], float[3], float[3]);
+        static CollisionModel3D* m_pCollObj;
+        //void AddTriangle(float[3], float[3], float[3]);
 };
 
 #endif // COLLISIONMANAGER_H
