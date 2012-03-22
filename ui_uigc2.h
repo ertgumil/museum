@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Thu Mar 22 16:30:29 2012
+** Created: Thu Mar 22 17:25:43 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
