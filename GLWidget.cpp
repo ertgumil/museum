@@ -73,14 +73,9 @@ void GLWidget::initializeGL() {
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+    LightManager::getInstance()->addLight();
 
 
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    GLfloat pos[] = {300.0, 300.0, 300.0};
-    glLightfv(GL_LIGHT0, GL_POSITION, pos);
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
