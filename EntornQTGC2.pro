@@ -41,7 +41,8 @@ SOURCES += main.cpp \
     coldet/src/math3d.cpp \
     coldet/src/mytritri.cpp \
     coldet/src/sysdep.cpp \
-    coldet/src/tritri.c
+    coldet/src/tritri.c \
+    lightmanager.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -75,7 +76,8 @@ HEADERS += uigc2.h \
     coldet/src/coldetimpl.h \
     coldet/src/math3d.h \
     coldet/src/mytritri.h \
-    coldet/src/sysdep.h
+    coldet/src/sysdep.h \
+    lightmanager.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \

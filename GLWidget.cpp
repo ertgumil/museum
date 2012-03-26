@@ -64,24 +64,6 @@ void GLWidget::initializeGL() {
     glEnable(GL_DEPTH_TEST);  //Activem el test de profunditat
     glShadeModel(GL_SMOOTH);
 
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat mat_shininess[] = { 50.0 };
-
-    glClearColor (0.0, 0.0, 0.0, 0.0);
-    glShadeModel (GL_SMOOTH);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-
-
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    GLfloat pos[] = {300.0, 300.0, 300.0};
-    glLightfv(GL_LIGHT0, GL_POSITION, pos);
-
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
     escena->CreateVBO();
@@ -115,6 +97,13 @@ void GLWidget::paintGL() {
 
     glColor3f(1,1,1);   //color negro de fondo
     glLoadIdentity();   //limpiar la matriz actual
+
+    LightManager::getInstance()->addLight(0,300.0,0.0,0.0);
+    LightManager::getInstance()->addLight(1,0.0,300.0,0.0);
+    LightManager::getInstance()->addLight(2,0.0,0.0,300.0);
+    LightManager::getInstance()->addLight(3,-300.0,0.0,0.0);
+    LightManager::getInstance()->addLight(4,0.0,-300.0,0.0);
+    LightManager::getInstance()->addLight(5,0.0,0.0,-300.0);
     CameraControl::getInstance()->PutCam();
     glPolygonMode(GL_FRONT, GL_TRIANGLES);
     escena->Draw();

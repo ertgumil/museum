@@ -20,6 +20,7 @@
 #include "Util.h"
 #include "cameracontrol.h"
 #include "objectloader.h"
+#include "lightmanager.h"
 
 
 class GLWidget : public QGLWidget {
