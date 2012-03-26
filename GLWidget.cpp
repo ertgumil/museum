@@ -64,6 +64,22 @@ void GLWidget::initializeGL() {
     glEnable(GL_DEPTH_TEST);  //Activem el test de profunditat
     glShadeModel(GL_SMOOTH);
 
+<<<<<<< HEAD
+=======
+    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat mat_shininess[] = { 50.0 };
+
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glShadeModel (GL_SMOOTH);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+
+    LightManager::getInstance()->addLight();
+
+
+
+>>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
     escena->CreateVBO();

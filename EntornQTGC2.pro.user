@@ -45,7 +45,11 @@
       <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
       <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">QtProjectManager.QMakeBuildStep</value>
       <value key="QtProjectManager.QMakeBuildStep.LinkQmlDebuggingLibrary" type="bool">false</value>
+<<<<<<< HEAD
       <value key="QtProjectManager.QMakeBuildStep.QMakeArguments" type="QString"></value>
+=======
+      <value key="QtProjectManager.QMakeBuildStep.QMakeArguments" type="QString">QMLJSDEBUGGER_PATH=/usr/share/qtcreator/qml/qmljsdebugger QMLJSDEBUGGER_PATH=/usr/share/qtcreator/qml/qmljsdebugger</value>
+>>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
       <value key="QtProjectManager.QMakeBuildStep.QMakeForced" type="bool">false</value>
      </valuemap>
      <valuemap key="ProjectExplorer.BuildStepList.Step.1" type="QVariantMap">
@@ -148,7 +152,11 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.EnvironmentId</variable>
+<<<<<<< HEAD
   <value type="QString">{f93ac74f-2af1-4e06-b210-ba73b6db88ab}</value>
+=======
+  <value type="QString">{70b75e14-65af-4147-b133-8e319e0a7c31}</value>
+>>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
