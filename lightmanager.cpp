@@ -1,5 +1,4 @@
 #include "lightmanager.h"
-<<<<<<< HEAD
 #include "math.h"
 #include "stdlib.h"
 
@@ -9,11 +8,7 @@ LightManager::LightManager()
 {
 }
 
-=======
 
-LightManager* LightManager::instance = NULL;
-
->>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
 LightManager::~LightManager()
 {
     delete (instance);
@@ -28,7 +23,6 @@ LightManager* LightManager::getInstance()
 }
 
 
-<<<<<<< HEAD
 void LightManager::addLight(int nLlum,float x,float y,float z)
 {
 
@@ -77,8 +71,8 @@ void LightManager::addLight(int nLlum,float x,float y,float z)
                     glLightfv(GL_LIGHT6, GL_POSITION, pos);
                     break;
         }
+}
 
-=======
 void LightManager::addLight()
 {
 
@@ -88,5 +82,4 @@ void LightManager::addLight()
     glEnable(GL_CULL_FACE);
     GLfloat pos[] = {300.0, 300.0, 300.0};
     glLightfv(GL_LIGHT0, GL_POSITION, pos);
->>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
 }

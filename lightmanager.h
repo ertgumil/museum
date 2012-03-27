@@ -18,11 +18,8 @@ public:
     LightManager();
     ~LightManager();
     static LightManager* getInstance();
-<<<<<<< HEAD
     void addLight(int,float,float,float);
-=======
     void addLight();
->>>>>>> 101356258ae3e4e9669d7e1cbd699a519b936ad7
 
 private:
         static LightManager* instance;
