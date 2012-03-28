@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>302</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -64,8 +64,6 @@
     <property name="title">
      <string>Opcions</string>
     </property>
-    <addaction name="actionVista_perspectiva"/>
-    <addaction name="actionVista_Ortogonal"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -157,16 +155,6 @@
     <string>Blau</string>
    </property>
   </action>
-  <action name="actionVista_perspectiva">
-   <property name="text">
-    <string>Vista Perspectiva</string>
-   </property>
-  </action>
-  <action name="actionVista_Ortogonal">
-   <property name="text">
-    <string>Vista Ortogonal</string>
-   </property>
-  </action>
   <action name="actionLoad">
    <property name="text">
     <string>Load</string>
@@ -205,38 +193,6 @@
    <signal>triggered()</signal>
    <receiver>contextGL</receiver>
    <slot>SetBackgroundBlue()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>150</x>
-     <y>161</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionVista_Ortogonal</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>SetVistaOrtogonal()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>150</x>
-     <y>161</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionVista_perspectiva</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>SetVistaProjeccio()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
