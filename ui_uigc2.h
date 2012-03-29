@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Tue Mar 27 23:56:45 2012
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Thu Mar 29 17:43:04 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -30,8 +30,6 @@ class Ui_UIGC2
 {
 public:
     QAction *actionBlau;
-    QAction *actionVista_perspectiva;
-    QAction *actionVista_Ortogonal;
     QAction *actionLoad;
     QAction *actionFullscreen;
     QAction *actionWindowed;
@@ -61,10 +59,6 @@ public:
 ""));
         actionBlau = new QAction(UIGC2);
         actionBlau->setObjectName(QString::fromUtf8("actionBlau"));
-        actionVista_perspectiva = new QAction(UIGC2);
-        actionVista_perspectiva->setObjectName(QString::fromUtf8("actionVista_perspectiva"));
-        actionVista_Ortogonal = new QAction(UIGC2);
-        actionVista_Ortogonal->setObjectName(QString::fromUtf8("actionVista_Ortogonal"));
         actionLoad = new QAction(UIGC2);
         actionLoad->setObjectName(QString::fromUtf8("actionLoad"));
         actionFullscreen = new QAction(UIGC2);
@@ -89,7 +83,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 302, 21));
+        menuBar->setGeometry(QRect(0, 0, 302, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -127,16 +121,12 @@ public:
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuView->menuAction());
         menuColor_Fons->addAction(actionBlau);
-        menuOpcions->addAction(actionVista_perspectiva);
-        menuOpcions->addAction(actionVista_Ortogonal);
         menuFile->addAction(actionLoad);
         menuView->addAction(actionFullscreen);
         menuView->addAction(actionWindowed);
 
         retranslateUi(UIGC2);
         QObject::connect(actionBlau, SIGNAL(triggered()), contextGL, SLOT(SetBackgroundBlue()));
-        QObject::connect(actionVista_Ortogonal, SIGNAL(triggered()), contextGL, SLOT(SetVistaOrtogonal()));
-        QObject::connect(actionVista_perspectiva, SIGNAL(triggered()), contextGL, SLOT(SetVistaProjeccio()));
         QObject::connect(actionLoad, SIGNAL(triggered()), contextGL, SLOT(LoadFiles()));
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
@@ -148,8 +138,6 @@ public:
     {
         UIGC2->setWindowTitle(QApplication::translate("UIGC2", "UIGC2", 0, QApplication::UnicodeUTF8));
         actionBlau->setText(QApplication::translate("UIGC2", "Blau", 0, QApplication::UnicodeUTF8));
-        actionVista_perspectiva->setText(QApplication::translate("UIGC2", "Vista Perspectiva", 0, QApplication::UnicodeUTF8));
-        actionVista_Ortogonal->setText(QApplication::translate("UIGC2", "Vista Ortogonal", 0, QApplication::UnicodeUTF8));
         actionLoad->setText(QApplication::translate("UIGC2", "Load", 0, QApplication::UnicodeUTF8));
         actionFullscreen->setText(QApplication::translate("UIGC2", "Fullscreen", 0, QApplication::UnicodeUTF8));
         actionWindowed->setText(QApplication::translate("UIGC2", "Windowed", 0, QApplication::UnicodeUTF8));

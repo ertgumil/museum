@@ -1,10 +1,10 @@
 #include "objectmanager.h"
 
 ObjectManager* ObjectManager::instance = NULL;
-std::vector<Objecte> objectes = new std::vector<Objecte>();
 
 ObjectManager::ObjectManager()
 {
+    count = 0;
 }
 
 ObjectManager::~ObjectManager()
@@ -17,4 +17,14 @@ ObjectManager* ObjectManager::getInstance()
         instance = new ObjectManager();
     }
     return instance;
+}
+
+void ObjectManager::Draw()
+{
+    std::vector<Object*>::iterator iter;
+
+    for (iter = objectes.begin(); iter != objectes.end(); ++iter)
+    {
+        (*iter)->Draw();
+    }
 }

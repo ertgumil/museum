@@ -42,7 +42,15 @@ SOURCES += main.cpp \
     coldet/src/mytritri.cpp \
     coldet/src/sysdep.cpp \
     coldet/src/tritri.c \
-    lightmanager.cpp
+    lightmanager.cpp \
+    object.cpp \
+    objectmanager.cpp \
+    sg/sgPerlinNoise.cxx \
+    sg/sgIsect.cxx \
+    sg/sgdIsect.cxx \
+    sg/sgd.cxx \
+    sg/sg.cxx \
+    sg/ulError.cxx
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -77,7 +85,11 @@ HEADERS += uigc2.h \
     coldet/src/math3d.h \
     coldet/src/mytritri.h \
     coldet/src/sysdep.h \
-    lightmanager.h
+    lightmanager.h \
+    object.h \
+    objectmanager.h \
+    sg/sg.h \
+    sg/ul.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \
@@ -85,4 +97,7 @@ OTHER_FILES += simple.vert \
     lib3ds/Makefile.in \
     lib3ds/Makefile.am \
     coldet/src/coldet.dsp \
-    coldet/src/makefile.g++
+    coldet/src/makefile.g++ \
+    sg/sg.dsp \
+    sg/Makefile.in \
+    sg/Makefile.am
