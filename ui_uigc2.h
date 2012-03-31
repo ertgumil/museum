@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Thu Mar 29 17:43:04 2012
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Sat Mar 31 18:25:00 2012
+**      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -20,6 +20,7 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QStatusBar>
+#include <QtGui/QTabWidget>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 #include "GLWidget.h"
@@ -35,6 +36,10 @@ public:
     QAction *actionWindowed;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QTabWidget *tabWidget;
+    QWidget *tab_3;
+    QWidget *tab_4;
     GLWidget *contextGL;
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
@@ -54,7 +59,7 @@ public:
     {
         if (UIGC2->objectName().isEmpty())
             UIGC2->setObjectName(QString::fromUtf8("UIGC2"));
-        UIGC2->resize(302, 309);
+        UIGC2->resize(600, 369);
         UIGC2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 ""));
         actionBlau = new QAction(UIGC2);
@@ -71,8 +76,35 @@ public:
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(0);
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setSizeConstraint(QLayout::SetDefaultConstraint);
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy);
+        tabWidget->setMinimumSize(QSize(200, 0));
+        tabWidget->setMaximumSize(QSize(200, 16777215));
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        tabWidget->addTab(tab_4, QString());
+
+        horizontalLayout_2->addWidget(tabWidget);
+
+
+        horizontalLayout->addLayout(horizontalLayout_2);
+
         contextGL = new GLWidget(centralWidget);
         contextGL->setObjectName(QString::fromUtf8("contextGL"));
+        contextGL->setMinimumSize(QSize(600, 0));
 
         horizontalLayout->addWidget(contextGL);
 
@@ -83,7 +115,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 302, 25));
+        menuBar->setGeometry(QRect(0, 0, 600, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -131,6 +163,9 @@ public:
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
 
+        tabWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(UIGC2);
     } // setupUi
 
@@ -141,6 +176,11 @@ public:
         actionLoad->setText(QApplication::translate("UIGC2", "Load", 0, QApplication::UnicodeUTF8));
         actionFullscreen->setText(QApplication::translate("UIGC2", "Fullscreen", 0, QApplication::UnicodeUTF8));
         actionWindowed->setText(QApplication::translate("UIGC2", "Windowed", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_ACCESSIBILITY
+        tab_3->setAccessibleName(QString());
+#endif // QT_NO_ACCESSIBILITY
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("UIGC2", "Tab 1", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("UIGC2", "Tab 2", 0, QApplication::UnicodeUTF8));
         menuColor_Fons->setStyleSheet(QApplication::translate("UIGC2", "background-color: rgb(255, 255, 255);\n"
 "", 0, QApplication::UnicodeUTF8));
         menuColor_Fons->setTitle(QApplication::translate("UIGC2", "Color Fons", 0, QApplication::UnicodeUTF8));
