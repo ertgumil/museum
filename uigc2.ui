@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>826</width>
     <height>369</height>
    </rect>
   </property>
@@ -40,30 +40,35 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
+          <width>250</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>200</width>
+          <width>250</width>
           <height>16777215</height>
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
           <string/>
          </property>
          <attribute name="title">
-          <string>Tab 1</string>
+          <string>Museums</string>
          </attribute>
         </widget>
         <widget class="QWidget" name="tab_4">
          <attribute name="title">
-          <string>Tab 2</string>
+          <string>Objects</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Lights</string>
          </attribute>
         </widget>
        </widget>
@@ -98,7 +103,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>826</width>
      <height>25</height>
     </rect>
    </property>
