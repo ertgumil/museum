@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Sat Mar 31 18:34:06 2012
+** Created: Sat Mar 31 18:38:40 2012
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -19,6 +19,7 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
+#include <QtGui/QSlider>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QToolBar>
@@ -41,6 +42,9 @@ public:
     QWidget *tab_3;
     QWidget *tab_4;
     QWidget *tab;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_3;
+    QSlider *horizontalSlider;
     GLWidget *contextGL;
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
@@ -99,6 +103,20 @@ public:
         tabWidget->addTab(tab_4, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
+        horizontalLayoutWidget = new QWidget(tab);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(20, 60, 160, 41));
+        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        horizontalSlider = new QSlider(horizontalLayoutWidget);
+        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_3->addWidget(horizontalSlider);
+
         tabWidget->addTab(tab, QString());
 
         horizontalLayout_2->addWidget(tabWidget);
@@ -167,7 +185,7 @@ public:
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
