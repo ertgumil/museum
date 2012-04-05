@@ -72,13 +72,11 @@ void GLWidget::initializeGL() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-
     LightManager::getInstance()->addLight();
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
     escena->CreateVBO();
-
 }
 
 /**
@@ -109,12 +107,12 @@ void GLWidget::paintGL() {
     glColor3f(1,1,1);   //color negro de fondo
     glLoadIdentity();   //limpiar la matriz actual
 
-    LightManager::getInstance()->addLight(0,300.0,0.0,0.0);
+    /*LightManager::getInstance()->addLight(0,300.0,0.0,0.0);
     LightManager::getInstance()->addLight(1,0.0,300.0,0.0);
     LightManager::getInstance()->addLight(2,0.0,0.0,300.0);
     LightManager::getInstance()->addLight(3,-300.0,0.0,0.0);
     LightManager::getInstance()->addLight(4,0.0,-300.0,0.0);
-    LightManager::getInstance()->addLight(5,0.0,0.0,-300.0);
+    LightManager::getInstance()->addLight(5,0.0,0.0,-300.0);*/
     CameraControl::getInstance()->PutCam();
     glPolygonMode(GL_FRONT, GL_TRIANGLES);
     escena->Draw();

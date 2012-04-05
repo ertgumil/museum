@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
+    <width>876</width>
     <height>369</height>
    </rect>
   </property>
@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -73,17 +73,174 @@
          <widget class="QWidget" name="horizontalLayoutWidget">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>60</y>
-            <width>160</width>
-            <height>41</height>
+            <x>0</x>
+            <y>230</y>
+            <width>251</width>
+            <height>31</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="QSlider" name="horizontalSlider">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Potency</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="potenciaSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>173</width>
+            <height>62</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Light</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="addLight">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="deleteLight">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="lightList">
+             <item>
+              <property name="text">
+               <string>Number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>6</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>251</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="1" column="1">
+            <widget class="QDoubleSpinBox" name="rLight"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDoubleSpinBox" name="gLight"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Color (R, G, B, A)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="paintLight">
+             <property name="text">
+              <string>Paint</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QDoubleSpinBox" name="aLight"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QDoubleSpinBox" name="bLight"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>80</y>
+            <width>250</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="2" column="1">
+            <widget class="QDoubleSpinBox" name="xPos"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QDoubleSpinBox" name="yPos"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QDoubleSpinBox" name="zPos"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Pos (X, Y, Z)  </string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="moveLight">
+             <property name="text">
+              <string>Move</string>
              </property>
             </widget>
            </item>
@@ -122,8 +279,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>826</width>
-     <height>25</height>
+     <width>876</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -281,8 +438,8 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>161</y>
+     <x>417</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>
@@ -297,8 +454,8 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>162</y>
+     <x>417</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>

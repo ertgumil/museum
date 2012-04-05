@@ -50,7 +50,8 @@ SOURCES += main.cpp \
     sg/sgdIsect.cxx \
     sg/sgd.cxx \
     sg/sg.cxx \
-    sg/ulError.cxx
+    sg/ulError.cxx \
+    lights.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -89,7 +90,8 @@ HEADERS += uigc2.h \
     object.h \
     objectmanager.h \
     sg/sg.h \
-    sg/ul.h
+    sg/ul.h \
+    lights.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \

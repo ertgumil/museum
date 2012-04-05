@@ -11,6 +11,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #endif
+#include <lights.h>
+#include <vector>
 
 class LightManager
 {
@@ -18,8 +20,15 @@ public:
     LightManager();
     ~LightManager();
     static LightManager* getInstance();
-    void addLight(int,float,float,float);
+    void initLights();
+    void addLight(int nlight);
     void addLight();
+    void deleteLight(int nlight);
+    void changePosition(int nLight, float x, float y, float z);
+    void changeColor(int nLight, float r, float g, float b, float a);
+    void showLight(int nLight);
+
+    lights luces[7];
 
 private:
         static LightManager* instance;
