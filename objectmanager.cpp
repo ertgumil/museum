@@ -28,3 +28,8 @@ void ObjectManager::Draw()
         (*iter)->Draw();
     }
 }
+
+void ObjectManager::AddObject(Object* nou)
+{
+    objectes.push_back(nou);
+}
