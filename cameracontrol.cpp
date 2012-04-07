@@ -198,25 +198,25 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             //va hacia atras
             Eye[0] -= cos(rads);
             Eye[1] -= sin(rads);
-            Eye[2] = Eye[2];
+            Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         else if (x < 0) {
             //Solo va hacia adelante
             Eye[0] += cos(rads);
             Eye[1] += sin(rads);
-            Eye[2] = Eye[2];
+            Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         if (y > 0) {
             //va hacia la derecha
             Eye[0] -= sin(rads);
             Eye[1] -= cos(rads);
-            Eye[2] = Eye[2];
+            Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         else if(y < 0) {
             //va hacia la izquierda
             Eye[0] += sin(rads);
             Eye[1] += cos(rads);
-            Eye[2] = Eye[2];
+            Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         if (z > 0) {
             //Eye[2] += 0.1;
