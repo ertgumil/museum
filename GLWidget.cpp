@@ -86,7 +86,7 @@ void GLWidget::initializeGL() {
     sgSetVec3(pos,0,15,0); // Posicio del nou objecte
     sgSetVec3(esc,2,2,2); // Escala del nou objecte
     sgMakeIdentQuat(rot); // Rotacio del nou objecte
-    sgPostRotQuat(rot,45.0,0.0,0.0,1.0); // Rotem l'objecte 45, graus eix z
+
 
     ObjectManager::getInstance()->AddObject("cub1",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
 
@@ -95,6 +95,16 @@ void GLWidget::initializeGL() {
     sgMakeIdentQuat(rot); // Rotacio del nou objecte
 
     ObjectManager::getInstance()->AddObject("cub2",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
+
+    sgSetVec3(pos,0,0,0); // Posicio del nou objecte
+
+    ObjectManager::getInstance()->AddObject("cub3",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
+
+    Object* test = ObjectManager::getInstance()->GetObject("cub1");
+    sgPostRotQuat(test->rotacio,45.0,0.0,0.0,1.0); // Rotem el cub1 45 graus, eix z
+
+    // Esborrem el cub3 situat al origen
+    ObjectManager::getInstance()->RemoveObject(ObjectManager::getInstance()->GetObject("cub3")->id);
 }
 
 /**
