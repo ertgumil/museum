@@ -21,6 +21,7 @@
 #include "cameracontrol.h"
 #include "objectloader.h"
 #include "lightmanager.h"
+#include "objectmanager.h"
 
 
 class GLWidget : public QGLWidget {

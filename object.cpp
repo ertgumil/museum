@@ -9,11 +9,20 @@ Object::Object()
     sgZeroVec4(rotacio);
 
     model = new CModel3DS("models/cub.3ds");
+    model->CreateVBO(false);
 }
 
-Object::Object(int id, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model)
+Object::Object(int ident, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string pathmodel)
 {
+    id = ident;
+    name = nom;
+    sgCopyVec3(posicio,pos);
+    sgCopyVec3(escala,esc);
+    sgCopyVec4(rotacio,rot);
 
+    model = new CModel3DS(pathmodel);
+
+    model->CreateVBO(false);
 }
 
 void Object::Draw()

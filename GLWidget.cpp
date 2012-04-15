@@ -76,7 +76,25 @@ void GLWidget::initializeGL() {
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
-    escena->CreateVBO();
+    escena->CreateVBO(true);
+
+    // Exemple ObjectManager
+
+    sgVec3 pos, esc;
+    sgQuat rot;
+
+    sgSetVec3(pos,0,15,0); // Posicio del nou objecte
+    sgSetVec3(esc,2,2,2); // Escala del nou objecte
+    sgMakeIdentQuat(rot); // Rotacio del nou objecte
+    sgPostRotQuat(rot,45.0,0.0,0.0,1.0); // Rotem l'objecte 45, graus eix z
+
+    ObjectManager::getInstance()->AddObject("cub1",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
+
+    sgSetVec3(pos,0,-10,1); // Posicio del nou objecte
+    sgSetVec3(esc,1,1,1); // Escala del nou objecte
+    sgMakeIdentQuat(rot); // Rotacio del nou objecte
+
+    ObjectManager::getInstance()->AddObject("cub2",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
 }
 
 /**
@@ -116,6 +134,8 @@ void GLWidget::paintGL() {
     CameraControl::getInstance()->PutCam();
     glPolygonMode(GL_FRONT, GL_TRIANGLES);
     escena->Draw();
+
+    ObjectManager::getInstance()->Draw();
 
     glFlush();  //Aplica accions
 }

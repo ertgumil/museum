@@ -101,7 +101,7 @@
            <rect>
             <x>0</x>
             <y>10</y>
-            <width>173</width>
+            <width>178</width>
             <height>62</height>
            </rect>
           </property>
@@ -173,13 +173,13 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="layoutWidget">
+         <widget class="QWidget" name="layoutWidget1">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>140</y>
             <width>251</width>
-            <height>91</height>
+            <height>95</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
@@ -211,13 +211,13 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="layoutWidget">
+         <widget class="QWidget" name="layoutWidget2">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>80</y>
             <width>250</width>
-            <height>60</height>
+            <height>62</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -280,7 +280,7 @@
      <x>0</x>
      <y>0</y>
      <width>876</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="minimumSize">

@@ -49,7 +49,7 @@ void CModel3DS::GetFaces()
 }
 
 // Copy vertices and normals to the memory of the GPU
-void CModel3DS::CreateVBO()
+void CModel3DS::CreateVBO(bool collision)
 {
         Q_ASSERT(m_model != NULL);
 
@@ -80,7 +80,8 @@ void CModel3DS::CreateVBO()
                                 //      face->
                         }
                         //// Add triangle for Collision detection.
-                        CollisionManager::getInstance()->AddTriangle(vertices[FinishedFaces*3],vertices[FinishedFaces*3+1],vertices[FinishedFaces*3+2]);
+                        if (collision)
+                            CollisionManager::getInstance()->AddTriangle(vertices[FinishedFaces*3],vertices[FinishedFaces*3+1],vertices[FinishedFaces*3+2]);
 
                         FinishedFaces++;
                 }
@@ -88,7 +89,8 @@ void CModel3DS::CreateVBO()
 
         }
         ////all scena in it.
-        CollisionManager::getInstance()->FinalizeCollisionObject();
+        if (collision)
+            CollisionManager::getInstance()->FinalizeCollisionObject();
 
         // Generate a Vertex Buffer Object and store it with our vertices
         glGenBuffers(1, &m_VertexVBO);

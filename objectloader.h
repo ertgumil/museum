@@ -22,7 +22,7 @@ class CModel3DS
         public:
                 CModel3DS(std:: string filename);
                 virtual void Draw() const;
-                virtual void CreateVBO();
+                virtual void CreateVBO(bool collision);
                 virtual ~CModel3DS();
         protected:
                 void GetFaces();

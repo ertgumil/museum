@@ -12,10 +12,11 @@ public:
     static ObjectManager* getInstance();
 
     void AddObject(Object* object);
+    void AddObject(std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model);
     void RemoveObject(int id);
 
     Object* GetObject(int id);
-    Object* GetObject(std::string name);
+    Object* GetObject(std::string nom);
 
     void Draw();
 
