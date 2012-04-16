@@ -30,7 +30,8 @@ CModel3DS::CModel3DS(std:: string filename)
 
 CModel3DS::~CModel3DS()
 {
-
+    glDeleteBuffers(1, &m_VertexVBO);
+    glDeleteBuffers(1, &m_NormalVBO);
 }
 
 // Count the total number of faces this model has
@@ -62,9 +63,6 @@ void CModel3DS::CreateVBO(bool collision)
 
         Lib3dsMesh * mesh;
         unsigned int FinishedFaces = 0;
-
-
-
 
         // Loop through all the meshes
         for(mesh = m_model->meshes;mesh != NULL;mesh = mesh->next)

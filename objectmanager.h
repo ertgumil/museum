@@ -14,9 +14,13 @@ public:
     void AddObject(Object* object);
     void AddObject(std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model);
     void RemoveObject(int id);
+    void RemoveAll();
 
     Object* GetObject(int id);
     Object* GetObject(std::string nom);
+
+    std::vector<Object*>::iterator FirstObject();
+    std::vector<Object*>::iterator LastObject();
 
     void Draw();
 

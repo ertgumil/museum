@@ -9,6 +9,7 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
+    objectes.clear();
 }
 
 ObjectManager* ObjectManager::getInstance()
@@ -58,7 +59,17 @@ void ObjectManager::RemoveObject(int id)
     }
 
     if (trobat != NULL)
+    {
         objectes.erase(objectes.begin()+pos);
+        delete trobat;
+
+        trobat = NULL;
+    }
+}
+
+void ObjectManager::RemoveAll()
+{
+    objectes.clear();
 }
 
 Object* ObjectManager::GetObject(int id)
@@ -87,4 +98,14 @@ Object* ObjectManager::GetObject(std::string nom)
     }
 
     return trobat;
+}
+
+std::vector<Object*>::iterator ObjectManager::FirstObject()
+{
+    return objectes.begin();
+}
+
+std::vector<Object*>::iterator ObjectManager::LastObject()
+{
+    return objectes.end();
 }

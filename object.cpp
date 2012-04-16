@@ -10,9 +10,11 @@ Object::Object()
 
     model = new CModel3DS("models/cub.3ds");
     model->CreateVBO(false);
+
+    pathmodel = "models/cub.3ds";
 }
 
-Object::Object(int ident, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string pathmodel)
+Object::Object(int ident, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string pathmod)
 {
     id = ident;
     name = nom;
@@ -20,9 +22,16 @@ Object::Object(int ident, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, s
     sgCopyVec3(escala,esc);
     sgCopyVec4(rotacio,rot);
 
-    model = new CModel3DS(pathmodel);
+    model = new CModel3DS(pathmod);
 
     model->CreateVBO(false);
+
+    pathmodel = pathmod;
+}
+
+Object::~Object()
+{
+    delete model;
 }
 
 void Object::Draw()

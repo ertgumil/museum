@@ -1,0 +1,4 @@
+<MUSEU>
+  <OBJECTE name="cub1" model="models/cub.3ds" posx="0" posy="15" posz="0" escx="2" escy="2" escz="2" rotw="2.98023e-08" rotx="-2.98023e-08" roty="-0.382683" rotz="0.92388" />
+  <OBJECTE name="cub2" model="models/cub.3ds" posx="0" posy="-10" posz="1" escx="1" escy="1" escz="1" rotw="0" rotx="0" roty="0" rotz="1" />
+</MUSEU>

@@ -11,6 +11,7 @@ class Object
 public:
     Object();
     Object(int id, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model);
+    ~Object();
 
     void Draw();
 
@@ -22,6 +23,7 @@ public:
 
     int id;
     std::string name;
+    std::string pathmodel;
 
     CModel3DS* model;
 };

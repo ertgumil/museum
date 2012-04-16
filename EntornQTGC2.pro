@@ -51,7 +51,14 @@ SOURCES += main.cpp \
     sg/sgd.cxx \
     sg/sg.cxx \
     sg/ulError.cxx \
-    lights.cpp
+    lights.cpp \
+    expat/xmltok_ns.c \
+    expat/xmltok_impl.c \
+    expat/xmltok.c \
+    expat/xmlrole.c \
+    expat/xmlparse.c \
+    expat/XMLParser.cpp \
+    xmlmanager.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -91,7 +98,24 @@ HEADERS += uigc2.h \
     objectmanager.h \
     sg/sg.h \
     sg/ul.h \
-    lights.h
+    lights.h \
+    expat/xmltok_impl.h \
+    expat/xmltok.h \
+    expat/xmlrole.h \
+    expat/winconfig.h \
+    expat/utf8tab.h \
+    expat/nametab.h \
+    expat/macconfig.h \
+    expat/latin1tab.h \
+    expat/internal.h \
+    expat/iasciitab.h \
+    expat/expat_external.h \
+    expat/expat.h \
+    expat/asciitab.h \
+    expat/ascii.h \
+    expat/amigaconfig.h \
+    expat/XMLParser.h \
+    xmlmanager.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \
@@ -102,4 +126,11 @@ OTHER_FILES += simple.vert \
     coldet/src/makefile.g++ \
     sg/sg.dsp \
     sg/Makefile.in \
-    sg/Makefile.am
+    sg/Makefile.am \
+    expat/Makefile.MPW \
+    expat/libexpatw.def \
+    expat/libexpat.def \
+    expat/expatw_static.dsp \
+    expat/expatw.dsp \
+    expat/expat_static.dsp \
+    expat/expat.dsp

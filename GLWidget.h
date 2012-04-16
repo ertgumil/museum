@@ -22,6 +22,7 @@
 #include "objectloader.h"
 #include "lightmanager.h"
 #include "objectmanager.h"
+#include "xmlmanager.h"
 
 
 class GLWidget : public QGLWidget {
