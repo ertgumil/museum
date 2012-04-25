@@ -8,7 +8,7 @@ using namespace std;
 
 GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
     setMouseTracking(true);
-    escena = new CModel3DS("models/Sala2.3ds");
+    escena = new CModel3DS("models/museum.3ds");
 }
 
 
@@ -110,6 +110,7 @@ void GLWidget::initializeGL() {
     ObjectManager::getInstance()->RemoveAll();
 
     XMLManager::getInstance()->load("data/data.xml");
+
 }
 
 /**
@@ -223,21 +224,25 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 updateGL();
               break;
             case Qt::Key_W:
-            CameraControl::getInstance()->RefreshTarget(-1,0,0);
+                CameraControl::getInstance()->RefreshTarget(-1,0,0);
+                glwidgetmap::getInstance()->setPos(0,1);
                 updateGL();
               break;
 
             case Qt::Key_S:
                 CameraControl::getInstance()->RefreshTarget(1,0,0);
+                glwidgetmap::getInstance()->setPos(0,-1);
                 updateGL();
               break;
             case Qt::Key_D:
-                 CameraControl::getInstance()->RefreshTarget(0,-1,0);
-                 updateGL();
+                CameraControl::getInstance()->RefreshTarget(0,-1,0);
+                glwidgetmap::getInstance()->setPos(1,0);
+                updateGL();
               break;
 
             case Qt::Key_A:
                 CameraControl::getInstance()->RefreshTarget(0,1,0);
+                glwidgetmap::getInstance()->setPos(-1,0);
                 updateGL();
               break;
             case Qt::Key_Plus:

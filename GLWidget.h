@@ -23,6 +23,7 @@
 #include "lightmanager.h"
 #include "objectmanager.h"
 #include "xmlmanager.h"
+#include "glwidgetmap.h"
 
 
 class GLWidget : public QGLWidget {

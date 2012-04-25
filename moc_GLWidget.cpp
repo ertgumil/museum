@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GLWidget.h'
 **
-** Created: Mon Apr 16 18:59:38 2012
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
+** Created: Tue Apr 24 16:18:47 2012
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "GLWidget.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'GLWidget.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.7.4. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +20,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_GLWidget[] = {
 
  // content:
-       5,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
        6,   14, // methods
@@ -47,9 +47,31 @@ static const char qt_meta_stringdata_GLWidget[] = {
     "FullView()\0LoadFiles()\0"
 };
 
+void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        GLWidget *_t = static_cast<GLWidget *>(_o);
+        switch (_id) {
+        case 0: _t->SetBackgroundBlue(); break;
+        case 1: _t->SeveralViews(); break;
+        case 2: _t->OrthoView(); break;
+        case 3: _t->ProjView(); break;
+        case 4: _t->FullView(); break;
+        case 5: _t->LoadFiles(); break;
+        default: ;
+        }
+    }
+    Q_UNUSED(_a);
+}
+
+const QMetaObjectExtraData GLWidget::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject GLWidget::staticMetaObject = {
     { &QGLWidget::staticMetaObject, qt_meta_stringdata_GLWidget,
-      qt_meta_data_GLWidget, 0 }
+      qt_meta_data_GLWidget, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -75,15 +97,8 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: SetBackgroundBlue(); break;
-        case 1: SeveralViews(); break;
-        case 2: OrthoView(); break;
-        case 3: ProjView(); break;
-        case 4: FullView(); break;
-        case 5: LoadFiles(); break;
-        default: ;
-        }
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 6;
     }
     return _id;

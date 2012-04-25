@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>876</width>
-    <height>369</height>
+    <width>892</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@
            <rect>
             <x>0</x>
             <y>10</y>
-            <width>178</width>
+            <width>783</width>
             <height>62</height>
            </rect>
           </property>
@@ -259,6 +259,20 @@
         <height>0</height>
        </size>
       </property>
+      <widget class="glwidgetmap" name="widget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>201</width>
+         <height>131</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>widget</zorder>
+      <zorder>widget</zorder>
+      <zorder>widget</zorder>
+      <zorder>widget</zorder>
      </widget>
     </item>
    </layout>
@@ -279,7 +293,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>876</width>
+     <width>892</width>
      <height>25</height>
     </rect>
    </property>
@@ -423,6 +437,12 @@
     <slot>SetVistaOrtogonal()</slot>
     <slot>LoadFiles()</slot>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>glwidgetmap</class>
+   <extends>QWidget</extends>
+   <header>glwidgetmap.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon Apr 16 18:59:28 2012
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Tue Apr 24 16:18:37 2012
+**      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -30,6 +30,7 @@
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 #include "GLWidget.h"
+#include "glwidgetmap.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -73,6 +74,7 @@ public:
     QLabel *label_4;
     QPushButton *moveLight;
     GLWidget *contextGL;
+    glwidgetmap *widget;
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
     QMenu *menuColor_Fons;
@@ -91,7 +93,7 @@ public:
     {
         if (UIGC2->objectName().isEmpty())
             UIGC2->setObjectName(QString::fromUtf8("UIGC2"));
-        UIGC2->resize(876, 369);
+        UIGC2->resize(892, 578);
         UIGC2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 ""));
         actionBlau = new QAction(UIGC2);
@@ -151,7 +153,7 @@ public:
 
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 10, 178, 62));
+        layoutWidget->setGeometry(QRect(0, 10, 783, 62));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -258,6 +260,13 @@ public:
         contextGL = new GLWidget(centralWidget);
         contextGL->setObjectName(QString::fromUtf8("contextGL"));
         contextGL->setMinimumSize(QSize(600, 0));
+        widget = new glwidgetmap(contextGL);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(10, 10, 201, 131));
+        widget->raise();
+        widget->raise();
+        widget->raise();
+        widget->raise();
 
         horizontalLayout->addWidget(contextGL);
 
@@ -268,7 +277,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 876, 25));
+        menuBar->setGeometry(QRect(0, 0, 892, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));

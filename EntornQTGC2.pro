@@ -58,7 +58,8 @@ SOURCES += main.cpp \
     expat/xmlrole.c \
     expat/xmlparse.c \
     expat/XMLParser.cpp \
-    xmlmanager.cpp
+    xmlmanager.cpp \
+    glwidgetmap.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -115,7 +116,8 @@ HEADERS += uigc2.h \
     expat/ascii.h \
     expat/amigaconfig.h \
     expat/XMLParser.h \
-    xmlmanager.h
+    xmlmanager.h \
+    glwidgetmap.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \
