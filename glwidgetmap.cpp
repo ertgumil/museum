@@ -20,14 +20,50 @@ glwidgetmap* glwidgetmap::getInstance() {
 void glwidgetmap::initializeGL() {
 
 
+    QImage tilesetImage( "data/mapa_museo.jpg");
+    QImage anotherImage;
+    anotherImage = this->convertToGLFormat( tilesetImage );
+
+    glGenTextures( 1, &textures[0]);
+    glBindTexture( GL_TEXTURE_2D, textures[0]);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tilesetImage.width(), tilesetImage.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, anotherImage.bits());
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+
+    glEnable(GL_TEXTURE_2D);                        // Enable Texture Mapping ( NEW )
+    glShadeModel(GL_SMOOTH);                        // Enable Smooth Shading
+    glClearColor(0.0f, 0.0f, 0.0f, 0.5f);                   // Black Background
+    glClearDepth(1.0f);                         // Depth Buffer Setup
+    glEnable(GL_DEPTH_TEST);                        // Enables Depth Testing
+    glDepthFunc(GL_LEQUAL);                         // The Type Of Depth Testing To Do
 
 }
 void glwidgetmap::paintGL() {
 
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);         // Clear Screen And Depth Buffer
+    glLoadIdentity();                           // Reset The Current Matrix
+
+    glBindTexture(GL_TEXTURE_2D, textures[0]);               // Select Our Texture
+
+    glBegin(GL_QUADS);
+        glTexCoord2f(0.0, 0.0);     glVertex3f(-1.0,-1.0,0.0);
+        glTexCoord2f(0.0, 1.0);     glVertex3f(-1.0,1.0,0.0);
+        glTexCoord2f(1.0, 1.0);     glVertex3f(1.0,1.0,0.0);
+        glTexCoord2f(1.0, 0.0);    glVertex3f(1.0,-1.0,0.0);
+    glEnd();
+
+}
+
+void glwidgetmap::refresh() {
+    //qDebug() << "Refresh";
 }
 
 void glwidgetmap::setPos(int x, int y){
-    qDebug() << x << "," << y;
+    //qDebug() << x << "," << y;
 }
 
 
