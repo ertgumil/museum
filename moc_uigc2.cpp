@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'uigc2.h'
 **
-** Created: Wed Apr 25 19:09:40 2012
+** Created: Thu Apr 26 17:27:01 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

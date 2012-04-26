@@ -135,8 +135,6 @@ gestionar el re-dibuixat si s'escau.
 void GLWidget::paintGL() {
 
 
-    glwidgetmap::getInstance()->refresh();
-
     glClearDepth(1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //limpiar buffers
 
@@ -226,6 +224,7 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 updateGL();
               break;
             case Qt::Key_W:
+                glwidgetmap::getInstance()->refresh();
                 CameraControl::getInstance()->RefreshTarget(-1,0,0);
                 updateGL();
               break;
