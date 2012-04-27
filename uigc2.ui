@@ -100,33 +100,12 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>10</y>
-            <width>783</width>
-            <height>62</height>
+            <y>0</y>
+            <width>241</width>
+            <height>81</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Light</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QPushButton" name="addLight">
-             <property name="text">
-              <string>Add</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="deleteLight">
-             <property name="text">
-              <string>Delete</string>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0">
             <widget class="QComboBox" name="lightList">
              <item>
@@ -169,6 +148,27 @@
                <string>6</string>
               </property>
              </item>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="addLight">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="deleteLight">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Light</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -269,10 +269,6 @@
         </rect>
        </property>
       </widget>
-      <zorder>widget</zorder>
-      <zorder>widget</zorder>
-      <zorder>widget</zorder>
-      <zorder>widget</zorder>
      </widget>
     </item>
    </layout>
@@ -294,7 +290,7 @@
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">

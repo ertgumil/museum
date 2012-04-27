@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Fri Apr 27 01:36:30 2012
+** Created: Fri Apr 27 15:44:51 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -54,10 +54,10 @@ public:
     QSlider *potenciaSlider;
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
-    QLabel *label_3;
+    QComboBox *lightList;
     QPushButton *addLight;
     QPushButton *deleteLight;
-    QComboBox *lightList;
+    QLabel *label_3;
     QWidget *layoutWidget1;
     QGridLayout *gridLayout_3;
     QDoubleSpinBox *rLight;
@@ -153,16 +153,16 @@ public:
 
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 10, 783, 62));
+        layoutWidget->setGeometry(QRect(0, 0, 241, 81));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(layoutWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        lightList = new QComboBox(layoutWidget);
+        lightList->setObjectName(QString::fromUtf8("lightList"));
 
-        gridLayout->addWidget(label_3, 0, 0, 1, 1);
+        gridLayout->addWidget(lightList, 1, 0, 1, 1);
 
         addLight = new QPushButton(layoutWidget);
         addLight->setObjectName(QString::fromUtf8("addLight"));
@@ -172,12 +172,12 @@ public:
         deleteLight = new QPushButton(layoutWidget);
         deleteLight->setObjectName(QString::fromUtf8("deleteLight"));
 
-        gridLayout->addWidget(deleteLight, 1, 2, 1, 1);
+        gridLayout->addWidget(deleteLight, 2, 2, 1, 1);
 
-        lightList = new QComboBox(layoutWidget);
-        lightList->setObjectName(QString::fromUtf8("lightList"));
+        label_3 = new QLabel(layoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        gridLayout->addWidget(lightList, 1, 0, 1, 1);
+        gridLayout->addWidget(label_3, 0, 0, 1, 1);
 
         layoutWidget1 = new QWidget(tab);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
@@ -263,10 +263,6 @@ public:
         widget = new glwidgetmap(contextGL);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(10, 10, 201, 131));
-        widget->raise();
-        widget->raise();
-        widget->raise();
-        widget->raise();
 
         horizontalLayout->addWidget(contextGL);
 
@@ -277,7 +273,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 25));
+        menuBar->setGeometry(QRect(0, 0, 892, 21));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -344,9 +340,6 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("UIGC2", "Museums", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("UIGC2", "Objects", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("UIGC2", "Potency", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("UIGC2", "Light", 0, QApplication::UnicodeUTF8));
-        addLight->setText(QApplication::translate("UIGC2", "Add", 0, QApplication::UnicodeUTF8));
-        deleteLight->setText(QApplication::translate("UIGC2", "Delete", 0, QApplication::UnicodeUTF8));
         lightList->clear();
         lightList->insertItems(0, QStringList()
          << QApplication::translate("UIGC2", "Number", 0, QApplication::UnicodeUTF8)
@@ -358,6 +351,9 @@ public:
          << QApplication::translate("UIGC2", "5", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "6", 0, QApplication::UnicodeUTF8)
         );
+        addLight->setText(QApplication::translate("UIGC2", "Add", 0, QApplication::UnicodeUTF8));
+        deleteLight->setText(QApplication::translate("UIGC2", "Delete", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("UIGC2", "Light", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("UIGC2", "Color (R, G, B, A)", 0, QApplication::UnicodeUTF8));
         paintLight->setText(QApplication::translate("UIGC2", "Paint", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("UIGC2", "Pos (X, Y, Z)  ", 0, QApplication::UnicodeUTF8));
