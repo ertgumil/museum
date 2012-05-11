@@ -22,6 +22,8 @@ public:
     std::vector<Object*>::iterator FirstObject();
     std::vector<Object*>::iterator LastObject();
 
+    void ChangePos(int id, sgVec3 pos);
+
     void Draw();
 
 private:

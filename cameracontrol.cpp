@@ -6,7 +6,7 @@
 CameraControl* CameraControl::instance = NULL;
 float CameraControl::Target[3] = {0.0f,0.0f,0.0f};
 float CameraControl::Eye[3]= {40.0f,0.0f,30.0f};
-float CameraControl::Cam[4]= {30.0f,1.0f,0.1f,100.0f};
+float CameraControl::Cam[4]= {30.0f,1.0f,1.0f,100.0f};
 float CameraControl::AngleCam = 1.0f;
 float CameraControl::PitchCam = 1.0f;
 float CameraControl::Zoom = 40.0f;
@@ -60,7 +60,7 @@ void CameraControl::ChangeVisualMode(){
 
        Cam[0] = 30.0f;
        Cam[1]= Cam[1];
-       Cam[2] = 0.1f;
+       Cam[2] = 1.0f;
        Cam[3] = Zoom + 40.0f;
        AngleCam = 1.0f;
        angleCamY = asin(Eye[2]/Eye[0]);
@@ -249,5 +249,18 @@ void CameraControl::RefreshZoom(float zoom){
         Eye[1] = Zoom*sin(rads);
         Eye[2] = Zoom*sin(angleCamY);
     }
+
+}
+
+float* CameraControl::getCamConf()
+{
+    return Cam;
+}
+
+void CameraControl::setTarget(float x,float y,float z)
+{
+    Target[0] = x;
+    Target[1] = y;
+    Target[2] = z;
 
 }

@@ -48,8 +48,9 @@ bool CollisionManager::TestCollisionRay(float* pointCol,float* origin,float *dir
     if (m_pCollObj->rayCollision(origin,direction,near,true,far))
     {
         m_pCollObj->getCollisionPoint(pointCol,true);
+        return true;
     }
-    return true;
+    return false;
 }
 
 float CollisionManager::TestFloorRay(float* origin)

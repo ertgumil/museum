@@ -109,3 +109,8 @@ std::vector<Object*>::iterator ObjectManager::LastObject()
 {
     return objectes.end();
 }
+
+void ObjectManager::ChangePos(int id , sgVec3 pos)
+{
+    sgCopyVec3((objectes[id])->posicio,pos);
+}

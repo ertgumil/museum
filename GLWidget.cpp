@@ -79,7 +79,7 @@ void GLWidget::initializeGL() {
     escena->CreateVBO(true);
 
     // Exemple ObjectManager
-
+/*
     sgVec3 pos, esc;
     sgQuat rot;
 
@@ -110,7 +110,7 @@ void GLWidget::initializeGL() {
     ObjectManager::getInstance()->RemoveAll();
 
     XMLManager::getInstance()->load("data/data.xml");
-
+*/
 }
 
 /**
@@ -164,8 +164,9 @@ Objectiu: Gestionar els botons del ratolí.
 void GLWidget::mousePressEvent(QMouseEvent *event) {
 
     if (event->buttons() & Qt::LeftButton) {
-        isMoving = true;
-        isMouseReleased = false;
+        float w = width()/2;
+        float h = height()/2;
+        pointer::getInstance()->putObject((w-event->x())/w,(h-event->y())/h);
         updateGL();
     }
 

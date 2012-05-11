@@ -24,7 +24,7 @@
 #include "objectmanager.h"
 #include "xmlmanager.h"
 #include "glwidgetmap.h"
-
+#include "pointer.h"
 
 class GLWidget : public QGLWidget {
 

@@ -36,6 +36,8 @@ public:
     void RefreshTarget(float,float,float);
     void RefreshZoom(float);
     void RotateCam(float,float);
+    float* getCamConf();
+    void setTarget(float, float, float);
 
 
 
