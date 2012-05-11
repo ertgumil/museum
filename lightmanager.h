@@ -22,7 +22,7 @@ public:
     static LightManager* getInstance();
     void initLights();
     void addLight(int nlight);
-    void addLight();
+    void enableLight(int nlight);
     void deleteLight(int nlight);
     void changePosition(int nLight, float x, float y, float z);
     void changeColor(int nLight, float r, float g, float b, float a);

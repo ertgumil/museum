@@ -32,6 +32,9 @@ public:
 
     ////Work Methods///
     float* getEye();
+    float getEyex();
+    float getEyey();
+    float getEyez();
     float* getTarget();
     void RefreshTarget(float,float,float);
     void RefreshZoom(float);

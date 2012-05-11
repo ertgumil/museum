@@ -10,6 +10,7 @@ public:
     float diffuse[];
     float mat[];
     float shin[];
+    int active;
 };
 
 #endif // LIGHTS_H

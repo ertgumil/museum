@@ -72,7 +72,6 @@ void GLWidget::initializeGL() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-    LightManager::getInstance()->addLight();
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
@@ -152,6 +151,11 @@ void GLWidget::paintGL() {
     escena->Draw();
 
     ObjectManager::getInstance()->Draw();
+    LightManager::getInstance()->addLight(0);
+    LightManager::getInstance()->changePosition(0,CameraControl::getInstance()->getEyex(),CameraControl::getInstance()->getEyey(),CameraControl::getInstance()->getEyez());
+    LightManager::getInstance()->addLight(1);
+    LightManager::getInstance()->changePosition(1,CameraControl::getInstance()->getEyex()*(-1),CameraControl::getInstance()->getEyey()*(-1),CameraControl::getInstance()->getEyez()*(-1));
+
 
     glFlush();  //Aplica accions
 }

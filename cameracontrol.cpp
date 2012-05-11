@@ -146,6 +146,18 @@ float* CameraControl::getEye(){
     return Eye;
 
 }
+float CameraControl::getEyex(){
+    return  CameraControl::Eye[0] ;
+
+}
+float CameraControl::getEyey(){
+    return  CameraControl::Eye[1] ;
+
+}
+float CameraControl::getEyez(){
+    return  CameraControl::Eye[2] ;
+
+}
 
 float* CameraControl::getTarget(){
     return Target;
