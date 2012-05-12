@@ -35,9 +35,8 @@ void CameraControl::RotateCam(float alpha,float beta){
     else
     {
         float pitchs = PitchCam*3.14/180;
-
-        Target[0] = Zoom*cos(rads)*cos(pitchs);
-        Target[1] = Zoom*sin(rads)*cos(pitchs);
+        Target[0] = Zoom*sin(rads)*cos(pitchs);
+        Target[1] = Zoom*cos(rads)*cos(pitchs);
         Target[2] = -Zoom*sin(pitchs);
     }
 }
@@ -69,7 +68,8 @@ void CameraControl::ChangeVisualMode(){
     else{ /// Camara FPS
        Eye[0] = 0.0f;
        Eye[1] = -6.0f;
-       Eye[2] = 2.0f;
+       Eye[2] = 15.0f;
+       Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
 
        Zoom = 5.0f;
 
@@ -82,7 +82,7 @@ void CameraControl::ChangeVisualMode(){
 
        Cam[0] = 30.0f;
        Cam[1]= Cam[1];
-       Cam[2] = 0.1f;
+       Cam[2] = 1.0f;
        Cam[3] = 50.0f;
     }
 }
@@ -167,12 +167,13 @@ float* CameraControl::getTarget(){
 void CameraControl::RefreshTarget(float x,float y, float z){
 
     if(VisualMode){
+
        if(AngleCam>-45 && AngleCam<45){
             Target[0] += x;
             Target[1] += -y;
             Target[2] += z;
         }
-        if(AngleCam>45 && AngleCam<135){
+       if(AngleCam>45 && AngleCam<135){
             Target[0] += y;
             Target[1] += x;
             Target[2] += z;
@@ -182,7 +183,7 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Target[1] += y;
             Target[2] += z;
         }
-        if(AngleCam>225 && AngleCam<315){
+       if(AngleCam>225 && AngleCam<315){
             Target[0] += -y;
             Target[1] += -x;
             Target[2] += z;
@@ -192,6 +193,7 @@ void CameraControl::RefreshTarget(float x,float y, float z){
             Target[1] += x;
             Target[2] += z;
         }
+
         if(AngleCam>-225 && AngleCam<-135){
             Target[0] += -x;
             Target[1] += y;
@@ -199,7 +201,7 @@ void CameraControl::RefreshTarget(float x,float y, float z){
         }
         if(AngleCam>-135 && AngleCam<-45){
             Target[0] += -y;
-            Target[1] += x;
+            Target[1] += -x;
             Target[2] += z;
         }
     }
@@ -208,26 +210,26 @@ void CameraControl::RefreshTarget(float x,float y, float z){
         float rads = AngleCam*3.14/180;
         if (x > 0) {
             //va hacia atras
-            Eye[0] -= cos(rads);
-            Eye[1] -= sin(rads);
+            Eye[1] -= cos(rads);
+            Eye[0] -= sin(rads);
             Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         else if (x < 0) {
             //Solo va hacia adelante
-            Eye[0] += cos(rads);
-            Eye[1] += sin(rads);
+            Eye[1] += cos(rads);
+            Eye[0] += sin(rads);
             Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         if (y > 0) {
             //va hacia la derecha
-            Eye[0] -= sin(rads);
-            Eye[1] -= cos(rads);
+            Eye[1] += sin(rads);
+            Eye[0] -= cos(rads);
             Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         else if(y < 0) {
             //va hacia la izquierda
-            Eye[0] += sin(rads);
-            Eye[1] += cos(rads);
+            Eye[1] -= sin(rads);
+            Eye[0] += cos(rads);
             Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
         }
         if (z > 0) {
@@ -275,4 +277,8 @@ void CameraControl::setTarget(float x,float y,float z)
     Target[1] = y;
     Target[2] = z;
 
+}
+bool CameraControl::isSimsCam()
+{
+    return VisualMode;
 }

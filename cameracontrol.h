@@ -41,6 +41,7 @@ public:
     void RotateCam(float,float);
     float* getCamConf();
     void setTarget(float, float, float);
+    bool isSimsCam();
 
 
 

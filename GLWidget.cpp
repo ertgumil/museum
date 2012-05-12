@@ -167,13 +167,6 @@ Objectiu: Gestionar els botons del ratolí.
 */
 void GLWidget::mousePressEvent(QMouseEvent *event) {
 
-    if (event->buttons() & Qt::LeftButton) {
-        float w = width()/2;
-        float h = height()/2;
-        pointer::getInstance()->putObject((w-event->x())/w,(h-event->y())/h);
-        updateGL();
-    }
-
     if (event->buttons() & Qt::RightButton) {
         isZoom = true;
         isMouseReleased = false;
@@ -190,10 +183,6 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event) {
         isMouseReleased = true;
         isMoving = false;
         isZoom = false;
-        float w = width()/2;
-        float h = height()/2;
-        pointer::getInstance()->putObject((w-event->x())/w,(h-event->y())/h);
-        updateGL();
     }
 }
 
