@@ -181,12 +181,19 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
     }
 }
 
+
+
+
 void GLWidget::mouseReleaseEvent(QMouseEvent *event) {
 
     if(event->type() == QEvent::MouseButtonRelease) {
         isMouseReleased = true;
         isMoving = false;
         isZoom = false;
+        float w = width()/2;
+        float h = height()/2;
+        pointer::getInstance()->putObject((w-event->x())/w,(h-event->y())/h);
+        updateGL();
     }
 }
 
@@ -200,7 +207,11 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     alphaCamera = (alphaCamera + (event->y() - yCamera));
     betaCamera = (betaCamera + (event->x() - xCamera));
 
-    if(isMoving && !isMouseReleased) {
+    if (event->buttons() & Qt::LeftButton) {
+        float w = width()/2;
+        float h = height()/2;
+        pointer::getInstance()->putObject((w-event->x())/w,(h-event->y())/h);
+        updateGL();
     }
 
     if (isZoom && !isMouseReleased) {
