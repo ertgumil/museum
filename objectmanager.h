@@ -11,10 +11,13 @@ public:
     ~ObjectManager();
     static ObjectManager* getInstance();
 
+    int count;
+
     void AddObject(Object* object);
-    void AddObject(std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model);
+    void AddObject(QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString model);
     void RemoveObject(int id);
     void RemoveAll();
+    int getId();
 
     Object* GetObject(int id);
     Object* GetObject(std::string nom);
@@ -30,7 +33,6 @@ private:
     static ObjectManager* instance;
     std::vector<Object*> objectes;
 
-    unsigned int count;
 };
 
 #endif // OBJECTMANAGER_H

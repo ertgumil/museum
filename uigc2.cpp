@@ -74,3 +74,34 @@ void UIGC2::on_paintLight_clicked() //un cop clicat Paint
 {
     LightManager::getInstance()->changeColor(activeLight, newR, newG, newB, newA);
 }
+
+void UIGC2::on_pathEdit_returnPressed()
+{
+    finished=true;
+}
+
+void UIGC2::on_pathEdit_textChanged(QString p)
+{
+    if(finished){
+        path=p;
+    }
+}
+
+void UIGC2::on_createNewObjectButton_clicked()
+{
+    qDebug("%s\n",qPrintable(path));
+    if (finished && finished2)
+        pointer::getInstance()->createObject(name,path); // Afegim l'objecte a l'escena
+}
+
+void UIGC2::on_nameEdit_returnPressed()
+{
+   finished2=true;
+}
+
+void UIGC2::on_nameEdit_textChanged(QString n)
+{
+    if(finished2){
+        name=n;
+    }
+}

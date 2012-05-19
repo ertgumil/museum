@@ -16,11 +16,8 @@ pointer* pointer::getInstance()
     return instance;
 }
 
-void pointer::putObject(float x, float y)
+void pointer::calculPos(float x, float y)
 {
-    sgVec3 pos, esc;
-    sgQuat rot;
-
     sgVec3 eyes,targets;
 
     float* eye = CameraControl::getInstance()->getEye();
@@ -36,7 +33,6 @@ void pointer::putObject(float x, float y)
     targets[1]= *(target+1);
     targets[2]= *(target+2);
 
-
     dir[0] = (*target-*eye);
     dir[1] = (*(target+1)-*(eye+1));
     float a = std::max(fabs(dir[0]),fabs(dir[1]));
@@ -50,18 +46,15 @@ void pointer::putObject(float x, float y)
     sgVec3 w,u;
     sgSetVec3(u,0.0f,0.0f,1.0f);
 
-
     w[0] = dir[1]*u[2] - dir[2]*u[1];
     w[1] = dir[0]*u[2] - dir[2]*u[0];
     w[2] = dir[0]*u[1] - dir[1]*u[0];
-
 
     sgVec3 P;
 
     P[0] = *(eye)+dir[0]*near + dist*y*u[0] + dist*x*w[0];
     P[1] = *(eye+1)+dir[1]*near + dist*y*u[1] + dist*x*w[1];
     P[2] = *(eye+2)+dir[2]*near + dist*y*u[2] + dist*x*w[2];
-
 
     dir[0] = (P[0]-*eye);
     dir[1] = (P[1]-*(eye+1));
@@ -72,7 +65,6 @@ void pointer::putObject(float x, float y)
     dir[0] =(dir[0]/a);
     dir[1] =(dir[1]/a);
     dir[2] =(dir[2]/a);
-
 
     sgVec3 pointCol;
 
@@ -89,20 +81,25 @@ void pointer::putObject(float x, float y)
         pos[1] = *(eye+1)+dir[1]*(near+10);
         pos[2] = *(eye+2)+dir[2]*(near+10);
     }
+}
 
+void pointer::changePos(float x, float y) {
+    calculPos(x,y);
+    ObjectManager::getInstance()->ChangePos(ObjectManager::getInstance()->getId()-1,pos);
+}
 
-    sgSetVec3(esc,0.5,0.5,0.5); // Escala del nou objecte
+void pointer::createObject(QString name, QString path) {
+    sgQuat rot;
+    sgVec3 esc;
+
+    pos[0]=0.0;
+    pos[1]=0.0;
+    pos[2]=0.0;
+
+    sgSetVec3(esc,0.1,0.1,0.1); // Escala del nou objecte
     sgMakeIdentQuat(rot); // Rotacio del nou objecte
 
-    if (ObjectManager::getInstance()->FirstObject().base() !=NULL)
-    {
-
-        ObjectManager::getInstance()->ChangePos(0,pos);
-    }
-    else
-    {
-        ObjectManager::getInstance()->AddObject("cub1",pos,esc,rot,"models/cub.3ds"); // Afegim l'objecte a l'escena
-    }
+    ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
 }
 
 

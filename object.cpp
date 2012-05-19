@@ -14,19 +14,17 @@ Object::Object()
     pathmodel = "models/cub.3ds";
 }
 
-Object::Object(int ident, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string pathmod)
+Object::Object(int ident, QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString pathmod)
 {
     id = ident;
-    name = nom;
+    name = nom.toStdString();
     sgCopyVec3(posicio,pos);
     sgCopyVec3(escala,esc);
     sgCopyVec4(rotacio,rot);
 
-    model = new CModel3DS(pathmod);
-
+    pathmodel = pathmod.toStdString();
+    model = new CModel3DS(pathmodel);
     model->CreateVBO(false);
-
-    pathmodel = pathmod;
 }
 
 Object::~Object()

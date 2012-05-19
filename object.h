@@ -10,7 +10,7 @@ class Object
 {
 public:
     Object();
-    Object(int id, std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model);
+    Object(int id, QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString model);
     ~Object();
 
     void Draw();

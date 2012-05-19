@@ -74,6 +74,7 @@ void XMLManager::onStartElement(const std::string &elem, MKeyValue &atts)
         sgVec3 pos, esc;
         sgQuat rot;
 
+
         std::string model = atts["model"];
         std::string nom = atts["name"];
 
@@ -103,6 +104,9 @@ void XMLManager::onStartElement(const std::string &elem, MKeyValue &atts)
         rot[2] = roty.toFloat();
         rot[3] = rotz.toFloat();
 
-        ObjectManager::getInstance()->AddObject(nom,pos,esc,rot,model);
+        QString name = QString::fromStdString(nom);
+        QString path = QString::fromStdString(model);
+
+        ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path);
     }
 }

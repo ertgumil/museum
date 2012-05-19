@@ -4,7 +4,8 @@ ObjectManager* ObjectManager::instance = NULL;
 
 ObjectManager::ObjectManager()
 {
-    count = 0;
+
+    count= 0;
 }
 
 ObjectManager::~ObjectManager()
@@ -37,7 +38,12 @@ void ObjectManager::AddObject(Object* nou)
     objectes.push_back(nou);
 }
 
-void ObjectManager::AddObject(std::string nom, sgVec3 pos, sgVec3 esc, sgQuat rot, std::string model)
+int ObjectManager::getId(){
+
+    return count;
+}
+
+void ObjectManager::AddObject(QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString model)
 {
     Object* nou = new Object(count,nom,pos,esc,rot,model);
 

@@ -1,7 +1,7 @@
 # -------------------------------------------------
 # Project created by QtCreator 2012-02-23T13:11:34
 # -------------------------------------------------
-unix:LIBS += -lGLEW -lGLU
+unix:LIBS += -lGLEW
 
 # Llibreria OpenGl
 QT += core \
@@ -60,15 +60,7 @@ SOURCES += main.cpp \
     expat/XMLParser.cpp \
     xmlmanager.cpp \
     glwidgetmap.cpp \
-    pointer.cpp \
-    glm/glm_util.c \
-    glm/glmimg_sim.c \
-    glm/glmimg_sdl.c \
-    glm/glmimg_png.c \
-    glm/glmimg_jpg.c \
-    glm/glmimg_devil.c \
-    glm/glmimg.c \
-    glm/glm.c
+    pointer.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -127,9 +119,7 @@ HEADERS += uigc2.h \
     expat/XMLParser.h \
     xmlmanager.h \
     glwidgetmap.h \
-    pointer.h \
-    glm/glmint.h \
-    glm/glm.h
+    pointer.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \
@@ -147,6 +137,4 @@ OTHER_FILES += simple.vert \
     expat/expatw_static.dsp \
     expat/expatw.dsp \
     expat/expat_static.dsp \
-    expat/expat.dsp \
-    glm/Makefile.in \
-    glm/Makefile.am
+    expat/expat.dsp
