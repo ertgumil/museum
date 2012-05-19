@@ -6,7 +6,7 @@
 CameraControl* CameraControl::instance = NULL;
 float CameraControl::Target[3] = {0.0f,0.0f,0.0f};
 float CameraControl::Eye[3]= {40.0f,0.0f,30.0f};
-float CameraControl::Cam[4]= {30.0f,1.0f,1.0f,100.0f};
+float CameraControl::Cam[4]= {30.0f,1.0f,1.0f,1000.0f};
 float CameraControl::AngleCam = 1.0f;
 float CameraControl::PitchCam = 1.0f;
 float CameraControl::Zoom = 40.0f;

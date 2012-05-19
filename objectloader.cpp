@@ -79,7 +79,7 @@ void CModel3DS::CreateVBO(bool collision)
                         }
                         //// Add triangle for Collision detection.
                         if (collision)
-                            CollisionManager::getInstance()->AddTriangle(vertices[FinishedFaces*3],vertices[FinishedFaces*3+1],vertices[FinishedFaces*3+2]);
+//                            CollisionManager::getInstance()->AddTriangle(vertices[FinishedFaces*3],vertices[FinishedFaces*3+1],vertices[FinishedFaces*3+2]);
 
                         FinishedFaces++;
                 }
@@ -87,8 +87,8 @@ void CModel3DS::CreateVBO(bool collision)
 
         }
         ////all scena in it.
-        if (collision)
-            CollisionManager::getInstance()->FinalizeCollisionObject();
+//        if (collision)
+//            CollisionManager::getInstance()->FinalizeCollisionObject();
 
         // Generate a Vertex Buffer Object and store it with our vertices
         glGenBuffers(1, &m_VertexVBO);

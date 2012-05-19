@@ -39,6 +39,7 @@
 #define GLDEBUG
 */
 #include "glmint.h"
+#include "collisionmanager.h"
 
 #define T(x) (model->triangles[(x)])
 
@@ -467,7 +468,7 @@ glmReadMTL(GLMmodel* model, char* name)
 	    break;
         case 'm':
             /* texture map */
-            filename = malloc(FILENAME_MAX);
+            filename = (char*)malloc(FILENAME_MAX);
             fgets(filename, FILENAME_MAX, file);
             t_filename = __glmStrStrip((char*)filename);
             free(filename);
@@ -699,7 +700,7 @@ glmFirstPass(GLMmodel* model, FILE* file)
  * file  - (fopen'd) file descriptor 
  */
 static GLvoid
-glmSecondPass(GLMmodel* model, FILE* file) 
+glmSecondPass(GLMmodel* model, FILE* file, int collision)
 {
     GLuint  numvertices;        /* number of vertices in model */
     GLuint  numnormals;         /* number of normals in model */
@@ -834,6 +835,11 @@ glmSecondPass(GLMmodel* model, FILE* file)
                     T(numtriangles).tindices[2] = t;
                     T(numtriangles).nindices[2] = n;
                     group->triangles[group->numtriangles++] = numtriangles;
+
+                    if(collision)
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u/%u/%u", &v, &t, &n) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -1539,7 +1545,7 @@ glmDelete(GLMmodel* model)
  * filename - name of the file containing the Wavefront .OBJ format data.  
  */
 GLMmodel* 
-glmReadOBJ(const char* filename)
+glmReadOBJ(const char* filename, int collision)
 {
     GLMmodel* model;
     FILE*   file;
@@ -1597,7 +1603,10 @@ glmReadOBJ(const char* filename)
     /* rewind to beginning of file and read in the data this pass */
     rewind(file);
     
-    glmSecondPass(model, file);
+    glmSecondPass(model, file, collision);
+
+    if(collision)
+        CollisionManager::getInstance()->FinalizeCollisionObject();
 
     /* facet normals are not in the file, we have to compute them anyway */
     glmFacetNormals(model);

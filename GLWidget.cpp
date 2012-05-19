@@ -62,20 +62,23 @@ void GLWidget::initializeGL() {
 
     //glClearColor(0.0, 0.0, 0.0, 0.0);
     glEnable(GL_DEPTH_TEST);  //Activem el test de profunditat
+    glEnable(GL_TEXTURE_2D);
     glShadeModel(GL_SMOOTH);
 
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat mat_shininess[] = { 50.0 };
+    //GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    //GLfloat mat_shininess[] = { 50.0 };
 
     glClearColor (0.0, 0.0, 0.0, 0.0);
-    glShadeModel (GL_SMOOTH);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    //glClearDepth(1.0f);
+    //glShadeModel (GL_SMOOTH);
+    //glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    //glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
-    escena->CreateVBO(true);
+    //escena->CreateVBO(true);
+    model = glmReadOBJ("models/museum_textures.obj", 1);
 
     // Exemple ObjectManager
 /*
@@ -147,15 +150,16 @@ void GLWidget::paintGL() {
     LightManager::getInstance()->addLight(4,0.0,-300.0,0.0);
     LightManager::getInstance()->addLight(5,0.0,0.0,-300.0);*/
     CameraControl::getInstance()->PutCam();
-    glPolygonMode(GL_FRONT, GL_TRIANGLES);
-    escena->Draw();
+    //glPolygonMode(GL_FRONT, GL_TRIANGLES);
+    //escena->Draw();
+    glmDraw(model,GLM_FLAT | GLM_TEXTURE | GLM_MATERIAL);
+    //glmDraw(model,GLM_NONE);
 
-    ObjectManager::getInstance()->Draw();
+    //ObjectManager::getInstance()->Draw();
     LightManager::getInstance()->addLight(0);
     LightManager::getInstance()->changePosition(0,CameraControl::getInstance()->getEyex(),CameraControl::getInstance()->getEyey(),CameraControl::getInstance()->getEyez());
     LightManager::getInstance()->addLight(1);
     LightManager::getInstance()->changePosition(1,CameraControl::getInstance()->getEyex()*(-1),CameraControl::getInstance()->getEyey()*(-1),CameraControl::getInstance()->getEyez());
-
 
     glFlush();  //Aplica accions
 }
@@ -173,9 +177,6 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         updateGL();
     }
 }
-
-
-
 
 void GLWidget::mouseReleaseEvent(QMouseEvent *event) {
 

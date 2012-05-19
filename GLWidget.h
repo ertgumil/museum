@@ -25,6 +25,7 @@
 #include "xmlmanager.h"
 #include "glwidgetmap.h"
 #include "pointer.h"
+#include "glm/glm.h"
 
 class GLWidget : public QGLWidget {
 
@@ -77,6 +78,7 @@ private:
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };
 
     CModel3DS* escena;
+    GLMmodel* model;
 };
 
 #endif  /* _GLWIDGET_H */
