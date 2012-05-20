@@ -805,9 +805,9 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     T(numtriangles).nindices[2] = n;
                     group->triangles[group->numtriangles++] = numtriangles;
                     if(collision == 1)
-                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[3*T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u//%u", &v, &n) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -841,9 +841,9 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     group->triangles[group->numtriangles++] = numtriangles;
 
                     if(collision == 1)
-                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[3*T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u/%u/%u", &v, &t, &n) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -876,9 +876,9 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
 		    T(numtriangles).nindices[2] = -1;
                     group->triangles[group->numtriangles++] = numtriangles;
                     if(collision == 1)
-                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[3*T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u/%u", &v, &t) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -913,9 +913,9 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     group->triangles[group->numtriangles++] = numtriangles;
 
                     if(collision == 1)
-                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
-                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[3*T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[3*T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u", &v) > 0) {
 #ifdef MATERIAL_BY_FACE

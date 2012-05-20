@@ -31,13 +31,17 @@ bool CollisionManager::TestCollisionSphere(float x, float y, float z)
 
 void CollisionManager::AddTriangle(float* pos1, float* pos2, float* pos3)
 {
-        m_pCollObj->addTriangle( pos1[0], pos1[1], pos1[1],
-                             pos2[0], pos2[1], pos2[1],
-                             pos3[0], pos3[1], pos3[1]);
+        m_pCollObj->addTriangle( pos1[0], pos1[1], pos1[2],
+                             pos2[0], pos2[1], pos2[2],
+                             pos3[0], pos3[1], pos3[2]);
 
-        QVector3D vpos1 = QVector3D(pos1[0], pos1[1], pos1[1]);
-        QVector3D vpos2 = QVector3D(pos2[0], pos2[1], pos2[1]);
-        QVector3D vpos3 = QVector3D(pos3[0], pos3[1], pos3[1]);
+        QVector3D vpos1 = QVector3D(pos1[0], pos1[1], pos1[2]);
+        QVector3D vpos2 = QVector3D(pos2[0], pos2[1], pos2[2]);
+        QVector3D vpos3 = QVector3D(pos3[0], pos3[1], pos3[2]);
+
+        qDebug() << "vpos1: " << vpos1;
+        qDebug() << "vpos2: " << vpos2;
+        qDebug() << "vpos3: " << vpos3;
 
         vertexs.push_back(vpos1);
         vertexs.push_back(vpos2);
