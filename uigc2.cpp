@@ -82,29 +82,22 @@ void UIGC2::on_pathEdit_returnPressed()
 
 void UIGC2::on_pathEdit_textChanged(QString p)
 {
-    if(finished){
+    //if(finished){
         path=p;
-    }
+    //}
 }
 
 void UIGC2::on_createNewObjectButton_clicked()
 {
     qDebug("%s\n",qPrintable(path));
-    if (finished && finished2)
-    {
-        sgVec3 pos;
-        sgQuat rot;
-        sgVec3 esc;
-
-        pos[0]=0.0;
-        pos[1]=0.0;
-        pos[2]=0.0;
-
-        sgSetVec3(esc,1,1,1); // Escala del nou objecte
-        sgMakeIdentQuat(rot); // Rotacio del nou objecte
+//    if (finished && finished2)
+//    {
+        QVector3D pos = QVector3D();
+        QVector3D esc = QVector3D(1,1,1);
+        QQuaternion rot = QQuaternion();
 
         ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
-    }
+//    }
 }
 
 void UIGC2::on_nameEdit_returnPressed()
@@ -114,7 +107,7 @@ void UIGC2::on_nameEdit_returnPressed()
 
 void UIGC2::on_nameEdit_textChanged(QString n)
 {
-    if(finished2){
+    //if(finished2){
         name=n;
-    }
+    //}
 }

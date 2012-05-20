@@ -18,14 +18,14 @@ pointer* pointer::getInstance()
 
 void pointer::calculPos(float x, float y)
 {
-    sgVec3 eyes,targets;
+    float eyes[3],targets[3];
 
     float* eye = CameraControl::getInstance()->getEye();
     float* target = CameraControl::getInstance()->getTarget();
     float* cam = CameraControl::getInstance()->getCamConf();
     float near = *(cam+2);
     float dist = cos((*cam)*3.14/180)*near;
-    sgVec3 dir;
+    float dir[3];
     eyes[0]= *eye;
     eyes[1]= *(eye+1);
     eyes[2]= *(eye+2);
@@ -43,14 +43,16 @@ void pointer::calculPos(float x, float y)
     dir[1] =(dir[1]/a);
     dir[2] =(dir[2]/a);
 
-    sgVec3 w,u;
-    sgSetVec3(u,0.0f,0.0f,1.0f);
+    float w[3],u[3];
+    u[0] = 0.0f;
+    u[1] = 0.0f;
+    u[2] = 1.0f;
 
     w[0] = dir[1]*u[2] - dir[2]*u[1];
     w[1] = dir[0]*u[2] - dir[2]*u[0];
     w[2] = dir[0]*u[1] - dir[1]*u[0];
 
-    sgVec3 P;
+    float P[3];
 
     P[0] = *(eye)+dir[0]*near + dist*y*u[0] + dist*x*w[0];
     P[1] = *(eye+1)+dir[1]*near + dist*y*u[1] + dist*x*w[1];
@@ -66,20 +68,16 @@ void pointer::calculPos(float x, float y)
     dir[1] =(dir[1]/a);
     dir[2] =(dir[2]/a);
 
-    sgVec3 pointCol;
+    float pointCol[3];
 
     if(CollisionManager::getInstance()->TestCollisionRay(pointCol,eye,dir))
     {
-        pos[0] = *pointCol;
-        pos[1] = *(pointCol+1);
-        pos[2] = * (pointCol+2);
+        pos = QVector3D(*pointCol,*(pointCol+1),*(pointCol+2));
         //CameraControl::getInstance()->setTarget(pos[0],pos[1],pos[2]);
     }
     else
     {
-        pos[0] = *(eye)+dir[0]*(near+10);
-        pos[1] = *(eye+1)+dir[1]*(near+10);
-        pos[2] = *(eye+2)+dir[2]*(near+10);
+        pos = QVector3D(*(eye)+dir[0]*(near+10), *(eye+1)+dir[1]*(near+10),*(eye+2)+dir[2]*(near+10));
     }
 }
 

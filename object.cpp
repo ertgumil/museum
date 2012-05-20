@@ -4,21 +4,23 @@ Object::Object()
 {
     id = 0;
     name = "default";
-    sgZeroVec3(posicio);
-    sgZeroVec3(escala);
-    sgZeroVec4(rotacio);
+
+    posicio = QVector3D(0,0,0);
+    escala = QVector3D(0,0,0);
+    rotacio = QQuaternion(1,0,0,0);
 
     pathmodel = "models/SalaXavi.obj";
     model = glmReadOBJ(pathmodel.c_str(), 0);
 }
 
-Object::Object(int ident, QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString pathmod)
+Object::Object(int ident, QString nom, QVector3D pos, QVector3D esc, QQuaternion rot, QString pathmod)
 {
     id = ident;
     name = nom.toStdString();
-    sgCopyVec3(posicio,pos);
-    sgCopyVec3(escala,esc);
-    sgCopyVec4(rotacio,rot);
+
+    posicio = pos;
+    escala = esc;
+    rotacio = rot;
 
     pathmodel = pathmod.toStdString();
     model = glmReadOBJ(pathmodel.c_str(), 0);
@@ -34,12 +36,17 @@ void Object::Draw()
     glPushMatrix();
 
     glLoadIdentity();
-    glTranslatef(posicio[0],posicio[1],posicio[2]);
-    glScalef(escala[0],escala[1],escala[2]);
+    glTranslatef(posicio.x(),posicio.y(),posicio.z());
+    glScalef(escala.x(),escala.y(),escala.z());
 
-    sgMat4 rotmat;
-    sgQuatToMatrix(rotmat,rotacio);
-    glMultMatrixf((GLfloat*)rotmat);
+    QMatrix4x4 rotmat;
+    rotmat.rotate(rotacio);
+
+    static GLfloat mat[16];
+    const qreal *data = rotmat.constData();
+    for (int index = 0; index < 16; ++index)
+         mat[index] = data[index];
+    glMultMatrixf(mat);
 
     glmDraw(model,GLM_FLAT | GLM_TEXTURE | GLM_MATERIAL);
 

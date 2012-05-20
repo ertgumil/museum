@@ -43,7 +43,7 @@ int ObjectManager::getId(){
     return count;
 }
 
-void ObjectManager::AddObject(QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString model)
+void ObjectManager::AddObject(QString nom, QVector3D pos, QVector3D esc, QQuaternion rot, QString model)
 {
     Object* nou = new Object(count,nom,pos,esc,rot,model);
 
@@ -116,7 +116,7 @@ std::vector<Object*>::iterator ObjectManager::LastObject()
     return objectes.end();
 }
 
-void ObjectManager::ChangePos(int id , sgVec3 pos)
+void ObjectManager::ChangePos(int id , QVector3D pos)
 {
-    sgCopyVec3((objectes[id])->posicio,pos);
+    (objectes[id])->posicio = pos;
 }

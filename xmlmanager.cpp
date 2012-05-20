@@ -33,32 +33,32 @@ void XMLManager::save(std::string xmlPath)
 
     std::vector<Object*>::iterator iter;
 
-    sgVec3 pos;
-    sgVec3 esc;
-    sgQuat rot;
+    QVector3D pos;
+    QVector3D esc;
+    QQuaternion rot;
 
     for (iter = ObjectManager::getInstance()->FirstObject(); iter != ObjectManager::getInstance()->LastObject(); ++iter)
     {
-        sgCopyVec3(pos,(*iter)->posicio);
-        sgCopyVec3(esc,(*iter)->escala);
-        sgCopyQuat(rot,(*iter)->rotacio);
+        pos = (*iter)->posicio;
+        esc = (*iter)->escala;
+        rot = (*iter)->rotacio;
 
         outfile << "  <OBJECTE";
         outfile << " name=\"" << (*iter)->name <<"\"";
         outfile << " model=\"" << (*iter)->pathmodel <<"\"";
 
-        outfile << " posx=\"" << pos[0] << "\"";
-        outfile << " posy=\"" << pos[1] << "\"";
-        outfile << " posz=\"" << pos[2] << "\"";
+        outfile << " posx=\"" << pos.x() << "\"";
+        outfile << " posy=\"" << pos.y() << "\"";
+        outfile << " posz=\"" << pos.z() << "\"";
 
-        outfile << " escx=\"" << esc[0] << "\"";
-        outfile << " escy=\"" << esc[1] << "\"";
-        outfile << " escz=\"" << esc[2] << "\"";
+        outfile << " escx=\"" << esc.x() << "\"";
+        outfile << " escy=\"" << esc.y() << "\"";
+        outfile << " escz=\"" << esc.z() << "\"";
 
-        outfile << " rotw=\"" << rot[0] << "\"";
-        outfile << " rotx=\"" << rot[1] << "\"";
-        outfile << " roty=\"" << rot[2] << "\"";
-        outfile << " rotz=\"" << rot[3] << "\"";
+        outfile << " rotw=\"" << rot.scalar() << "\"";
+        outfile << " rotx=\"" << rot.x() << "\"";
+        outfile << " roty=\"" << rot.y() << "\"";
+        outfile << " rotz=\"" << rot.z() << "\"";
         outfile << " />" << std::endl;
     }
 
@@ -71,8 +71,8 @@ void XMLManager::onStartElement(const std::string &elem, MKeyValue &atts)
 {
     if (elem == "OBJECTE")
     {
-        sgVec3 pos, esc;
-        sgQuat rot;
+        QVector3D pos, esc;
+        QQuaternion rot;
 
 
         std::string model = atts["model"];
@@ -82,27 +82,27 @@ void XMLManager::onStartElement(const std::string &elem, MKeyValue &atts)
         QString posy = atts["posy"].c_str();
         QString posz = atts["posz"].c_str();
 
-        pos[0] = posx.toFloat();
-        pos[1] = posy.toFloat();
-        pos[2] = posz.toFloat();
+        pos = QVector3D(posx.toFloat(),
+                        posy.toFloat(),
+                        posz.toFloat());
 
         QString escx = atts["escx"].c_str();
         QString escy = atts["escy"].c_str();
         QString escz = atts["escz"].c_str();
 
-        esc[0] = escx.toFloat();
-        esc[1] = escy.toFloat();
-        esc[2] = escz.toFloat();
+        esc = QVector3D(escx.toFloat(),
+                        escy.toFloat(),
+                        escz.toFloat());
 
         QString rotw = atts["rotw"].c_str();
         QString rotx = atts["rotx"].c_str();
         QString roty = atts["roty"].c_str();
         QString rotz = atts["rotz"].c_str();
 
-        rot[0] = rotw.toFloat();
-        rot[1] = rotx.toFloat();
-        rot[2] = roty.toFloat();
-        rot[3] = rotz.toFloat();
+        rot = QQuaternion(rotw.toFloat(),
+                          rotx.toFloat(),
+                          roty.toFloat(),
+                          rotz.toFloat());
 
         QString name = QString::fromStdString(nom);
         QString path = QString::fromStdString(model);

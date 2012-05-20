@@ -18,7 +18,6 @@
 #include <QtDebug>
 #include <QVector3D>
 #include <vector>
-#include "sg/sg.h"
 
 class CollisionManager
 {

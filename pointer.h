@@ -4,11 +4,12 @@
 #include "objectmanager.h"
 #include "cameracontrol.h"
 #include "collisionmanager.h"
+#include <QtGui>
 
 class pointer
 {
 public:
-    sgVec3 pos;
+    QVector3D pos;
 
     pointer();
     ~pointer();

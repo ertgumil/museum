@@ -155,7 +155,7 @@ void GLWidget::paintGL() {
     glmDraw(model,GLM_FLAT | GLM_TEXTURE | GLM_MATERIAL);
     //glmDraw(model,GLM_NONE);
 
-    //ObjectManager::getInstance()->Draw();
+    ObjectManager::getInstance()->Draw();
     LightManager::getInstance()->addLight(0);
     LightManager::getInstance()->changePosition(0,CameraControl::getInstance()->getEyex(),CameraControl::getInstance()->getEyey(),CameraControl::getInstance()->getEyez());
     LightManager::getInstance()->addLight(1);

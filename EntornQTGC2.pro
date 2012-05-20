@@ -26,12 +26,6 @@ SOURCES += main.cpp \
     lightmanager.cpp \
     object.cpp \
     objectmanager.cpp \
-    sg/sgPerlinNoise.cxx \
-    sg/sgIsect.cxx \
-    sg/sgdIsect.cxx \
-    sg/sgd.cxx \
-    sg/sg.cxx \
-    sg/ulError.cxx \
     lights.cpp \
     expat/xmltok_ns.c \
     expat/xmltok_impl.c \
@@ -65,8 +59,6 @@ HEADERS += uigc2.h \
     lightmanager.h \
     object.h \
     objectmanager.h \
-    sg/sg.h \
-    sg/ul.h \
     lights.h \
     expat/xmltok_impl.h \
     expat/xmltok.h \
@@ -97,9 +89,6 @@ OTHER_FILES += simple.vert \
     lib3ds/Makefile.am \
     coldet/src/coldet.dsp \
     coldet/src/makefile.g++ \
-    sg/sg.dsp \
-    sg/Makefile.in \
-    sg/Makefile.am \
     expat/Makefile.MPW \
     expat/libexpatw.def \
     expat/libexpat.def \

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "object.h"
+#include <QtGui>
 
 class ObjectManager
 {
@@ -14,7 +15,7 @@ public:
     int count;
 
     void AddObject(Object* object);
-    void AddObject(QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString model);
+    void AddObject(QString nom, QVector3D pos, QVector3D esc, QQuaternion rot, QString model);
     void RemoveObject(int id);
     void RemoveAll();
     int getId();
@@ -25,7 +26,7 @@ public:
     std::vector<Object*>::iterator FirstObject();
     std::vector<Object*>::iterator LastObject();
 
-    void ChangePos(int id, sgVec3 pos);
+    void ChangePos(int id, QVector3D pos);
 
     void Draw();
 
