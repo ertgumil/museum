@@ -77,7 +77,7 @@ void GLWidget::initializeGL() {
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
     //escena->CreateVBO(true);
-    model = glmReadOBJ("models/museum_textures2.obj", 1);
+    model = glmReadOBJ("models/museum_textures.obj", 1);
 
     // Exemple ObjectManager
 /*
