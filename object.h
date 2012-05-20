@@ -2,7 +2,8 @@
 #define OBJECT_H
 
 #include "sg/sg.h"
-#include "objectloader.h"
+#include "glm/glm.h"
+#include <QString>
 
 #include <string>
 
@@ -25,7 +26,7 @@ public:
     std::string name;
     std::string pathmodel;
 
-    CModel3DS* model;
+    GLMmodel* model;
 };
 
 #endif // OBJECT_H

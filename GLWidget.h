@@ -19,7 +19,6 @@
 #include "Model.h"
 #include "Util.h"
 #include "cameracontrol.h"
-#include "objectloader.h"
 #include "lightmanager.h"
 #include "objectmanager.h"
 #include "xmlmanager.h"
@@ -77,7 +76,6 @@ private:
     QGLShaderProgram m_shader;
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };
 
-    CModel3DS* escena;
     GLMmodel* model;
 };
 

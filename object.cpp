@@ -8,10 +8,8 @@ Object::Object()
     sgZeroVec3(escala);
     sgZeroVec4(rotacio);
 
-    model = new CModel3DS("models/cub.3ds");
-    model->CreateVBO(false);
-
-    pathmodel = "models/cub.3ds";
+    pathmodel = "models/SalaXavi.obj";
+    model = glmReadOBJ(pathmodel.c_str(), 0);
 }
 
 Object::Object(int ident, QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QString pathmod)
@@ -23,8 +21,7 @@ Object::Object(int ident, QString nom, sgVec3 pos, sgVec3 esc, sgQuat rot, QStri
     sgCopyVec4(rotacio,rot);
 
     pathmodel = pathmod.toStdString();
-    model = new CModel3DS(pathmodel);
-    model->CreateVBO(false);
+    model = glmReadOBJ(pathmodel.c_str(), 0);
 }
 
 Object::~Object()
@@ -44,7 +41,7 @@ void Object::Draw()
     sgQuatToMatrix(rotmat,rotacio);
     glMultMatrixf((GLfloat*)rotmat);
 
-    model->Draw();
+    glmDraw(model,GLM_FLAT | GLM_TEXTURE | GLM_MATERIAL);
 
     glPopMatrix();
 }

@@ -91,7 +91,20 @@ void UIGC2::on_createNewObjectButton_clicked()
 {
     qDebug("%s\n",qPrintable(path));
     if (finished && finished2)
-        pointer::getInstance()->createObject(name,path); // Afegim l'objecte a l'escena
+    {
+        sgVec3 pos;
+        sgQuat rot;
+        sgVec3 esc;
+
+        pos[0]=0.0;
+        pos[1]=0.0;
+        pos[2]=0.0;
+
+        sgSetVec3(esc,1,1,1); // Escala del nou objecte
+        sgMakeIdentQuat(rot); // Rotacio del nou objecte
+
+        ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
+    }
 }
 
 void UIGC2::on_nameEdit_returnPressed()

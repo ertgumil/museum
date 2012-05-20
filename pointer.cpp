@@ -88,18 +88,4 @@ void pointer::changePos(float x, float y) {
     ObjectManager::getInstance()->ChangePos(ObjectManager::getInstance()->getId()-1,pos);
 }
 
-void pointer::createObject(QString name, QString path) {
-    sgQuat rot;
-    sgVec3 esc;
-
-    pos[0]=0.0;
-    pos[1]=0.0;
-    pos[2]=0.0;
-
-    sgSetVec3(esc,0.1,0.1,0.1); // Escala del nou objecte
-    sgMakeIdentQuat(rot); // Rotacio del nou objecte
-
-    ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
-}
-
 

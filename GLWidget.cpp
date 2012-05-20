@@ -8,7 +8,6 @@ using namespace std;
 
 GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
     setMouseTracking(true);
-    escena = new CModel3DS("models/museum.3ds");
 }
 
 
@@ -78,7 +77,7 @@ void GLWidget::initializeGL() {
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
     //escena->CreateVBO(true);
-    model = glmReadOBJ("models/museum_textures.obj", 1);
+    model = glmReadOBJ("models/museum_textures2.obj", 1);
 
     // Exemple ObjectManager
 /*
@@ -152,6 +151,7 @@ void GLWidget::paintGL() {
     CameraControl::getInstance()->PutCam();
     //glPolygonMode(GL_FRONT, GL_TRIANGLES);
     //escena->Draw();
+    CollisionManager::getInstance()->drawCollision();
     glmDraw(model,GLM_FLAT | GLM_TEXTURE | GLM_MATERIAL);
     //glmDraw(model,GLM_NONE);
 

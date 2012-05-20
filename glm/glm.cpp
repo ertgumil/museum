@@ -801,9 +801,13 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     T(numtriangles).nindices[1] = n;
                     fscanf(file, "%u//%u", &v, &n);
                     T(numtriangles).vindices[2] = v;
-		    T(numtriangles).tindices[2] = -1;
+                    T(numtriangles).tindices[2] = -1;
                     T(numtriangles).nindices[2] = n;
                     group->triangles[group->numtriangles++] = numtriangles;
+                    if(collision == 1)
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u//%u", &v, &n) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -836,7 +840,7 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     T(numtriangles).nindices[2] = n;
                     group->triangles[group->numtriangles++] = numtriangles;
 
-                    if(collision)
+                    if(collision == 1)
                     CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
                                                                  (float*)&vertices[T(numtriangles).vindices[1]],
                                                                  (float*)&vertices[T(numtriangles).vindices[2]]);
@@ -871,6 +875,10 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     T(numtriangles).tindices[2] = t;
 		    T(numtriangles).nindices[2] = -1;
                     group->triangles[group->numtriangles++] = numtriangles;
+                    if(collision == 1)
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u/%u", &v, &t) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -903,6 +911,11 @@ glmSecondPass(GLMmodel* model, FILE* file, int collision)
                     T(numtriangles).tindices[2] = -1;
 		    T(numtriangles).nindices[2] = -1;
                     group->triangles[group->numtriangles++] = numtriangles;
+
+                    if(collision == 1)
+                    CollisionManager::getInstance()->AddTriangle((float*)&vertices[T(numtriangles).vindices[0]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[1]],
+                                                                 (float*)&vertices[T(numtriangles).vindices[2]]);
                     numtriangles++;
                     while(fscanf(file, "%u", &v) > 0) {
 #ifdef MATERIAL_BY_FACE
@@ -1605,7 +1618,7 @@ glmReadOBJ(const char* filename, int collision)
     
     glmSecondPass(model, file, collision);
 
-    if(collision)
+    if(collision == 1)
         CollisionManager::getInstance()->FinalizeCollisionObject();
 
     /* facet normals are not in the file, we have to compute them anyway */

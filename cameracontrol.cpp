@@ -71,7 +71,7 @@ void CameraControl::ChangeVisualMode(){
        Eye[2] = 15.0f;
        Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
 
-       Zoom = 5.0f;
+       Zoom = 50.0f;
 
        Target[0] = 5.0f;
        Target[1] = 0.0f;
@@ -83,7 +83,7 @@ void CameraControl::ChangeVisualMode(){
        Cam[0] = 30.0f;
        Cam[1]= Cam[1];
        Cam[2] = 1.0f;
-       Cam[3] = 50.0f;
+       Cam[3] = 5000.0f;
     }
 }
 
