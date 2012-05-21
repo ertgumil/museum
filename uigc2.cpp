@@ -89,12 +89,15 @@ void UIGC2::on_pathEdit_textChanged(QString p)
 
 void UIGC2::on_createNewObjectButton_clicked()
 {
-    qDebug("%s\n",qPrintable(path));
+
 //    if (finished && finished2)
 //    {
         QVector3D pos = QVector3D();
         QVector3D esc = QVector3D(1,1,1);
         QQuaternion rot = QQuaternion();
+        path = QString("models/%1.obj").arg(path);
+        qDebug("%s\n",qPrintable(path));
+
 
         ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
 //    }
