@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'uigc2.h'
 **
-** Created: Tue May 22 19:23:41 2012
+** Created: Tue May 22 21:14:30 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_UIGC2[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -31,39 +31,37 @@ static const uint qt_meta_data_UIGC2[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       7,    6,    6,    6, 0x08,
-      40,    6,    6,    6, 0x08,
-      72,    6,    6,    6, 0x08,
-     104,    6,    6,    6, 0x08,
-     137,    6,    6,    6, 0x08,
-     172,    6,    6,    6, 0x08,
-     207,  205,    6,    6, 0x08,
-     240,  238,    6,    6, 0x08,
-     273,  271,    6,    6, 0x08,
-     306,  304,    6,    6, 0x08,
-     339,  337,    6,    6, 0x08,
-     370,  368,    6,    6, 0x08,
-     401,  399,    6,    6, 0x08,
-     436,  430,    6,    6, 0x08,
+      13,    7,    6,    6, 0x08,
+      49,    7,    6,    6, 0x08,
+      81,    6,    6,    6, 0x08,
+     113,    6,    6,    6, 0x08,
+     146,    6,    6,    6, 0x08,
+     183,  181,    6,    6, 0x08,
+     216,  214,    6,    6, 0x08,
+     249,  247,    6,    6, 0x08,
+     282,  280,    6,    6, 0x08,
+     315,  313,    6,    6, 0x08,
+     346,  344,    6,    6, 0x08,
+     377,  375,    6,    6, 0x08,
+     412,  406,    6,    6, 0x08,
+     440,    6,    6,    6, 0x08,
      464,    6,    6,    6, 0x08,
-     488,    6,    6,    6, 0x08,
-     511,    6,    6,    6, 0x08,
-     536,    6,    6,    6, 0x08,
-     563,  558,    6,    6, 0x08,
-     612,  558,    6,    6, 0x08,
-     653,    6,    6,    6, 0x08,
-     683,    6,    6,    6, 0x08,
+     487,    6,    6,    6, 0x08,
+     512,    6,    6,    6, 0x08,
+     539,  534,    6,    6, 0x08,
+     588,  534,    6,    6, 0x08,
+     629,    6,    6,    6, 0x08,
+     659,    6,    6,    6, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_UIGC2[] = {
-    "UIGC2\0\0on_smallerObjectButton_clicked()\0"
-    "on_biggerObjectButton_clicked()\0"
+    "UIGC2\0\0value\0on_rotationSlider_valueChanged(int)\0"
+    "on_sizeSlider_valueChanged(int)\0"
     "on_deleteObjectButton_clicked()\0"
     "on_nameEdit_textChanged(QString)\0"
-    "on_createNewObjectButton_clicked()\0"
-    "on_pathEdit_textChanged(QString)\0a\0"
+    "on_createNewObjectButton_clicked()\0a\0"
     "on_aLight_valueChanged(double)\0b\0"
     "on_bLight_valueChanged(double)\0g\0"
     "on_gLight_valueChanged(double)\0r\0"
@@ -109,31 +107,30 @@ int UIGC2::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_smallerObjectButton_clicked(); break;
-        case 1: on_biggerObjectButton_clicked(); break;
+        case 0: on_rotationSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: on_sizeSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: on_deleteObjectButton_clicked(); break;
         case 3: on_nameEdit_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: on_createNewObjectButton_clicked(); break;
-        case 5: on_pathEdit_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 6: on_aLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 7: on_bLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 8: on_gLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 9: on_rLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 10: on_zPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 11: on_yPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 12: on_xPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 13: on_lightList_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: on_paintLight_clicked(); break;
-        case 15: on_moveLight_clicked(); break;
-        case 16: on_deleteLight_clicked(); break;
-        case 17: on_addLight_clicked(); break;
-        case 18: on_comboBoxObjectes_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 19: on_comboBoxObjectes_highlighted((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 20: on_loadMuseumButton_clicked(); break;
-        case 21: on_saveMuseumButton_clicked(); break;
+        case 5: on_aLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 6: on_bLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 7: on_gLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 8: on_rLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 9: on_zPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 10: on_yPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 11: on_xPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 12: on_lightList_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: on_paintLight_clicked(); break;
+        case 14: on_moveLight_clicked(); break;
+        case 15: on_deleteLight_clicked(); break;
+        case 16: on_addLight_clicked(); break;
+        case 17: on_comboBoxObjectes_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 18: on_comboBoxObjectes_highlighted((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 19: on_loadMuseumButton_clicked(); break;
+        case 20: on_saveMuseumButton_clicked(); break;
         default: ;
         }
-        _id -= 22;
+        _id -= 21;
     }
     return _id;
 }

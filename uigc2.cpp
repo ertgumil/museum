@@ -75,10 +75,7 @@ void UIGC2::on_paintLight_clicked() //un cop clicat Paint
     LightManager::getInstance()->changeColor(activeLight, newR, newG, newB, newA);
 }
 
-void UIGC2::on_pathEdit_textChanged(QString p)
-{
-        path=p;
-}
+
 
 void UIGC2::on_createNewObjectButton_clicked()
 {
@@ -86,18 +83,18 @@ void UIGC2::on_createNewObjectButton_clicked()
         QVector3D pos = QVector3D();
         QVector3D esc = QVector3D(1,1,1);
         QQuaternion rot = QQuaternion();
-        if(path!="") {
-            QString temppath = path;
-            path = QString("models/%1.obj").arg(path);
 
-            qDebug("%s\n",qPrintable(path));
+            QString path = QFileDialog::getOpenFileName(
+                this,
+                tr("Open Document"),
+                QDir::currentPath(),
+                tr("Obj Files (*.obj)") );
 
             ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
 
             QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
             test->addItem(name);
-            path = temppath;
-        }
+
 }
 
 void UIGC2::on_nameEdit_textChanged(QString n)

@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Tue May 22 19:59:02 2012
-**      by: Qt User Interface Compiler version 4.6.2
+** Created: Tue May 22 21:16:14 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -50,9 +50,7 @@ public:
     QPushButton *loadMuseumButton;
     QPushButton *saveMuseumButton;
     QWidget *tab_4;
-    QLineEdit *pathEdit;
     QPushButton *createNewObjectButton;
-    QLabel *pathLabel;
     QLineEdit *nameEdit;
     QLabel *nameLabel;
     QComboBox *comboBoxObjectes;
@@ -150,21 +148,15 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
-        pathEdit = new QLineEdit(tab_4);
-        pathEdit->setObjectName(QString::fromUtf8("pathEdit"));
-        pathEdit->setGeometry(QRect(80, 10, 113, 25));
         createNewObjectButton = new QPushButton(tab_4);
         createNewObjectButton->setObjectName(QString::fromUtf8("createNewObjectButton"));
-        createNewObjectButton->setGeometry(QRect(10, 90, 85, 27));
-        pathLabel = new QLabel(tab_4);
-        pathLabel->setObjectName(QString::fromUtf8("pathLabel"));
-        pathLabel->setGeometry(QRect(10, 20, 58, 15));
+        createNewObjectButton->setGeometry(QRect(60, 60, 85, 27));
         nameEdit = new QLineEdit(tab_4);
         nameEdit->setObjectName(QString::fromUtf8("nameEdit"));
-        nameEdit->setGeometry(QRect(80, 50, 113, 25));
+        nameEdit->setGeometry(QRect(90, 10, 113, 25));
         nameLabel = new QLabel(tab_4);
         nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
-        nameLabel->setGeometry(QRect(10, 60, 58, 15));
+        nameLabel->setGeometry(QRect(10, 20, 58, 15));
         comboBoxObjectes = new QComboBox(tab_4);
         comboBoxObjectes->setObjectName(QString::fromUtf8("comboBoxObjectes"));
         comboBoxObjectes->setGeometry(QRect(10, 150, 221, 27));
@@ -309,7 +301,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 21));
+        menuBar->setGeometry(QRect(0, 0, 892, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -381,7 +373,6 @@ public:
         saveMuseumButton->setText(QApplication::translate("UIGC2", "Guardar", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("UIGC2", "Museus", 0, QApplication::UnicodeUTF8));
         createNewObjectButton->setText(QApplication::translate("UIGC2", "Crear", 0, QApplication::UnicodeUTF8));
-        pathLabel->setText(QApplication::translate("UIGC2", "Figures", 0, QApplication::UnicodeUTF8));
         nameLabel->setText(QApplication::translate("UIGC2", "Nom", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("UIGC2", "Selecciona un objecte", 0, QApplication::UnicodeUTF8));
         deleteObjectButton->setText(QApplication::translate("UIGC2", "Elimina", 0, QApplication::UnicodeUTF8));
