@@ -155,7 +155,6 @@ void CameraControl::PutCam(){
         else
             gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
 
-
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
     glLoadIdentity();           //netejar la matriu actual
 

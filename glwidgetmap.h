@@ -6,6 +6,7 @@
 #include "Model.h"
 #include "Util.h"
 #include "cameracontrol.h"
+#include "collisionmanager.h"
 
 
 class glwidgetmap : public QGLWidget {
@@ -14,7 +15,6 @@ public:
     glwidgetmap(QWidget *parent = NULL);
     ~glwidgetmap();
     static glwidgetmap* getInstance();
-    void setPos(int x, int y, int z);
     void refresh();
 
 

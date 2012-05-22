@@ -240,17 +240,23 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 test->refresh();
               break;
             case Qt::Key_S:
+                glwidgetmap::getInstance()->refresh();
                 CameraControl::getInstance()->RefreshTarget(1,0,0);
                 updateGL();
+                test->refresh();
               break;
             case Qt::Key_D:
+                glwidgetmap::getInstance()->refresh();
                 CameraControl::getInstance()->RefreshTarget(0,-1,0);
                 updateGL();
+                test->refresh();
               break;
 
             case Qt::Key_A:
+                glwidgetmap::getInstance()->refresh();
                 CameraControl::getInstance()->RefreshTarget(0,1,0);
                 updateGL();
+                test->refresh();
               break;
             case Qt::Key_Plus:
                       CameraControl::getInstance()->RefreshZoom(-10);

@@ -42,6 +42,23 @@ void CollisionManager::AddTriangle(float* pos1, float* pos2, float* pos3)
         vertexs.push_back(vpos1);
         vertexs.push_back(vpos2);
         vertexs.push_back(vpos3);
+
+        //Obtenim els valors de caixa mínima
+        xmin = xmin > pos1[0] ? pos1[0] : xmin;
+        qDebug() << "xmin" << xmin ;
+        xmax = xmax < pos1[0] ? pos1[0] : xmax;
+        qDebug() << "xmax" << xmax ;
+
+        ymin = ymin > pos2[0] ? pos2[0] : ymin;
+        qDebug() << "ymin" << ymin ;
+        ymax = ymax < pos2[0] ? pos2[0] : ymax;
+        qDebug() << "ymax" << ymax ;
+
+        zmin = zmin > pos3[0] ? pos3[0] : zmin;
+        //qDebug() << "zmin" << zmin ;
+        zmax = zmax < pos3[0] ? pos3[0] : zmax;
+        //qDebug() << "zmax" << zmax ;
+
 }
 
 void CollisionManager::drawCollision()
@@ -95,4 +112,40 @@ float CollisionManager::TestFloorRay(float* origin)
         return dir[2]+5.0f;
     }
     return *(origin+2);
+}
+
+float CollisionManager::getBoundingBox(int indice){
+    float vector[6];
+    vector[0]=xmin;
+    vector[1]=xmax;
+    vector[2]=ymin;
+    vector[3]=ymax;
+    vector[4]=zmin;
+    vector[5]=zmax;
+
+    return vector[indice];
+}
+
+float CollisionManager::getXmin(){
+    return xmin;
+}
+
+float CollisionManager::getXmax(){
+    return xmax;
+}
+
+float CollisionManager::getYmin(){
+    return ymin;
+}
+
+float CollisionManager::getYmax(){
+    return ymax;
+}
+
+float CollisionManager::getZmin(){
+    return zmin;
+}
+
+float CollisionManager::getZmax(){
+    return zmax;
 }

@@ -9,7 +9,7 @@ GLfloat glwidgetmap::translacion_z=-0.1f;
 glwidgetmap::glwidgetmap(QWidget *parent) : QGLWidget(parent) {
     setMouseTracking(true);
     translacion_x=0.0;
-    //translacion_y=0.0;
+    translacion_y=0.0;
     //translacion_z=0.0;
 }
 
@@ -78,7 +78,6 @@ void glwidgetmap::paintGL() {
 
     glPushMatrix();
         glTranslatef(translacion_x,translacion_y,0.0);
-        qDebug() << translacion_x;
 
         glBegin(GL_POLYGON);
                 //Dibujamos la forma de una flecha
@@ -93,21 +92,13 @@ void glwidgetmap::paintGL() {
 }
 
 void glwidgetmap::refresh() {
-    //setPos(0.1f,0.1f,0.0f);
-    translacion_x += 0.1f;
-    qDebug() << translacion_x;
-    paintGL();
-    updateGL();
-}
 
-void glwidgetmap::setPos(int x, int y, int z){
-    translacion_x+=10.0;
-    translacion_y+=y;
-    translacion_z+=z;
-    qDebug("Paint");
-    qDebug() << translacion_x;
-    //qDebug(translacion_y);
-    //qDebug(translacion_z);*/
+    //Obtenim la nova posició en el minimapa a traves del Eye
+    //NOTA: las variables X e Y estan intercanviadas por motivos de visualización.
+    translacion_y = (2*CameraControl::getInstance()->getEyex()) / (CollisionManager::getInstance()->getXmax()-CollisionManager::getInstance()->getXmin());
+    translacion_x = (2*CameraControl::getInstance()->getEyey()) / (CollisionManager::getInstance()->getYmin()-CollisionManager::getInstance()->getYmax());
+
+    updateGL();
 }
 
 

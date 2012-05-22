@@ -33,12 +33,21 @@ public:
 
     void drawCollision();
 
+    float getBoundingBox(int);
+    float getXmin();
+    float getXmax();
+    float getYmin();
+    float getYmax();
+    float getZmin();
+    float getZmax();
+
 private:
         static CollisionManager* instance;
         static CollisionModel3D* m_pCollObj;
         //void AddTriangle(float[3], float[3], float[3]);
 
         std::vector<QVector3D> vertexs;
+        float xmin, xmax, ymin, ymax, zmin, zmax;
 };
 
 #endif // COLLISIONMANAGER_H
