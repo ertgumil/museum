@@ -272,8 +272,7 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 WayManager::getInstance()->pause();
                 break;
             case Qt::Key_R:
-                int id = ObjectManager::getInstance()->getId();
-                ObjectManager::getInstance()->GetObject(id)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
+                ObjectManager::getInstance()->GetObject(m_currentobject)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
                 updateGL();
 
     }
