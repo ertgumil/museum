@@ -75,23 +75,14 @@ void UIGC2::on_paintLight_clicked() //un cop clicat Paint
     LightManager::getInstance()->changeColor(activeLight, newR, newG, newB, newA);
 }
 
-void UIGC2::on_pathEdit_returnPressed()
-{
-    finished=true;
-}
-
 void UIGC2::on_pathEdit_textChanged(QString p)
 {
-    //if(finished){
         path=p;
-    //}
 }
 
 void UIGC2::on_createNewObjectButton_clicked()
 {
 
-//    if (finished && finished2)
-//    {
         QVector3D pos = QVector3D();
         QVector3D esc = QVector3D(1,1,1);
         QQuaternion rot = QQuaternion();
@@ -106,29 +97,43 @@ void UIGC2::on_createNewObjectButton_clicked()
         test->addItem(name);
 
         path = temppath;
-//    }
-}
-
-void UIGC2::on_nameEdit_returnPressed()
-{
-   finished2=true;
 }
 
 void UIGC2::on_nameEdit_textChanged(QString n)
 {
-    //if(finished2){
         name=n;
-    //}
 }
 
 void UIGC2::on_comboBoxObjectes_currentIndexChanged(const QString &arg1)
 {
-    GLWidget* test = this->findChild<GLWidget*>("contextGL");
-    test->setCurrentObject(arg1);
+    //GLWidget* test = this->findChild<GLWidget*>("contextGL");
+    //test->setCurrentObject(arg1);
+    ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
 }
 
 void UIGC2::on_comboBoxObjectes_highlighted(const QString &arg1)
 {
-    GLWidget* test = this->findChild<GLWidget*>("contextGL");
-    test->setCurrentObject(arg1);
+    ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
+}
+
+void UIGC2::on_deleteObjectButton_clicked()
+{
+    int id = ObjectManager::getInstance()->getCurrentObject();
+    QString name = ObjectManager::getInstance()->GetObject(id)->name.c_str();
+    ObjectManager::getInstance()->RemoveObject(id);
+
+    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+    test->removeItem(test->findText(name));
+}
+
+void UIGC2::on_biggerObjectButton_clicked()
+{
+    int id = ObjectManager::getInstance()->getCurrentObject();
+    ObjectManager::getInstance()->GetObject(id)->escala *= 2;
+}
+
+void UIGC2::on_smallerObjectButton_clicked()
+{
+    int id = ObjectManager::getInstance()->getCurrentObject();
+    ObjectManager::getInstance()->GetObject(id)->escala /= 2;
 }

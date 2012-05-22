@@ -24,11 +24,12 @@ private:
     double newR, newG, newB, newA;
 
 private slots:
+    void on_smallerObjectButton_clicked();
+    void on_biggerObjectButton_clicked();
+    void on_deleteObjectButton_clicked();
     void on_nameEdit_textChanged(QString );
-    void on_nameEdit_returnPressed();
     void on_createNewObjectButton_clicked();
     void on_pathEdit_textChanged(QString );
-    void on_pathEdit_returnPressed();
     void on_aLight_valueChanged(double a);
     void on_bLight_valueChanged(double b);
     void on_gLight_valueChanged(double g);

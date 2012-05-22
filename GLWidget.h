@@ -40,7 +40,6 @@ public slots:
     void ProjView();
     void FullView();
     void LoadFiles();
-    void setCurrentObject(QString name);
 
 protected:
     void initializeGL();
@@ -71,8 +70,6 @@ private:
 
     float xCamera;
     float yCamera;
-
-    int m_currentobject;
 
     QGLShaderProgram m_shader;
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };

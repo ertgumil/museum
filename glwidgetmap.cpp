@@ -63,19 +63,6 @@ void glwidgetmap::paintGL() {
     glColor3f( 0.5, 0.5, 0.5 );
 
 
-    glPushMatrix();
-        glTranslatef(translacion_x,translacion_y,0.0);
-        qDebug() << translacion_x;
-
-        glBegin(GL_POLYGON);
-                //Dibujamos la forma de una flecha
-            glVertex3f(0.0, 0.0, -1.0);
-            glVertex3f(-0.1, -0.1, -1.0);
-            glVertex3f(0.0, 0.2, -1.0);
-            glVertex3f(0.1, -0.1, -1.0);
-        glEnd();
-    glPopMatrix();
-
     //Dibujamos el mapa
     glColor3f(1.0f,1.0f,1.0f);//Pintamos de blanco el suelo
     glPushMatrix();
@@ -89,18 +76,32 @@ void glwidgetmap::paintGL() {
 
     glFlush();
 
+    glPushMatrix();
+        glTranslatef(translacion_x,translacion_y,0.0);
+        qDebug() << translacion_x;
+
+        glBegin(GL_POLYGON);
+                //Dibujamos la forma de una flecha
+            glVertex3f(0.0, 0.0, -1.0);
+            glVertex3f(-0.1, -0.1, -1.0);
+            glVertex3f(0.0, 0.2, -1.0);
+            glVertex3f(0.1, -0.1, -1.0);
+        glEnd();
+    glPopMatrix();
+
+
 }
 
 void glwidgetmap::refresh() {
     //setPos(0.1f,0.1f,0.0f);
-    translacion_x += 1.1f;
+    translacion_x += 0.1f;
     qDebug() << translacion_x;
     paintGL();
-
+    updateGL();
 }
 
 void glwidgetmap::setPos(int x, int y, int z){
-    /*translacion_x+=10.0;
+    translacion_x+=10.0;
     translacion_y+=y;
     translacion_z+=z;
     qDebug("Paint");

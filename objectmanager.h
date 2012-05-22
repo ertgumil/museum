@@ -14,11 +14,15 @@ public:
 
     int count;
 
+    int currentobject;
+
     void AddObject(Object* object);
     void AddObject(QString nom, QVector3D pos, QVector3D esc, QQuaternion rot, QString model);
     void RemoveObject(int id);
     void RemoveAll();
     int getId();
+    void setCurrentObject(int id);
+    int getCurrentObject();
 
     Object* GetObject(int id);
     Object* GetObject(std::string nom);

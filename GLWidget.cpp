@@ -53,8 +53,6 @@ void GLWidget::initializeGL() {
     m_ull_y = 1.0f;
     m_ull_z = 1.0f;
 
-    m_currentobject = 0;
-
     float w = width();
     float h = height();
 
@@ -203,7 +201,8 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     if (event->buttons() & Qt::LeftButton) {
         float w = width()/2;
         float h = height()/2;
-        pointer::getInstance()->changePos((w-event->x())/w,(h-event->y())/h,m_currentobject);
+        int id = ObjectManager::getInstance()->getCurrentObject();
+        pointer::getInstance()->changePos((w-event->x())/w,(h-event->y())/h,id);
 
         updateGL();
     }
@@ -223,6 +222,7 @@ Objectiu: gestionar els events generats pel teclat.
 */
 void GLWidget::keyPressEvent(QKeyEvent* event) {
 
+    glwidgetmap* test = this->findChild<glwidgetmap*>("widget");
     switch( event->key() ) {
             case Qt::Key_Up:
             CameraControl::getInstance()->RefreshTarget(0,0,1);
@@ -237,8 +237,8 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 glwidgetmap::getInstance()->refresh();
                 CameraControl::getInstance()->RefreshTarget(-1,0,0);
                 updateGL();
+                test->refresh();
               break;
-
             case Qt::Key_S:
                 CameraControl::getInstance()->RefreshTarget(1,0,0);
                 updateGL();
@@ -272,16 +272,11 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 WayManager::getInstance()->pause();
                 break;
             case Qt::Key_R:
-                ObjectManager::getInstance()->GetObject(m_currentobject)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
+                int id = ObjectManager::getInstance()->getId();
+                ObjectManager::getInstance()->GetObject(id)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
                 updateGL();
 
     }
-}
-
-void GLWidget::setCurrentObject(QString name)
-{
-    m_currentobject = ObjectManager::getInstance()->GetObject(name.toStdString())->id;
-    qDebug() << "El id es " << m_currentobject;
 }
 
 void GLWidget::SeveralViews(){
