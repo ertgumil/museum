@@ -83,7 +83,7 @@ void pointer::calculPos(float x, float y)
 
 void pointer::changePos(float x, float y, int id) {
     calculPos(x,y);
-    //if(ObjectManager::getInstance()->GetObject(id) != NULL)
+    if(ObjectManager::getInstance()->getId() > 0)
         ObjectManager::getInstance()->GetObject(id)->posicio = pos;
 }
 
