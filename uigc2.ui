@@ -124,6 +124,16 @@
            <string>Name</string>
           </property>
          </widget>
+         <widget class="QComboBox" name="comboBoxObjectes">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>221</width>
+            <height>27</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="tab">
          <attribute name="title">

@@ -95,11 +95,17 @@ void UIGC2::on_createNewObjectButton_clicked()
         QVector3D pos = QVector3D();
         QVector3D esc = QVector3D(1,1,1);
         QQuaternion rot = QQuaternion();
+        QString temppath = path;
         path = QString("models/%1.obj").arg(path);
         qDebug("%s\n",qPrintable(path));
 
 
         ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
+
+        QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+        test->addItem(name);
+
+        path = temppath;
 //    }
 }
 
@@ -113,4 +119,16 @@ void UIGC2::on_nameEdit_textChanged(QString n)
     //if(finished2){
         name=n;
     //}
+}
+
+void UIGC2::on_comboBoxObjectes_currentIndexChanged(const QString &arg1)
+{
+    GLWidget* test = this->findChild<GLWidget*>("contextGL");
+    test->setCurrentObject(arg1);
+}
+
+void UIGC2::on_comboBoxObjectes_highlighted(const QString &arg1)
+{
+    GLWidget* test = this->findChild<GLWidget*>("contextGL");
+    test->setCurrentObject(arg1);
 }

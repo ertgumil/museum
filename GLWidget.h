@@ -40,6 +40,7 @@ public slots:
     void ProjView();
     void FullView();
     void LoadFiles();
+    void setCurrentObject(QString name);
 
 protected:
     void initializeGL();
@@ -51,8 +52,6 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
     void view4();
     void project(float,float,float); //escoge proyección
-
-
 
 private:
     bool m_project; //TRUE: perspectiva, FALSE: ortho.
@@ -72,6 +71,8 @@ private:
 
     float xCamera;
     float yCamera;
+
+    int m_currentobject;
 
     QGLShaderProgram m_shader;
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };

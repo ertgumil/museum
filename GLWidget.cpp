@@ -53,6 +53,8 @@ void GLWidget::initializeGL() {
     m_ull_y = 1.0f;
     m_ull_z = 1.0f;
 
+    m_currentobject = 0;
+
     float w = width();
     float h = height();
 
@@ -201,7 +203,7 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     if (event->buttons() & Qt::LeftButton) {
         float w = width()/2;
         float h = height()/2;
-        pointer::getInstance()->changePos((w-event->x())/w,(h-event->y())/h);
+        pointer::getInstance()->changePos((w-event->x())/w,(h-event->y())/h,m_currentobject);
 
         updateGL();
     }
@@ -275,6 +277,12 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 updateGL();
 
     }
+}
+
+void GLWidget::setCurrentObject(QString name)
+{
+    m_currentobject = ObjectManager::getInstance()->GetObject(name.toStdString())->id;
+    qDebug() << "El id es " << m_currentobject;
 }
 
 void GLWidget::SeveralViews(){

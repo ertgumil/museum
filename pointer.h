@@ -15,7 +15,7 @@ public:
     ~pointer();
     static pointer* getInstance();
     void putObject(float x, float y);
-    void changePos(float x, float y);
+    void changePos(float x, float y, int id);
     void calculPos(float x, float y);
 
 private:
