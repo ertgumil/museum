@@ -86,17 +86,18 @@ void UIGC2::on_createNewObjectButton_clicked()
         QVector3D pos = QVector3D();
         QVector3D esc = QVector3D(1,1,1);
         QQuaternion rot = QQuaternion();
-        QString temppath = path;
-        path = QString("models/%1.obj").arg(path);
-        qDebug("%s\n",qPrintable(path));
+        if(path!="") {
+            QString temppath = path;
+            path = QString("models/%1.obj").arg(path);
 
+            qDebug("%s\n",qPrintable(path));
 
-        ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
+            ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
 
-        QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-        test->addItem(name);
-
-        path = temppath;
+            QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+            test->addItem(name);
+            path = temppath;
+        }
 }
 
 void UIGC2::on_nameEdit_textChanged(QString n)
@@ -118,24 +119,14 @@ void UIGC2::on_comboBoxObjectes_highlighted(const QString &arg1)
 
 void UIGC2::on_deleteObjectButton_clicked()
 {
-    int id = ObjectManager::getInstance()->getCurrentObject();
-    QString name = ObjectManager::getInstance()->GetObject(id)->name.c_str();
-    ObjectManager::getInstance()->RemoveObject(id);
+    int id = ObjectManager::getInstance()->getId();
+    if(id > 0) {
+        QString name = ObjectManager::getInstance()->GetObject(id)->name.c_str();
+        ObjectManager::getInstance()->RemoveObject(id);
 
-    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-    test->removeItem(test->findText(name));
-}
-
-void UIGC2::on_biggerObjectButton_clicked()
-{
-    int id = ObjectManager::getInstance()->getCurrentObject();
-    ObjectManager::getInstance()->GetObject(id)->escala *= 2;
-}
-
-void UIGC2::on_smallerObjectButton_clicked()
-{
-    int id = ObjectManager::getInstance()->getCurrentObject();
-    ObjectManager::getInstance()->GetObject(id)->escala /= 2;
+        //QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+        //test->removeItem(test->findText(name));
+    }
 }
 
 void UIGC2::on_loadMuseumButton_clicked()
@@ -159,5 +150,23 @@ void UIGC2::on_saveMuseumButton_clicked()
             tr("All files (*)") );
 
     XMLManager::getInstance()->save(filename.toStdString());
+}
 
+void UIGC2::on_sizeSlider_valueChanged(int value)
+{
+    int id = ObjectManager::getInstance()->getId();
+    if(id > 0) {
+            if(value==3)
+            ObjectManager::getInstance()->GetObject(id)->escala *= 2;
+        else if(value==1)
+            ObjectManager::getInstance()->GetObject(id)->escala /= 2;
+    }
+}
+
+void UIGC2::on_rotationSlider_valueChanged(int value)
+{
+    int id = ObjectManager::getInstance()->getId();
+    if(id > 0) {
+        ObjectManager::getInstance()->GetObject(id)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
+    }
 }

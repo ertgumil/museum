@@ -24,8 +24,8 @@ private:
     double newR, newG, newB, newA;
 
 private slots:
-    void on_smallerObjectButton_clicked();
-    void on_biggerObjectButton_clicked();
+    void on_rotationSlider_valueChanged(int value);
+    void on_sizeSlider_valueChanged(int value);
     void on_deleteObjectButton_clicked();
     void on_nameEdit_textChanged(QString );
     void on_createNewObjectButton_clicked();

@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Tue May 22 19:23:38 2012
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Tue May 22 19:59:02 2012
+**      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -58,34 +58,36 @@ public:
     QComboBox *comboBoxObjectes;
     QLabel *label;
     QPushButton *deleteObjectButton;
-    QPushButton *biggerObjectButton;
-    QPushButton *smallerObjectButton;
+    QSlider *sizeSlider;
+    QSlider *rotationSlider;
+    QLabel *label_2;
+    QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_9;
     QWidget *tab;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_3;
-    QLabel *label_6;
-    QSlider *potenciaSlider;
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QComboBox *lightList;
     QPushButton *addLight;
-    QPushButton *deleteLight;
     QLabel *label_3;
+    QPushButton *deleteLight;
     QWidget *layoutWidget1;
     QGridLayout *gridLayout_3;
-    QDoubleSpinBox *rLight;
-    QDoubleSpinBox *gLight;
-    QLabel *label_5;
-    QPushButton *paintLight;
-    QDoubleSpinBox *aLight;
-    QDoubleSpinBox *bLight;
     QWidget *layoutWidget2;
     QGridLayout *gridLayout_2;
-    QDoubleSpinBox *xPos;
-    QDoubleSpinBox *yPos;
-    QDoubleSpinBox *zPos;
-    QLabel *label_4;
+    QDoubleSpinBox *rLight;
+    QPushButton *paintLight;
+    QDoubleSpinBox *bLight;
     QPushButton *moveLight;
+    QLabel *label_4;
+    QLabel *label_5;
+    QDoubleSpinBox *zPos;
+    QDoubleSpinBox *xPos;
+    QDoubleSpinBox *aLight;
+    QDoubleSpinBox *gLight;
+    QDoubleSpinBox *yPos;
     GLWidget *contextGL;
     glwidgetmap *widget;
     QToolBar *mainToolBar;
@@ -172,12 +174,30 @@ public:
         deleteObjectButton = new QPushButton(tab_4);
         deleteObjectButton->setObjectName(QString::fromUtf8("deleteObjectButton"));
         deleteObjectButton->setGeometry(QRect(10, 200, 85, 27));
-        biggerObjectButton = new QPushButton(tab_4);
-        biggerObjectButton->setObjectName(QString::fromUtf8("biggerObjectButton"));
-        biggerObjectButton->setGeometry(QRect(10, 240, 85, 27));
-        smallerObjectButton = new QPushButton(tab_4);
-        smallerObjectButton->setObjectName(QString::fromUtf8("smallerObjectButton"));
-        smallerObjectButton->setGeometry(QRect(120, 240, 85, 27));
+        sizeSlider = new QSlider(tab_4);
+        sizeSlider->setObjectName(QString::fromUtf8("sizeSlider"));
+        sizeSlider->setGeometry(QRect(30, 280, 160, 23));
+        sizeSlider->setMinimum(1);
+        sizeSlider->setMaximum(3);
+        sizeSlider->setValue(2);
+        sizeSlider->setOrientation(Qt::Horizontal);
+        rotationSlider = new QSlider(tab_4);
+        rotationSlider->setObjectName(QString::fromUtf8("rotationSlider"));
+        rotationSlider->setGeometry(QRect(30, 340, 160, 23));
+        rotationSlider->setMaximum(4);
+        rotationSlider->setOrientation(Qt::Horizontal);
+        label_2 = new QLabel(tab_4);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(20, 250, 31, 16));
+        label_7 = new QLabel(tab_4);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(20, 280, 16, 16));
+        label_8 = new QLabel(tab_4);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(190, 280, 16, 16));
+        label_9 = new QLabel(tab_4);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(20, 320, 58, 15));
         tabWidget->addTab(tab_4, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -189,17 +209,6 @@ public:
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(horizontalLayoutWidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        horizontalLayout_3->addWidget(label_6);
-
-        potenciaSlider = new QSlider(horizontalLayoutWidget);
-        potenciaSlider->setObjectName(QString::fromUtf8("potenciaSlider"));
-        potenciaSlider->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_3->addWidget(potenciaSlider);
-
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(0, 0, 241, 95));
@@ -218,15 +227,15 @@ public:
 
         gridLayout->addWidget(addLight, 0, 2, 1, 1);
 
-        deleteLight = new QPushButton(layoutWidget);
-        deleteLight->setObjectName(QString::fromUtf8("deleteLight"));
-
-        gridLayout->addWidget(deleteLight, 2, 2, 1, 1);
-
         label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         gridLayout->addWidget(label_3, 0, 0, 1, 1);
+
+        deleteLight = new QPushButton(layoutWidget);
+        deleteLight->setObjectName(QString::fromUtf8("deleteLight"));
+
+        gridLayout->addWidget(deleteLight, 1, 2, 1, 1);
 
         layoutWidget1 = new QWidget(tab);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
@@ -236,36 +245,6 @@ public:
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        rLight = new QDoubleSpinBox(layoutWidget1);
-        rLight->setObjectName(QString::fromUtf8("rLight"));
-
-        gridLayout_3->addWidget(rLight, 1, 1, 1, 1);
-
-        gLight = new QDoubleSpinBox(layoutWidget1);
-        gLight->setObjectName(QString::fromUtf8("gLight"));
-
-        gridLayout_3->addWidget(gLight, 1, 2, 1, 1);
-
-        label_5 = new QLabel(layoutWidget1);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        gridLayout_3->addWidget(label_5, 0, 1, 1, 1);
-
-        paintLight = new QPushButton(layoutWidget1);
-        paintLight->setObjectName(QString::fromUtf8("paintLight"));
-
-        gridLayout_3->addWidget(paintLight, 0, 2, 1, 1);
-
-        aLight = new QDoubleSpinBox(layoutWidget1);
-        aLight->setObjectName(QString::fromUtf8("aLight"));
-
-        gridLayout_3->addWidget(aLight, 2, 2, 1, 1);
-
-        bLight = new QDoubleSpinBox(layoutWidget1);
-        bLight->setObjectName(QString::fromUtf8("bLight"));
-
-        gridLayout_3->addWidget(bLight, 2, 1, 1, 1);
-
         layoutWidget2 = new QWidget(tab);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
         layoutWidget2->setGeometry(QRect(0, 80, 250, 62));
@@ -274,31 +253,39 @@ public:
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        xPos = new QDoubleSpinBox(layoutWidget2);
-        xPos->setObjectName(QString::fromUtf8("xPos"));
-
-        gridLayout_2->addWidget(xPos, 2, 1, 1, 1);
-
-        yPos = new QDoubleSpinBox(layoutWidget2);
-        yPos->setObjectName(QString::fromUtf8("yPos"));
-
-        gridLayout_2->addWidget(yPos, 2, 2, 1, 1);
-
-        zPos = new QDoubleSpinBox(layoutWidget2);
-        zPos->setObjectName(QString::fromUtf8("zPos"));
-
-        gridLayout_2->addWidget(zPos, 2, 3, 1, 1);
-
-        label_4 = new QLabel(layoutWidget2);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout_2->addWidget(label_4, 1, 1, 1, 1);
-
-        moveLight = new QPushButton(layoutWidget2);
+        rLight = new QDoubleSpinBox(tab);
+        rLight->setObjectName(QString::fromUtf8("rLight"));
+        rLight->setGeometry(QRect(10, 205, 122, 25));
+        paintLight = new QPushButton(tab);
+        paintLight->setObjectName(QString::fromUtf8("paintLight"));
+        paintLight->setGeometry(QRect(138, 171, 101, 27));
+        bLight = new QDoubleSpinBox(tab);
+        bLight->setObjectName(QString::fromUtf8("bLight"));
+        bLight->setGeometry(QRect(10, 237, 122, 25));
+        moveLight = new QPushButton(tab);
         moveLight->setObjectName(QString::fromUtf8("moveLight"));
-
-        gridLayout_2->addWidget(moveLight, 1, 2, 1, 1);
-
+        moveLight->setGeometry(QRect(94, 110, 85, 27));
+        label_4 = new QLabel(tab);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(10, 110, 78, 27));
+        label_5 = new QLabel(tab);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(10, 171, 122, 27));
+        zPos = new QDoubleSpinBox(tab);
+        zPos->setObjectName(QString::fromUtf8("zPos"));
+        zPos->setGeometry(QRect(185, 143, 73, 25));
+        xPos = new QDoubleSpinBox(tab);
+        xPos->setObjectName(QString::fromUtf8("xPos"));
+        xPos->setGeometry(QRect(10, 143, 78, 25));
+        aLight = new QDoubleSpinBox(tab);
+        aLight->setObjectName(QString::fromUtf8("aLight"));
+        aLight->setGeometry(QRect(138, 237, 121, 25));
+        gLight = new QDoubleSpinBox(tab);
+        gLight->setObjectName(QString::fromUtf8("gLight"));
+        gLight->setGeometry(QRect(138, 205, 121, 25));
+        yPos = new QDoubleSpinBox(tab);
+        yPos->setObjectName(QString::fromUtf8("yPos"));
+        yPos->setGeometry(QRect(94, 143, 85, 25));
         tabWidget->addTab(tab, QString());
 
         horizontalLayout_2->addWidget(tabWidget);
@@ -322,7 +309,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 25));
+        menuBar->setGeometry(QRect(0, 0, 892, 21));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -369,8 +356,12 @@ public:
         QObject::connect(actionLoad, SIGNAL(triggered()), contextGL, SLOT(LoadFiles()));
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
+        QObject::connect(sizeSlider, SIGNAL(sliderMoved(int)), contextGL, SLOT(update()));
+        QObject::connect(rotationSlider, SIGNAL(sliderMoved(int)), contextGL, SLOT(update()));
+        QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
+        QObject::connect(deleteObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -386,18 +377,19 @@ public:
 #ifndef QT_NO_ACCESSIBILITY
         tab_3->setAccessibleName(QString());
 #endif // QT_NO_ACCESSIBILITY
-        loadMuseumButton->setText(QApplication::translate("UIGC2", "Load", 0, QApplication::UnicodeUTF8));
-        saveMuseumButton->setText(QApplication::translate("UIGC2", "Save", 0, QApplication::UnicodeUTF8));
+        loadMuseumButton->setText(QApplication::translate("UIGC2", "Carregar", 0, QApplication::UnicodeUTF8));
+        saveMuseumButton->setText(QApplication::translate("UIGC2", "Guardar", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("UIGC2", "Museus", 0, QApplication::UnicodeUTF8));
         createNewObjectButton->setText(QApplication::translate("UIGC2", "Crear", 0, QApplication::UnicodeUTF8));
         pathLabel->setText(QApplication::translate("UIGC2", "Figures", 0, QApplication::UnicodeUTF8));
         nameLabel->setText(QApplication::translate("UIGC2", "Nom", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("UIGC2", "Selecciona un objecte", 0, QApplication::UnicodeUTF8));
         deleteObjectButton->setText(QApplication::translate("UIGC2", "Elimina", 0, QApplication::UnicodeUTF8));
-        biggerObjectButton->setText(QApplication::translate("UIGC2", "M\303\251s gran", 0, QApplication::UnicodeUTF8));
-        smallerObjectButton->setText(QApplication::translate("UIGC2", "M\303\251s petit", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("UIGC2", "Mida", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("UIGC2", "-", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("UIGC2", "+", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("UIGC2", "Rotacio", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("UIGC2", "Objectes", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("UIGC2", "Potency", 0, QApplication::UnicodeUTF8));
         lightList->clear();
         lightList->insertItems(0, QStringList()
          << QApplication::translate("UIGC2", "Number", 0, QApplication::UnicodeUTF8)
@@ -410,12 +402,12 @@ public:
          << QApplication::translate("UIGC2", "6", 0, QApplication::UnicodeUTF8)
         );
         addLight->setText(QApplication::translate("UIGC2", "Add", 0, QApplication::UnicodeUTF8));
-        deleteLight->setText(QApplication::translate("UIGC2", "Delete", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("UIGC2", "Light", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("UIGC2", "Color (R, G, B, A)", 0, QApplication::UnicodeUTF8));
+        deleteLight->setText(QApplication::translate("UIGC2", "Delete", 0, QApplication::UnicodeUTF8));
         paintLight->setText(QApplication::translate("UIGC2", "Paint", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("UIGC2", "Pos (X, Y, Z)  ", 0, QApplication::UnicodeUTF8));
         moveLight->setText(QApplication::translate("UIGC2", "Move", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("UIGC2", "Pos (X, Y, Z)  ", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("UIGC2", "Color (R, G, B, A)", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("UIGC2", "Llums", 0, QApplication::UnicodeUTF8));
         menuColor_Fons->setStyleSheet(QApplication::translate("UIGC2", "background-color: rgb(255, 255, 255);\n"
 "", 0, QApplication::UnicodeUTF8));

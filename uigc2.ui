@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -70,7 +70,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Load</string>
+           <string>Carregar</string>
           </property>
          </widget>
          <widget class="QPushButton" name="saveMuseumButton">
@@ -83,7 +83,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Save</string>
+           <string>Guardar</string>
           </property>
          </widget>
         </widget>
@@ -186,30 +186,94 @@
            <string>Elimina</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="biggerObjectButton">
+         <widget class="QSlider" name="sizeSlider">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>240</y>
-            <width>85</width>
-            <height>27</height>
+            <x>30</x>
+            <y>280</y>
+            <width>160</width>
+            <height>23</height>
            </rect>
           </property>
-          <property name="text">
-           <string>Més gran</string>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>3</number>
+          </property>
+          <property name="value">
+           <number>2</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
-         <widget class="QPushButton" name="smallerObjectButton">
+         <widget class="QSlider" name="rotationSlider">
           <property name="geometry">
            <rect>
-            <x>120</x>
-            <y>240</y>
-            <width>85</width>
-            <height>27</height>
+            <x>30</x>
+            <y>340</y>
+            <width>160</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>4</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>250</y>
+            <width>31</width>
+            <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Més petit</string>
+           <string>Mida</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>280</y>
+            <width>16</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_8">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>280</y>
+            <width>16</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>320</y>
+            <width>58</width>
+            <height>15</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Rotacio</string>
           </property>
          </widget>
         </widget>
@@ -226,22 +290,7 @@
             <height>31</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>Potency</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSlider" name="potenciaSlider">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <layout class="QHBoxLayout" name="horizontalLayout_3"/>
          </widget>
          <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
@@ -304,17 +353,17 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="2">
-            <widget class="QPushButton" name="deleteLight">
-             <property name="text">
-              <string>Delete</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_3">
              <property name="text">
               <string>Light</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="deleteLight">
+             <property name="text">
+              <string>Delete</string>
              </property>
             </widget>
            </item>
@@ -329,34 +378,7 @@
             <height>95</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="1" column="1">
-            <widget class="QDoubleSpinBox" name="rLight"/>
-           </item>
-           <item row="1" column="2">
-            <widget class="QDoubleSpinBox" name="gLight"/>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Color (R, G, B, A)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QPushButton" name="paintLight">
-             <property name="text">
-              <string>Paint</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QDoubleSpinBox" name="aLight"/>
-           </item>
-           <item row="2" column="1">
-            <widget class="QDoubleSpinBox" name="bLight"/>
-           </item>
-          </layout>
+          <layout class="QGridLayout" name="gridLayout_3"/>
          </widget>
          <widget class="QWidget" name="layoutWidget2">
           <property name="geometry">
@@ -367,31 +389,129 @@
             <height>62</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="2" column="1">
-            <widget class="QDoubleSpinBox" name="xPos"/>
-           </item>
-           <item row="2" column="2">
-            <widget class="QDoubleSpinBox" name="yPos"/>
-           </item>
-           <item row="2" column="3">
-            <widget class="QDoubleSpinBox" name="zPos"/>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>Pos (X, Y, Z)  </string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="moveLight">
-             <property name="text">
-              <string>Move</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <layout class="QGridLayout" name="gridLayout_2"/>
+         </widget>
+         <widget class="QDoubleSpinBox" name="rLight">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>205</y>
+            <width>122</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="paintLight">
+          <property name="geometry">
+           <rect>
+            <x>138</x>
+            <y>171</y>
+            <width>101</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Paint</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="bLight">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>237</y>
+            <width>122</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="moveLight">
+          <property name="geometry">
+           <rect>
+            <x>94</x>
+            <y>110</y>
+            <width>85</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Move</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>78</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Pos (X, Y, Z)  </string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>171</y>
+            <width>122</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Color (R, G, B, A)</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="zPos">
+          <property name="geometry">
+           <rect>
+            <x>185</x>
+            <y>143</y>
+            <width>73</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="xPos">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>143</y>
+            <width>78</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="aLight">
+          <property name="geometry">
+           <rect>
+            <x>138</x>
+            <y>237</y>
+            <width>121</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="gLight">
+          <property name="geometry">
+           <rect>
+            <x>138</x>
+            <y>205</y>
+            <width>121</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="yPos">
+          <property name="geometry">
+           <rect>
+            <x>94</x>
+            <y>143</y>
+            <width>85</width>
+            <height>25</height>
+           </rect>
+          </property>
          </widget>
         </widget>
        </widget>
@@ -437,7 +557,7 @@
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -651,6 +771,70 @@
     <hint type="destinationlabel">
      <x>150</x>
      <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sizeSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>contextGL</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>301</x>
+     <y>355</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rotationSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>contextGL</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>405</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>289</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>createNewObjectButton</sender>
+   <signal>released()</signal>
+   <receiver>contextGL</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>108</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteObjectButton</sender>
+   <signal>released()</signal>
+   <receiver>contextGL</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>108</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
