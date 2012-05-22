@@ -1,7 +1,8 @@
 # -------------------------------------------------
 # Project created by QtCreator 2012-02-23T13:11:34
 # -------------------------------------------------
-unix:LIBS += -lGLEW -lGLU
+unix:LIBS += -lGLEW \
+    -lGLU
 
 # Llibreria OpenGl
 QT += core \
@@ -43,7 +44,9 @@ SOURCES += main.cpp \
     glm/glmimg_devil.c \
     glm/glm.cpp \
     glm/glm_util.cpp \
-    glm/glmimg.cpp
+    glm/glmimg.cpp \
+    waymanager.cpp \
+    xmlruta.cpp
 HEADERS += uigc2.h \
     Util.h \
     Model.h \
@@ -80,7 +83,9 @@ HEADERS += uigc2.h \
     glwidgetmap.h \
     pointer.h \
     glm/glmint.h \
-    glm/glm.h
+    glm/glm.h \
+    waymanager.h \
+    xmlruta.h
 FORMS += uigc2.ui
 OTHER_FILES += simple.vert \
     simple.frag \

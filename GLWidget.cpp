@@ -3,6 +3,7 @@
 #include "GLWidget.h"
 #include <iostream>
 #include <math.h>
+#include <waymanager.h>
 
 using namespace std;
 
@@ -261,6 +262,12 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
             case Qt::Key_0:
                 CameraControl::getInstance()->ChangeVisualMode();
                 updateGL();
+                break;
+            case Qt::Key_1:
+                CameraControl::getInstance()->ToggleOnRoute();
+                break;
+            case Qt::Key_P:
+                WayManager::getInstance()->pause();
                 break;
 
     }

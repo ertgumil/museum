@@ -1,6 +1,8 @@
 #include "cameracontrol.h"
 #include "collisionmanager.h"
 #include "math.h"
+#include "waymanager.h"
+#include "xmlruta.h"
 
 
 CameraControl* CameraControl::instance = NULL;
@@ -11,6 +13,7 @@ float CameraControl::AngleCam = 1.0f;
 float CameraControl::PitchCam = 1.0f;
 float CameraControl::Zoom = 40.0f;
 bool CameraControl::VisualMode = true;
+bool CameraControl::onRoute=false;
 float angleCamY = asin(30.0f/40.0f);
 
 CameraControl::CameraControl()
@@ -122,7 +125,18 @@ CameraControl* CameraControl::getInstance() {
     }
     return instance;
 }
-
+void CameraControl::updateRoute()
+{
+    float oldEye[3] = {Eye[0],Eye[1],Eye[2]};
+    QVector2D pos;
+    pos.setX(Eye[0]);
+    pos.setY(Eye[1]);
+    QVector2D dir = WayManager::getInstance()->getDir(pos);
+    Eye[0] += (float)dir.x();
+    Eye[1] += (float)dir.y();
+    Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
+    if(CollisionManager::getInstance()->TestCollisionSphere(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
+}
 void CameraControl::PutCam(){
 
 
@@ -133,7 +147,13 @@ void CameraControl::PutCam(){
     if (VisualMode)
         gluLookAt(Eye[0]+Target[0],Eye[1]+Target[1],Eye[2]+Target[2], Target[0], Target[1], Target[2], 0.0f, 0.0f, 1.0f);
     else
-        gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
+        if(onRoute)
+        {
+            updateRoute();
+            gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
+        }
+        else
+            gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
 
 
     glMatrixMode(GL_MODELVIEW); //escollim treballar amb la matriu MODELVIEW
@@ -281,4 +301,19 @@ void CameraControl::setTarget(float x,float y,float z)
 bool CameraControl::isSimsCam()
 {
     return VisualMode;
+}
+void CameraControl::ToggleOnRoute()
+{
+    if(!VisualMode)
+        onRoute = !onRoute;
+
+    if( onRoute)
+    {
+        xmlRuta::getInstance()->load("data/ruta1.xml");
+        QVector2D point = WayManager::getInstance()->getStartPoint();
+        Eye[0] = point.x();
+        Eye[1] = point.y();
+        Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
+    }
+
 }

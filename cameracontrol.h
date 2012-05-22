@@ -42,10 +42,13 @@ public:
     float* getCamConf();
     void setTarget(float, float, float);
     bool isSimsCam();
+    void ToggleOnRoute();
 
 
 
 private:
+            void updateRoute();
+
         static CameraControl* instance;
         static float Target[3];
         static float Eye[3];
@@ -54,6 +57,7 @@ private:
         static float PitchCam;
         static float Zoom;
         static bool VisualMode;
+        static bool onRoute;
 };
 
 #endif // CAMERACONTROL_H
