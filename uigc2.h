@@ -44,6 +44,8 @@ private slots:
     void on_addLight_clicked();
     void on_comboBoxObjectes_currentIndexChanged(const QString &arg1);
     void on_comboBoxObjectes_highlighted(const QString &arg1);
+    void on_loadMuseumButton_clicked();
+    void on_saveMuseumButton_clicked();
 };
 
 #endif // UIGC2_H

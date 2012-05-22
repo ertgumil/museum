@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Tue May 22 16:47:34 2012
-**      by: Qt User Interface Compiler version 4.8.0
+** Created: Tue May 22 19:23:38 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -47,6 +47,8 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QTabWidget *tabWidget;
     QWidget *tab_3;
+    QPushButton *loadMuseumButton;
+    QPushButton *saveMuseumButton;
     QWidget *tab_4;
     QLineEdit *pathEdit;
     QPushButton *createNewObjectButton;
@@ -137,6 +139,12 @@ public:
         tabWidget->setMaximumSize(QSize(250, 16777215));
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        loadMuseumButton = new QPushButton(tab_3);
+        loadMuseumButton->setObjectName(QString::fromUtf8("loadMuseumButton"));
+        loadMuseumButton->setGeometry(QRect(60, 100, 97, 27));
+        saveMuseumButton = new QPushButton(tab_3);
+        saveMuseumButton->setObjectName(QString::fromUtf8("saveMuseumButton"));
+        saveMuseumButton->setGeometry(QRect(60, 180, 97, 27));
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
@@ -314,7 +322,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 21));
+        menuBar->setGeometry(QRect(0, 0, 892, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuColor_Fons = new QMenu(menuBar);
         menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
@@ -362,7 +370,7 @@ public:
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -378,6 +386,8 @@ public:
 #ifndef QT_NO_ACCESSIBILITY
         tab_3->setAccessibleName(QString());
 #endif // QT_NO_ACCESSIBILITY
+        loadMuseumButton->setText(QApplication::translate("UIGC2", "Load", 0, QApplication::UnicodeUTF8));
+        saveMuseumButton->setText(QApplication::translate("UIGC2", "Save", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("UIGC2", "Museus", 0, QApplication::UnicodeUTF8));
         createNewObjectButton->setText(QApplication::translate("UIGC2", "Crear", 0, QApplication::UnicodeUTF8));
         pathLabel->setText(QApplication::translate("UIGC2", "Figures", 0, QApplication::UnicodeUTF8));

@@ -137,3 +137,27 @@ void UIGC2::on_smallerObjectButton_clicked()
     int id = ObjectManager::getInstance()->getCurrentObject();
     ObjectManager::getInstance()->GetObject(id)->escala /= 2;
 }
+
+void UIGC2::on_loadMuseumButton_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Document"),
+        QDir::currentPath(),
+        tr("All files (*.*)") );
+
+    XMLManager::getInstance()->load(filename.toStdString());
+
+}
+
+void UIGC2::on_saveMuseumButton_clicked()
+{
+    QString filename = QFileDialog::getSaveFileName(
+            this,
+            tr("Save Document"),
+            QDir::currentPath(),
+            tr("All files (*)") );
+
+    XMLManager::getInstance()->save(filename.toStdString());
+
+}
