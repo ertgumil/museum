@@ -58,18 +58,18 @@
           <string/>
          </property>
          <attribute name="title">
-          <string>Museums</string>
+          <string>Museus</string>
          </attribute>
         </widget>
         <widget class="QWidget" name="tab_4">
          <attribute name="title">
-          <string>Objects</string>
+          <string>Objectes</string>
          </attribute>
          <widget class="QLineEdit" name="pathEdit">
           <property name="geometry">
            <rect>
             <x>80</x>
-            <y>20</y>
+            <y>10</y>
             <width>113</width>
             <height>25</height>
            </rect>
@@ -78,14 +78,14 @@
          <widget class="QPushButton" name="createNewObjectButton">
           <property name="geometry">
            <rect>
-            <x>70</x>
-            <y>220</y>
+            <x>10</x>
+            <y>90</y>
             <width>85</width>
             <height>27</height>
            </rect>
           </property>
           <property name="text">
-           <string>Create</string>
+           <string>Crear</string>
           </property>
          </widget>
          <widget class="QLabel" name="pathLabel">
@@ -98,14 +98,14 @@
            </rect>
           </property>
           <property name="text">
-           <string>Figure</string>
+           <string>Figures</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="nameEdit">
           <property name="geometry">
            <rect>
             <x>80</x>
-            <y>60</y>
+            <y>50</y>
             <width>113</width>
             <height>25</height>
            </rect>
@@ -115,29 +115,81 @@
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>70</y>
+            <y>60</y>
             <width>58</width>
             <height>15</height>
            </rect>
           </property>
           <property name="text">
-           <string>Name</string>
+           <string>Nom</string>
           </property>
          </widget>
          <widget class="QComboBox" name="comboBoxObjectes">
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>100</y>
+            <y>150</y>
             <width>221</width>
             <height>27</height>
            </rect>
           </property>
          </widget>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>130</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Selecciona un objecte</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="deleteObjectButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>200</y>
+            <width>85</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Elimina</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="biggerObjectButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>240</y>
+            <width>85</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Més gran</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="smallerObjectButton">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>240</y>
+            <width>85</width>
+            <height>27</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Més petit</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="tab">
          <attribute name="title">
-          <string>Lights</string>
+          <string>Llums</string>
          </attribute>
          <widget class="QWidget" name="horizontalLayoutWidget">
           <property name="geometry">
@@ -359,7 +411,7 @@
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">
