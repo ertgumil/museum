@@ -1,0 +1,5 @@
+<MUSEU>
+  <OBJECTE name="asa" model="models/gio2.obj" posx="3.74726" posy="-10.3718" posz="2.46783" escx="1" escy="1" escz="1" rotw="-0.707107" rotx="8.64394e-18" roty="-5.55244e-17" rotz="0.707107" />
+  <OBJECTE name="asa2" model="models/gio3.obj" posx="3.10766" posy="14.369" posz="2.34374" escx="2" escy="2" escz="2" rotw="-0.707107" rotx="8.64394e-18" roty="-5.55244e-17" rotz="0.707107" />
+  <OBJECTE name="asa3" model="models/gio4.obj" posx="14.0632" posy="-11.1468" posz="2.46318" escx="2" escy="2" escz="2" rotw="0.707107" rotx="5.55112e-17" roty="5.55112e-17" rotz="0.707107" />
+</MUSEU>
