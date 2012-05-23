@@ -151,7 +151,7 @@ void UIGC2::on_saveMuseumButton_clicked()
 
 void UIGC2::on_sizeSlider_valueChanged(int value)
 {
-    int id = ObjectManager::getInstance()->getId();
+    int id = ObjectManager::getInstance()->currentobject;
     if(id > 0) {
             if(value==3)
             ObjectManager::getInstance()->GetObject(id)->escala *= 2;
@@ -162,7 +162,7 @@ void UIGC2::on_sizeSlider_valueChanged(int value)
 
 void UIGC2::on_rotationSlider_valueChanged(int value)
 {
-    int id = ObjectManager::getInstance()->getId();
+    int id = ObjectManager::getInstance()->currentobject;
     if(id > 0) {
         ObjectManager::getInstance()->GetObject(id)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
     }
