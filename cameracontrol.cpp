@@ -316,3 +316,7 @@ void CameraControl::ToggleOnRoute()
     }
 
 }
+float CameraControl::getAngleCam()
+{
+    return AngleCam;
+}

@@ -43,6 +43,7 @@ public:
     void setTarget(float, float, float);
     bool isSimsCam();
     void ToggleOnRoute();
+    float getAngleCam();
 
 
 
