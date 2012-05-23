@@ -114,7 +114,7 @@ void pointer::calcul2(float x, float y)
 
     if(CollisionManager::getInstance()->TestCollisionRay(pointCol,eye,dir))
     {
-        pos = QVector3D(*pointCol-x*cos(rads)*dist,*(pointCol+1)-x*sin(rads)*dist,*(pointCol+2)+y*dist);
+        pos = QVector3D(*pointCol-x*cos(rads)*dist,*(pointCol+1)+x*sin(rads)*dist,*(pointCol+2)+y*dist);
         //CameraControl::getInstance()->setTarget(pos[0],pos[1],pos[2]);
     }
     else
