@@ -77,14 +77,16 @@ void glwidgetmap::paintGL() {
     glFlush();
 
     glPushMatrix();
+        glColor3f(1.0f,0.0f,0.0f);//Pintamos de blanco el suelo
+
         glTranslatef(translacion_x,translacion_y,0.0);
 
         glBegin(GL_POLYGON);
                 //Dibujamos la forma de una flecha
-            glVertex3f(0.0, 0.0, -1.0);
-            glVertex3f(-0.1, -0.1, -1.0);
-            glVertex3f(0.0, 0.2, -1.0);
-            glVertex3f(0.1, -0.1, -1.0);
+            glVertex3f(0.0, -0.1, -1.0);
+            glVertex3f(-0.05, -0.15, -1.0);
+            glVertex3f(0.0, -0.2, -1.0);
+            glVertex3f(0.05, -0.15, -1.0);
         glEnd();
     glPopMatrix();
 

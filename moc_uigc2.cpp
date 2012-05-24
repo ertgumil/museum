@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'uigc2.h'
 **
-** Created: Wed May 23 20:19:29 2012
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
+** Created: Thu May 24 21:03:03 2012
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "uigc2.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'uigc2.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.2. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +20,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_UIGC2[] = {
 
  // content:
-       4,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
       21,   14, // methods
@@ -78,9 +78,45 @@ static const char qt_meta_stringdata_UIGC2[] = {
     "on_saveMuseumButton_clicked()\0"
 };
 
+void UIGC2::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        UIGC2 *_t = static_cast<UIGC2 *>(_o);
+        switch (_id) {
+        case 0: _t->on_rotationSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->on_sizeSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->on_deleteObjectButton_clicked(); break;
+        case 3: _t->on_nameEdit_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: _t->on_createNewObjectButton_clicked(); break;
+        case 5: _t->on_aLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 6: _t->on_bLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 7: _t->on_gLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 8: _t->on_rLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 9: _t->on_zPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 10: _t->on_yPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 11: _t->on_xPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 12: _t->on_lightList_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: _t->on_paintLight_clicked(); break;
+        case 14: _t->on_moveLight_clicked(); break;
+        case 15: _t->on_deleteLight_clicked(); break;
+        case 16: _t->on_addLight_clicked(); break;
+        case 17: _t->on_comboBoxObjectes_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 18: _t->on_comboBoxObjectes_highlighted((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 19: _t->on_loadMuseumButton_clicked(); break;
+        case 20: _t->on_saveMuseumButton_clicked(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData UIGC2::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject UIGC2::staticMetaObject = {
     { &QMainWindow::staticMetaObject, qt_meta_stringdata_UIGC2,
-      qt_meta_data_UIGC2, 0 }
+      qt_meta_data_UIGC2, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -106,30 +142,8 @@ int UIGC2::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: on_rotationSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: on_sizeSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: on_deleteObjectButton_clicked(); break;
-        case 3: on_nameEdit_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 4: on_createNewObjectButton_clicked(); break;
-        case 5: on_aLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 6: on_bLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 7: on_gLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 8: on_rLight_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 9: on_zPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 10: on_yPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 11: on_xPos_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 12: on_lightList_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 13: on_paintLight_clicked(); break;
-        case 14: on_moveLight_clicked(); break;
-        case 15: on_deleteLight_clicked(); break;
-        case 16: on_addLight_clicked(); break;
-        case 17: on_comboBoxObjectes_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 18: on_comboBoxObjectes_highlighted((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 19: on_loadMuseumButton_clicked(); break;
-        case 20: on_saveMuseumButton_clicked(); break;
-        default: ;
-        }
+        if (_id < 21)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 21;
     }
     return _id;

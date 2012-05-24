@@ -45,14 +45,14 @@ void CollisionManager::AddTriangle(float* pos1, float* pos2, float* pos3)
 
         //Obtenim els valors de caixa mínima
         xmin = xmin > pos1[0] ? pos1[0] : xmin;
-        qDebug() << "xmin" << xmin ;
+        //qDebug() << "xmin" << xmin ;
         xmax = xmax < pos1[0] ? pos1[0] : xmax;
-        qDebug() << "xmax" << xmax ;
+        //qDebug() << "xmax" << xmax ;
 
         ymin = ymin > pos2[0] ? pos2[0] : ymin;
-        qDebug() << "ymin" << ymin ;
+        //qDebug() << "ymin" << ymin ;
         ymax = ymax < pos2[0] ? pos2[0] : ymax;
-        qDebug() << "ymax" << ymax ;
+        //qDebug() << "ymax" << ymax ;
 
         zmin = zmin > pos3[0] ? pos3[0] : zmin;
         //qDebug() << "zmin" << zmin ;
