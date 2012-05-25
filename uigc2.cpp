@@ -8,6 +8,10 @@ UIGC2::UIGC2(QWidget *parent) :
     ui(new Ui::UIGC2)
 {
     ui->setupUi(this);
+    ui->tabWidget->setShown(false);
+    ui->contextGL->setShown(false);
+    ui->controlsWidget->setShown(false);
+    ui->minimapaWidget->setShown(false);
 }
 
 UIGC2::~UIGC2()
@@ -166,4 +170,22 @@ void UIGC2::on_rotationSlider_valueChanged(int value)
     if(id > 0) {
         ObjectManager::getInstance()->GetObject(id)->rotacio *= QQuaternion::fromAxisAndAngle(QVector3D(0,0,1),90);
     }
+}
+
+void UIGC2::on_editorButton_released()
+{
+    ui->menuWidget->setShown(false); //oculta el menu per triar el mode
+    ui->tabWidget->setShown(true);   //mostra el panell de botons
+    ui->contextGL->setShown(true); //activa el museu
+}
+
+void UIGC2::on_visitantButton_released()
+{
+    ui->menuWidget->setShown(false); //oculta el menu per triar el mode
+    ui->contextGL->setShown(true); //activa el museu
+}
+
+void UIGC2::on_controlsButton_released()
+{
+    ui->controlsWidget->setShown(false);    //desactiva el menu de controls
 }

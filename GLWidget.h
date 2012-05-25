@@ -34,12 +34,11 @@ public:
     GLWidget(QWidget *parent = NULL);
 
 public slots:
-    void SetBackgroundBlue();
     void SeveralViews();
     void OrthoView();
     void ProjView();
     void FullView();
-    void LoadFiles();
+    void ChangeCamera();
 
 protected:
     void initializeGL();

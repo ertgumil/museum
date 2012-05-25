@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Wed May 23 23:25:55 2012
+** Created: Fri May 25 20:33:57 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,6 +25,7 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
+#include <QtGui/QRadioButton>
 #include <QtGui/QSlider>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
@@ -42,9 +43,12 @@ public:
     QAction *actionLoad;
     QAction *actionFullscreen;
     QAction *actionWindowed;
+    QAction *actionPrimera_persona;
+    QAction *actionTercera_persona;
+    QAction *actionControls;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
-    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *BotonsLayout;
     QTabWidget *tabWidget;
     QWidget *tab_3;
     QPushButton *loadMuseumButton;
@@ -86,14 +90,19 @@ public:
     QDoubleSpinBox *aLight;
     QDoubleSpinBox *gLight;
     QDoubleSpinBox *yPos;
+    QWidget *menuWidget;
+    QPushButton *editorButton;
+    QPushButton *visitantButton;
+    QLabel *modesLabel;
     GLWidget *contextGL;
-    glwidgetmap *widget;
+    glwidgetmap *minimapaWidget;
+    QWidget *controlsWidget;
+    QRadioButton *controlsButton;
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
-    QMenu *menuColor_Fons;
     QMenu *menuOpcions;
-    QMenu *menuFile;
     QMenu *menuView;
+    QMenu *menuAjuda;
     QStatusBar *statusBar;
     QToolBar *toolBar;
     QToolBar *toolBar_2;
@@ -117,17 +126,23 @@ public:
         actionFullscreen->setObjectName(QString::fromUtf8("actionFullscreen"));
         actionWindowed = new QAction(UIGC2);
         actionWindowed->setObjectName(QString::fromUtf8("actionWindowed"));
+        actionPrimera_persona = new QAction(UIGC2);
+        actionPrimera_persona->setObjectName(QString::fromUtf8("actionPrimera_persona"));
+        actionTercera_persona = new QAction(UIGC2);
+        actionTercera_persona->setObjectName(QString::fromUtf8("actionTercera_persona"));
+        actionControls = new QAction(UIGC2);
+        actionControls->setObjectName(QString::fromUtf8("actionControls"));
         centralWidget = new QWidget(UIGC2);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(0);
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setSizeConstraint(QLayout::SetDefaultConstraint);
+        BotonsLayout = new QHBoxLayout();
+        BotonsLayout->setSpacing(0);
+        BotonsLayout->setContentsMargins(0, 0, 0, 0);
+        BotonsLayout->setObjectName(QString::fromUtf8("BotonsLayout"));
+        BotonsLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -280,17 +295,54 @@ public:
         yPos->setGeometry(QRect(94, 143, 85, 25));
         tabWidget->addTab(tab, QString());
 
-        horizontalLayout_2->addWidget(tabWidget);
+        BotonsLayout->addWidget(tabWidget);
 
 
-        horizontalLayout->addLayout(horizontalLayout_2);
+        horizontalLayout->addLayout(BotonsLayout);
+
+        menuWidget = new QWidget(centralWidget);
+        menuWidget->setObjectName(QString::fromUtf8("menuWidget"));
+        menuWidget->setEnabled(true);
+        menuWidget->setMinimumSize(QSize(0, 0));
+        menuWidget->setStyleSheet(QString::fromUtf8("background-image: url(:/images/menu.png);"));
+        editorButton = new QPushButton(menuWidget);
+        editorButton->setObjectName(QString::fromUtf8("editorButton"));
+        editorButton->setGeometry(QRect(160, 320, 121, 51));
+        editorButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
+"font: 14pt \"Lucida Grande\";\n"
+"color: rgb(255, 0, 0);"));
+        visitantButton = new QPushButton(menuWidget);
+        visitantButton->setObjectName(QString::fromUtf8("visitantButton"));
+        visitantButton->setGeometry(QRect(160, 270, 121, 51));
+        visitantButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
+"font: 14pt \"Lucida Grande\";\n"
+"color: rgb(255, 0, 0);"));
+        visitantButton->setDefault(false);
+        modesLabel = new QLabel(menuWidget);
+        modesLabel->setObjectName(QString::fromUtf8("modesLabel"));
+        modesLabel->setGeometry(QRect(20, 180, 171, 31));
+        QFont font;
+        font.setPointSize(12);
+        modesLabel->setFont(font);
+
+        horizontalLayout->addWidget(menuWidget);
 
         contextGL = new GLWidget(centralWidget);
         contextGL->setObjectName(QString::fromUtf8("contextGL"));
-        contextGL->setMinimumSize(QSize(600, 0));
-        widget = new glwidgetmap(contextGL);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 10, 201, 131));
+        contextGL->setMinimumSize(QSize(0, 0));
+        minimapaWidget = new glwidgetmap(contextGL);
+        minimapaWidget->setObjectName(QString::fromUtf8("minimapaWidget"));
+        minimapaWidget->setGeometry(QRect(10, 10, 201, 131));
+        controlsWidget = new QWidget(contextGL);
+        controlsWidget->setObjectName(QString::fromUtf8("controlsWidget"));
+        controlsWidget->setGeometry(QRect(10, 150, 251, 101));
+        controlsWidget->setStyleSheet(QString::fromUtf8("background-image: url(:/images/controls.png);"));
+        controlsButton = new QRadioButton(controlsWidget);
+        controlsButton->setObjectName(QString::fromUtf8("controlsButton"));
+        controlsButton->setGeometry(QRect(230, 80, 16, 21));
+        controlsButton->setContextMenuPolicy(Qt::NoContextMenu);
+        controlsButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
+"color: rgb(255, 0, 0);"));
 
         horizontalLayout->addWidget(contextGL);
 
@@ -301,16 +353,14 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 25));
+        menuBar->setGeometry(QRect(0, 0, 892, 21));
         menuBar->setMinimumSize(QSize(10, 10));
-        menuColor_Fons = new QMenu(menuBar);
-        menuColor_Fons->setObjectName(QString::fromUtf8("menuColor_Fons"));
         menuOpcions = new QMenu(menuBar);
         menuOpcions->setObjectName(QString::fromUtf8("menuOpcions"));
-        menuFile = new QMenu(menuBar);
-        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuView = new QMenu(menuBar);
         menuView->setObjectName(QString::fromUtf8("menuView"));
+        menuAjuda = new QMenu(menuBar);
+        menuAjuda->setObjectName(QString::fromUtf8("menuAjuda"));
         UIGC2->setMenuBar(menuBar);
         statusBar = new QStatusBar(UIGC2);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -334,26 +384,29 @@ public:
         toolBar_6->setObjectName(QString::fromUtf8("toolBar_6"));
         UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_6);
 
-        menuBar->addAction(menuColor_Fons->menuAction());
         menuBar->addAction(menuOpcions->menuAction());
-        menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuView->menuAction());
-        menuColor_Fons->addAction(actionBlau);
-        menuFile->addAction(actionLoad);
+        menuBar->addAction(menuAjuda->menuAction());
+        menuOpcions->addAction(actionPrimera_persona);
+        menuOpcions->addAction(actionTercera_persona);
         menuView->addAction(actionFullscreen);
         menuView->addAction(actionWindowed);
+        menuAjuda->addAction(actionControls);
 
         retranslateUi(UIGC2);
-        QObject::connect(actionBlau, SIGNAL(triggered()), contextGL, SLOT(SetBackgroundBlue()));
-        QObject::connect(actionLoad, SIGNAL(triggered()), contextGL, SLOT(LoadFiles()));
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
         QObject::connect(actionWindowed, SIGNAL(triggered()), UIGC2, SLOT(showMaximized()));
+        QObject::connect(actionPrimera_persona, SIGNAL(triggered()), contextGL, SLOT(ChangeCamera()));
+        QObject::connect(actionTercera_persona, SIGNAL(triggered()), contextGL, SLOT(ChangeCamera()));
         QObject::connect(sizeSlider, SIGNAL(sliderMoved(int)), contextGL, SLOT(update()));
         QObject::connect(rotationSlider, SIGNAL(sliderMoved(int)), contextGL, SLOT(update()));
         QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
         QObject::connect(deleteObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
+        QObject::connect(actionControls, SIGNAL(triggered()), controlsWidget, SLOT(show()));
+        QObject::connect(actionPrimera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(show()));
+        QObject::connect(actionTercera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(hide()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -366,6 +419,9 @@ public:
         actionLoad->setText(QApplication::translate("UIGC2", "Load", 0, QApplication::UnicodeUTF8));
         actionFullscreen->setText(QApplication::translate("UIGC2", "Fullscreen", 0, QApplication::UnicodeUTF8));
         actionWindowed->setText(QApplication::translate("UIGC2", "Windowed", 0, QApplication::UnicodeUTF8));
+        actionPrimera_persona->setText(QApplication::translate("UIGC2", "Primera persona", 0, QApplication::UnicodeUTF8));
+        actionTercera_persona->setText(QApplication::translate("UIGC2", "Tercera persona", 0, QApplication::UnicodeUTF8));
+        actionControls->setText(QApplication::translate("UIGC2", "Controls", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_ACCESSIBILITY
         tab_3->setAccessibleName(QString());
 #endif // QT_NO_ACCESSIBILITY
@@ -400,12 +456,13 @@ public:
         label_4->setText(QApplication::translate("UIGC2", "Pos (X, Y, Z)  ", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("UIGC2", "Color (R, G, B, A)", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("UIGC2", "Llums", 0, QApplication::UnicodeUTF8));
-        menuColor_Fons->setStyleSheet(QApplication::translate("UIGC2", "background-color: rgb(255, 255, 255);\n"
-"", 0, QApplication::UnicodeUTF8));
-        menuColor_Fons->setTitle(QApplication::translate("UIGC2", "Color Fons", 0, QApplication::UnicodeUTF8));
-        menuOpcions->setTitle(QApplication::translate("UIGC2", "Opcions", 0, QApplication::UnicodeUTF8));
-        menuFile->setTitle(QApplication::translate("UIGC2", "File", 0, QApplication::UnicodeUTF8));
-        menuView->setTitle(QApplication::translate("UIGC2", "View", 0, QApplication::UnicodeUTF8));
+        editorButton->setText(QApplication::translate("UIGC2", "Editor", 0, QApplication::UnicodeUTF8));
+        visitantButton->setText(QApplication::translate("UIGC2", "Visitant", 0, QApplication::UnicodeUTF8));
+        modesLabel->setText(QApplication::translate("UIGC2", "Escull quin mode vols", 0, QApplication::UnicodeUTF8));
+        controlsButton->setText(QApplication::translate("UIGC2", "OK", 0, QApplication::UnicodeUTF8));
+        menuOpcions->setTitle(QApplication::translate("UIGC2", "Camara", 0, QApplication::UnicodeUTF8));
+        menuView->setTitle(QApplication::translate("UIGC2", "Vista", 0, QApplication::UnicodeUTF8));
+        menuAjuda->setTitle(QApplication::translate("UIGC2", "Ajuda", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("UIGC2", "toolBar", 0, QApplication::UnicodeUTF8));
         toolBar_2->setWindowTitle(QApplication::translate("UIGC2", "toolBar_2", 0, QApplication::UnicodeUTF8));
         toolBar_3->setWindowTitle(QApplication::translate("UIGC2", "toolBar_3", 0, QApplication::UnicodeUTF8));

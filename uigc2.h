@@ -24,6 +24,9 @@ private:
     double newR, newG, newB, newA;
 
 private slots:
+    void on_controlsButton_released();
+    void on_visitantButton_released();
+    void on_editorButton_released();
     void on_rotationSlider_valueChanged(int value);
     void on_sizeSlider_valueChanged(int value);
     void on_deleteObjectButton_clicked();

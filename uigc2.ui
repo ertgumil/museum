@@ -20,7 +20,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0">
+     <layout class="QHBoxLayout" name="BotonsLayout" stretch="0">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -496,14 +496,87 @@
      </layout>
     </item>
     <item>
-     <widget class="GLWidget" name="contextGL" native="true">
+     <widget class="QWidget" name="menuWidget" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="minimumSize">
        <size>
-        <width>600</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>
-      <widget class="glwidgetmap" name="widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/images/menu.png);</string>
+      </property>
+      <widget class="QPushButton" name="editorButton">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>320</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 0, 0);
+font: 14pt &quot;Lucida Grande&quot;;
+color: rgb(255, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Editor</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="visitantButton">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>270</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 0, 0);
+font: 14pt &quot;Lucida Grande&quot;;
+color: rgb(255, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Visitant</string>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="modesLabel">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Escull quin mode vols</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="GLWidget" name="contextGL" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <widget class="glwidgetmap" name="minimapaWidget" native="true">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -512,6 +585,39 @@
          <height>131</height>
         </rect>
        </property>
+      </widget>
+      <widget class="QWidget" name="controlsWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>251</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/controls.png);</string>
+       </property>
+       <widget class="QRadioButton" name="controlsButton">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>80</y>
+          <width>16</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>OK</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -534,7 +640,7 @@
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -543,38 +649,29 @@
      <height>10</height>
     </size>
    </property>
-   <widget class="QMenu" name="menuColor_Fons">
-    <property name="styleSheet">
-     <string>background-color: rgb(255, 255, 255);
-</string>
-    </property>
-    <property name="title">
-     <string>Color Fons</string>
-    </property>
-    <addaction name="actionBlau"/>
-   </widget>
    <widget class="QMenu" name="menuOpcions">
     <property name="title">
-     <string>Opcions</string>
+     <string>Camara</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionLoad"/>
+    <addaction name="actionPrimera_persona"/>
+    <addaction name="actionTercera_persona"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>Vista</string>
     </property>
     <addaction name="actionFullscreen"/>
     <addaction name="actionWindowed"/>
    </widget>
-   <addaction name="menuColor_Fons"/>
+   <widget class="QMenu" name="menuAjuda">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="actionControls"/>
+   </widget>
    <addaction name="menuOpcions"/>
-   <addaction name="menuFile"/>
    <addaction name="menuView"/>
+   <addaction name="menuAjuda"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="toolBar">
@@ -663,6 +760,21 @@
     <string>Windowed</string>
    </property>
   </action>
+  <action name="actionPrimera_persona">
+   <property name="text">
+    <string>Primera persona</string>
+   </property>
+  </action>
+  <action name="actionTercera_persona">
+   <property name="text">
+    <string>Tercera persona</string>
+   </property>
+  </action>
+  <action name="actionControls">
+   <property name="text">
+    <string>Controls</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -672,10 +784,9 @@
    <header>GLWidget.h</header>
    <container>1</container>
    <slots>
-    <slot>SetBackgroundBlue()</slot>
     <slot>SetVistaProjeccio()</slot>
     <slot>SetVistaOrtogonal()</slot>
-    <slot>LoadFiles()</slot>
+    <slot>ChangeCamera()</slot>
    </slots>
   </customwidget>
   <customwidget>
@@ -687,38 +798,6 @@
  </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>actionBlau</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>SetBackgroundBlue()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>417</x>
-     <y>204</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionLoad</sender>
-   <signal>triggered()</signal>
-   <receiver>contextGL</receiver>
-   <slot>LoadFiles()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>417</x>
-     <y>205</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>actionFullscreen</sender>
    <signal>triggered()</signal>
@@ -752,14 +831,46 @@
    </hints>
   </connection>
   <connection>
+   <sender>actionPrimera_persona</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>ChangeCamera()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTercera_persona</sender>
+   <signal>triggered()</signal>
+   <receiver>contextGL</receiver>
+   <slot>ChangeCamera()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>sizeSlider</sender>
    <signal>sliderMoved(int)</signal>
    <receiver>contextGL</receiver>
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>217</x>
-     <y>361</y>
+     <x>209</x>
+     <y>375</y>
     </hint>
     <hint type="destinationlabel">
      <x>301</x>
@@ -774,8 +885,8 @@
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
-     <y>405</y>
+     <x>209</x>
+     <y>435</y>
     </hint>
     <hint type="destinationlabel">
      <x>289</x>
@@ -790,8 +901,8 @@
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>175</y>
+     <x>128</x>
+     <y>159</y>
     </hint>
     <hint type="destinationlabel">
      <x>310</x>
@@ -812,6 +923,54 @@
     <hint type="destinationlabel">
      <x>300</x>
      <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionControls</sender>
+   <signal>triggered()</signal>
+   <receiver>controlsWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>507</x>
+     <y>143</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPrimera_persona</sender>
+   <signal>triggered()</signal>
+   <receiver>minimapaWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTercera_persona</sender>
+   <signal>triggered()</signal>
+   <receiver>minimapaWidget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>118</y>
     </hint>
    </hints>
   </connection>
