@@ -1,4 +1,4 @@
 <MUSEU>
-  <OBJECTE name="dsad" model="models/objectes/chair.obj" posx="-26.0377" posy="0.0863869" posz="-7" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
-  <OBJECTE name="dsada" model="models/van_gogh/cartel.obj" posx="-31.418" posy="-27.5342" posz="-7" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="a" model="models/picasso/sueno-picasso.obj" posx="27.3438" posy="-8.55376" posz="8" escx="1" escy="1" escz="1" rotw="-0.707107" rotx="1.06219e-16" roty="-2.40305e-16" rotz="0.707107" />
+  <OBJECTE name="b" model="models/monet/el-paseo-mujer-sombrilla-monet.obj" posx="20.4573" posy="-27.6043" posz="8" escx="1" escy="1" escz="1" rotw="1.67157e-16" rotx="6.83589e-17" roty="-5.61346e-17" rotz="1" />
 </MUSEU>

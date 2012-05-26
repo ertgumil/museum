@@ -21,6 +21,7 @@ xmlRuta* xmlRuta::getInstance()
 
 void xmlRuta::load(std::string xmlFile)
 {
+    WayManager::getInstance()->reset();
     xmlParseFile(xmlFile);
 }
 

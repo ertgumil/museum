@@ -65,3 +65,8 @@ void WayManager::pause()
 {
     stop=!stop;
 }
+void WayManager::reset()
+{
+    coord.clear();
+    m_currentIndex=0;
+}

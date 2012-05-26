@@ -27,6 +27,7 @@ public:
     QVector2D getStartPoint();
     void addwayPoint(float x, float y);
     void pause();
+    void reset();
 
 private:
     static WayManager* instance;
