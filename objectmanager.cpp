@@ -81,6 +81,7 @@ void ObjectManager::RemoveObject(int id)
 
         trobat = NULL;
     }
+    count--;
 }
 
 void ObjectManager::RemoveAll()

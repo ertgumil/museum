@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Fri May 25 20:33:57 2012
+** Created: Sat May 26 15:16:30 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -405,8 +405,9 @@ public:
         QObject::connect(actionControls, SIGNAL(triggered()), controlsWidget, SLOT(show()));
         QObject::connect(actionPrimera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(show()));
         QObject::connect(actionTercera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(hide()));
+        QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(UIGC2);

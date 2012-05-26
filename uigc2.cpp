@@ -108,25 +108,30 @@ void UIGC2::on_nameEdit_textChanged(QString n)
 
 void UIGC2::on_comboBoxObjectes_currentIndexChanged(const QString &arg1)
 {
-    //GLWidget* test = this->findChild<GLWidget*>("contextGL");
-    //test->setCurrentObject(arg1);
-    ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
+    if(!arg1.isEmpty())
+        ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
 }
 
 void UIGC2::on_comboBoxObjectes_highlighted(const QString &arg1)
 {
-    ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
+    if(!arg1.isEmpty())
+        ObjectManager::getInstance()->setCurrentObject(ObjectManager::getInstance()->GetObject(arg1.toStdString())->id);
 }
 
 void UIGC2::on_deleteObjectButton_clicked()
 {
     int id = ObjectManager::getInstance()->getId();
-    if(id > 0) {
-        QString name = ObjectManager::getInstance()->GetObject(id)->name.c_str();
-        ObjectManager::getInstance()->RemoveObject(id);
+    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+    QString nomCombo = test->currentText();
 
-        //QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-        //test->removeItem(test->findText(name));
+    std::string nom;
+    nom = nomCombo.toStdString();
+
+    if(id > 0) {
+        int id = ObjectManager::getInstance()->GetObject(nom)->id;
+        ObjectManager::getInstance()->RemoveObject(id);
+        int borrar = test->findText(nomCombo);
+        test->removeItem(borrar);
     }
 }
 
@@ -152,7 +157,6 @@ void UIGC2::on_saveMuseumButton_clicked()
 
     XMLManager::getInstance()->save(filename.toStdString());
     XMLManager::getInstance()->save("data/default.xml");
-
 }
 
 void UIGC2::on_sizeSlider_valueChanged(int value)
@@ -186,6 +190,7 @@ void UIGC2::on_visitantButton_released()
     ui->menuWidget->setShown(false); //oculta el menu per triar el mode
     ui->contextGL->setShown(true); //activa el museu
     CameraControl::getInstance()->ChangeVisualMode();
+    ui->minimapaWidget->setShown(true);
     XMLManager::getInstance()->load("data/default.xml");
 }
 

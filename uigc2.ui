@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -841,8 +841,8 @@ color: rgb(255, 0, 0);</string>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>582</x>
-     <y>294</y>
+     <x>882</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -857,8 +857,8 @@ color: rgb(255, 0, 0);</string>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>582</x>
-     <y>294</y>
+     <x>882</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -873,8 +873,8 @@ color: rgb(255, 0, 0);</string>
      <y>375</y>
     </hint>
     <hint type="destinationlabel">
-     <x>301</x>
-     <y>355</y>
+     <x>882</x>
+     <y>398</y>
     </hint>
    </hints>
   </connection>
@@ -889,8 +889,8 @@ color: rgb(255, 0, 0);</string>
      <y>435</y>
     </hint>
     <hint type="destinationlabel">
-     <x>289</x>
-     <y>406</y>
+     <x>882</x>
+     <y>449</y>
     </hint>
    </hints>
   </connection>
@@ -905,8 +905,8 @@ color: rgb(255, 0, 0);</string>
      <y>159</y>
     </hint>
     <hint type="destinationlabel">
-     <x>310</x>
-     <y>208</y>
+     <x>882</x>
+     <y>251</y>
     </hint>
    </hints>
   </connection>
@@ -921,8 +921,8 @@ color: rgb(255, 0, 0);</string>
      <y>285</y>
     </hint>
     <hint type="destinationlabel">
-     <x>300</x>
-     <y>292</y>
+     <x>882</x>
+     <y>335</y>
     </hint>
    </hints>
   </connection>
@@ -937,8 +937,8 @@ color: rgb(255, 0, 0);</string>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>507</x>
-     <y>143</y>
+     <x>856</x>
+     <y>193</y>
     </hint>
    </hints>
   </connection>
@@ -971,6 +971,22 @@ color: rgb(255, 0, 0);</string>
     <hint type="destinationlabel">
      <x>706</x>
      <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>createNewObjectButton</sender>
+   <signal>released()</signal>
+   <receiver>contextGL</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
