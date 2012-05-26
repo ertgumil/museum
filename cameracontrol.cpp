@@ -50,13 +50,12 @@ void CameraControl::ChangeVisualMode(){
 
 
     if(VisualMode){ ///Camara Grua
-        Eye[0] = -61.98f;
-        Eye[1] = -1.34f;
-        Eye[2] = -4.03f;
-
-        Target[0] = 49.92f;
-        Target[1] = 0.91f;
-        Target[2] = 2.61f;
+       Eye[0] = 40.0f;
+       Eye[1] = 0.0f;
+       Eye[2] = 30.0f;
+       Target[0] = 0.0f;
+       Target[1] = 0.0f;
+       Target[2] = 0.0f;
        Zoom = 40.0f;
 
        Cam[0] = 30.0f;
