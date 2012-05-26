@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Sat May 26 15:16:30 2012
+** Created: Sat May 26 19:51:29 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,6 +46,8 @@ public:
     QAction *actionPrimera_persona;
     QAction *actionTercera_persona;
     QAction *actionControls;
+    QAction *actionComen_a_Ruta;
+    QAction *actionAcaba_Ruta;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QHBoxLayout *BotonsLayout;
@@ -103,6 +105,7 @@ public:
     QMenu *menuOpcions;
     QMenu *menuView;
     QMenu *menuAjuda;
+    QMenu *menuRutes;
     QStatusBar *statusBar;
     QToolBar *toolBar;
     QToolBar *toolBar_2;
@@ -132,6 +135,10 @@ public:
         actionTercera_persona->setObjectName(QString::fromUtf8("actionTercera_persona"));
         actionControls = new QAction(UIGC2);
         actionControls->setObjectName(QString::fromUtf8("actionControls"));
+        actionComen_a_Ruta = new QAction(UIGC2);
+        actionComen_a_Ruta->setObjectName(QString::fromUtf8("actionComen_a_Ruta"));
+        actionAcaba_Ruta = new QAction(UIGC2);
+        actionAcaba_Ruta->setObjectName(QString::fromUtf8("actionAcaba_Ruta"));
         centralWidget = new QWidget(UIGC2);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -353,7 +360,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 21));
+        menuBar->setGeometry(QRect(0, 0, 892, 23));
         menuBar->setMinimumSize(QSize(10, 10));
         menuOpcions = new QMenu(menuBar);
         menuOpcions->setObjectName(QString::fromUtf8("menuOpcions"));
@@ -361,6 +368,8 @@ public:
         menuView->setObjectName(QString::fromUtf8("menuView"));
         menuAjuda = new QMenu(menuBar);
         menuAjuda->setObjectName(QString::fromUtf8("menuAjuda"));
+        menuRutes = new QMenu(menuBar);
+        menuRutes->setObjectName(QString::fromUtf8("menuRutes"));
         UIGC2->setMenuBar(menuBar);
         statusBar = new QStatusBar(UIGC2);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -386,12 +395,15 @@ public:
 
         menuBar->addAction(menuOpcions->menuAction());
         menuBar->addAction(menuView->menuAction());
+        menuBar->addAction(menuRutes->menuAction());
         menuBar->addAction(menuAjuda->menuAction());
         menuOpcions->addAction(actionPrimera_persona);
         menuOpcions->addAction(actionTercera_persona);
         menuView->addAction(actionFullscreen);
         menuView->addAction(actionWindowed);
         menuAjuda->addAction(actionControls);
+        menuRutes->addAction(actionComen_a_Ruta);
+        menuRutes->addAction(actionAcaba_Ruta);
 
         retranslateUi(UIGC2);
         QObject::connect(actionFullscreen, SIGNAL(triggered()), UIGC2, SLOT(showFullScreen()));
@@ -407,7 +419,7 @@ public:
         QObject::connect(actionTercera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(hide()));
         QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -423,6 +435,8 @@ public:
         actionPrimera_persona->setText(QApplication::translate("UIGC2", "Primera persona", 0, QApplication::UnicodeUTF8));
         actionTercera_persona->setText(QApplication::translate("UIGC2", "Tercera persona", 0, QApplication::UnicodeUTF8));
         actionControls->setText(QApplication::translate("UIGC2", "Controls", 0, QApplication::UnicodeUTF8));
+        actionComen_a_Ruta->setText(QApplication::translate("UIGC2", "Comen\303\247a Ruta", 0, QApplication::UnicodeUTF8));
+        actionAcaba_Ruta->setText(QApplication::translate("UIGC2", "Acaba Ruta", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_ACCESSIBILITY
         tab_3->setAccessibleName(QString());
 #endif // QT_NO_ACCESSIBILITY
@@ -464,6 +478,7 @@ public:
         menuOpcions->setTitle(QApplication::translate("UIGC2", "Camara", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("UIGC2", "Vista", 0, QApplication::UnicodeUTF8));
         menuAjuda->setTitle(QApplication::translate("UIGC2", "Ajuda", 0, QApplication::UnicodeUTF8));
+        menuRutes->setTitle(QApplication::translate("UIGC2", "Rutes", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("UIGC2", "toolBar", 0, QApplication::UnicodeUTF8));
         toolBar_2->setWindowTitle(QApplication::translate("UIGC2", "toolBar_2", 0, QApplication::UnicodeUTF8));
         toolBar_3->setWindowTitle(QApplication::translate("UIGC2", "toolBar_3", 0, QApplication::UnicodeUTF8));

@@ -42,13 +42,14 @@ public:
     float* getCamConf();
     void setTarget(float, float, float);
     bool isSimsCam();
-    void ToggleOnRoute();
+    void StartRoute();
+    void StopRoute();
     float getAngleCam();
-
+    void updateRoute();
 
 
 private:
-            void updateRoute();
+
 
         static CameraControl* instance;
         static float Target[3];

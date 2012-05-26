@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -640,7 +640,7 @@ color: rgb(255, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -669,8 +669,16 @@ color: rgb(255, 0, 0);</string>
     </property>
     <addaction name="actionControls"/>
    </widget>
+   <widget class="QMenu" name="menuRutes">
+    <property name="title">
+     <string>Rutes</string>
+    </property>
+    <addaction name="actionComen_a_Ruta"/>
+    <addaction name="actionAcaba_Ruta"/>
+   </widget>
    <addaction name="menuOpcions"/>
    <addaction name="menuView"/>
+   <addaction name="menuRutes"/>
    <addaction name="menuAjuda"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -773,6 +781,16 @@ color: rgb(255, 0, 0);</string>
   <action name="actionControls">
    <property name="text">
     <string>Controls</string>
+   </property>
+  </action>
+  <action name="actionComen_a_Ruta">
+   <property name="text">
+    <string>Comença Ruta</string>
+   </property>
+  </action>
+  <action name="actionAcaba_Ruta">
+   <property name="text">
+    <string>Acaba Ruta</string>
    </property>
   </action>
  </widget>

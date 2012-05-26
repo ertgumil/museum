@@ -60,6 +60,7 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
    <value key="ToolChain" type="int">0</value>
+   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
  </data>
@@ -68,6 +69,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
+   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
  </data>
@@ -76,7 +78,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-JS8nwGffgb,guid=36d9d92648ec8ccddde67b4c4fc09dd1</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-nsDIB8Kyod,guid=3828c2d0c3b7723a6253c2804fc10437</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -84,33 +86,34 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=es</value>
     <value type="QString">GDM_LANG=es_ES.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-tCdo2c</value>
-    <value type="QString">GNOME_KEYRING_PID=1352</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-5UMn7x</value>
+    <value type="QString">GNOME_KEYRING_PID=1388</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">HOME=/home/charly</value>
+    <value type="QString">HOME=/home/dart</value>
     <value type="QString">LANG=es_ES.utf8</value>
     <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
-    <value type="QString">LOGNAME=charly</value>
+    <value type="QString">LIBGL_DRIVERS_PATH=/usr/lib/fglrx/dri</value>
+    <value type="QString">LOGNAME=dart</value>
     <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
-    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-charly</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-dart</value>
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/home/charly</value>
+    <value type="QString">PWD=/home/dart</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/charly-laptop:@/tmp/.ICE-unix/1370,unix/charly-laptop:/tmp/.ICE-unix/1370</value>
+    <value type="QString">SESSION_MANAGER=local/dart-laptop:@/tmp/.ICE-unix/1406,unix/dart-laptop:/tmp/.ICE-unix/1406</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1404</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-tCdo2c/ssh</value>
-    <value type="QString">USER=charly</value>
-    <value type="QString">USERNAME=charly</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-charly-fQchp6/database</value>
+    <value type="QString">SSH_AGENT_PID=1442</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-5UMn7x/ssh</value>
+    <value type="QString">USER=dart</value>
+    <value type="QString">USERNAME=dart</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-dart-6OKm4U/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=0e53760976e616aecf6baead4f4fceae-1338023377.164947-1955454647</value>
+    <value type="QString">XDG_SESSION_COOKIE=7c788596d040e8c52974e3124b08263f-1338049591.414363-676326714</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/charly/museum/EntornQTGC2.pro</value>
+    <value type="QString">/home/dart/Escritorio/museum/museum/EntornQTGC2.pro</value>
     <value type="QString">-spec</value>
     <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
@@ -118,7 +121,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
    <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/charly/museum</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/dart/Escritorio/museum/museum</value>
   </valuemap>
  </data>
  <data>
@@ -126,7 +129,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-JS8nwGffgb,guid=36d9d92648ec8ccddde67b4c4fc09dd1</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-nsDIB8Kyod,guid=3828c2d0c3b7723a6253c2804fc10437</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -134,30 +137,31 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=es</value>
     <value type="QString">GDM_LANG=es_ES.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-tCdo2c</value>
-    <value type="QString">GNOME_KEYRING_PID=1352</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-5UMn7x</value>
+    <value type="QString">GNOME_KEYRING_PID=1388</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">HOME=/home/charly</value>
+    <value type="QString">HOME=/home/dart</value>
     <value type="QString">LANG=es_ES.utf8</value>
     <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
-    <value type="QString">LOGNAME=charly</value>
+    <value type="QString">LIBGL_DRIVERS_PATH=/usr/lib/fglrx/dri</value>
+    <value type="QString">LOGNAME=dart</value>
     <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
-    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-charly</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-dart</value>
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/home/charly</value>
+    <value type="QString">PWD=/home/dart</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/charly-laptop:@/tmp/.ICE-unix/1370,unix/charly-laptop:/tmp/.ICE-unix/1370</value>
+    <value type="QString">SESSION_MANAGER=local/dart-laptop:@/tmp/.ICE-unix/1406,unix/dart-laptop:/tmp/.ICE-unix/1406</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1404</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-tCdo2c/ssh</value>
-    <value type="QString">USER=charly</value>
-    <value type="QString">USERNAME=charly</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-charly-fQchp6/database</value>
+    <value type="QString">SSH_AGENT_PID=1442</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-5UMn7x/ssh</value>
+    <value type="QString">USER=dart</value>
+    <value type="QString">USERNAME=dart</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-dart-6OKm4U/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=0e53760976e616aecf6baead4f4fceae-1338023377.164947-1955454647</value>
+    <value type="QString">XDG_SESSION_COOKIE=7c788596d040e8c52974e3124b08263f-1338049591.414363-676326714</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -165,7 +169,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/charly/museum</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/dart/Escritorio/museum/museum</value>
   </valuemap>
  </data>
  <data>

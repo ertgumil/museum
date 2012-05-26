@@ -24,6 +24,8 @@ private:
     double newR, newG, newB, newA;
 
 private slots:
+    void on_actionAcaba_Ruta_triggered();
+    void on_actionComen_a_Ruta_triggered();
     void on_controlsButton_released();
     void on_visitantButton_released();
     void on_editorButton_released();
@@ -48,6 +50,8 @@ private slots:
     void on_comboBoxObjectes_highlighted(const QString &arg1);
     void on_loadMuseumButton_clicked();
     void on_saveMuseumButton_clicked();
+
+
 };
 
 #endif // UIGC2_H

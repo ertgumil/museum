@@ -6,7 +6,7 @@ WayManager* WayManager::instance = NULL;
 
 WayManager::WayManager()
 {
-    m_vel = 2;
+    m_vel = 20;
     stop = false;
     m_currentIndex = 0;
 
@@ -25,13 +25,6 @@ WayManager* WayManager::getInstance() {
 QVector2D WayManager::getDir(QVector2D currentPos)
 {
      QVector2D dir = coord[m_currentIndex] - currentPos;
-    if (stop)
-    {
-        dir.setX(0);
-        dir.setY(0);
-        return dir;
-    }
-
 
     float max = std::max(fabs(dir.x()),fabs(dir.y()));
     if (dir.x()*dir.x() + dir.y()*dir.y()<0.2)

@@ -125,15 +125,17 @@ CameraControl* CameraControl::getInstance() {
 }
 void CameraControl::updateRoute()
 {
-    float oldEye[3] = {Eye[0],Eye[1],Eye[2]};
-    QVector2D pos;
-    pos.setX(Eye[0]);
-    pos.setY(Eye[1]);
-    QVector2D dir = WayManager::getInstance()->getDir(pos);
-    Eye[0] += (float)dir.x();
-    Eye[1] += (float)dir.y();
-    Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
-    if(CollisionManager::getInstance()->TestCollisionSphere(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
+    if(onRoute)
+    {
+        float oldEye[3] = {Eye[0],Eye[1],Eye[2]};
+        QVector2D pos;
+        pos.setX(Eye[0]);
+        pos.setY(Eye[1]);
+        QVector2D dir = WayManager::getInstance()->getDir(pos);
+        Eye[0] += (float)dir.x();
+        Eye[1] += (float)dir.y();
+        Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
+    }
 }
 void CameraControl::PutCam(){
 
@@ -147,7 +149,6 @@ void CameraControl::PutCam(){
     else
         if(onRoute)
         {
-            updateRoute();
             gluLookAt(Eye[0],Eye[1],Eye[2], Eye[0]+Target[0], Eye[1]+Target[1], Eye[2]+Target[2], 0.0f, 0.0f, 1.0f);
         }
         else
@@ -300,21 +301,21 @@ bool CameraControl::isSimsCam()
 {
     return VisualMode;
 }
-void CameraControl::ToggleOnRoute()
+void CameraControl::StartRoute()
 {
-    if(!VisualMode)
-        onRoute = !onRoute;
+    onRoute = true;
+    QVector2D point = WayManager::getInstance()->getStartPoint();
+    Eye[0] = point.x();
+    Eye[1] = point.y();
+    Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
 
-    if( onRoute)
-    {
-        xmlRuta::getInstance()->load("data/ruta1.xml");
-        QVector2D point = WayManager::getInstance()->getStartPoint();
-        Eye[0] = point.x();
-        Eye[1] = point.y();
-        Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);
-    }
 
 }
+void CameraControl::StopRoute()
+{
+    onRoute = false;
+}
+
 float CameraControl::getAngleCam()
 {
     return AngleCam;

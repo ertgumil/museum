@@ -170,12 +170,10 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
                 CameraControl::getInstance()->RefreshZoom(10);
                 updateGL();
               break;
-            case Qt::Key_1:
-                CameraControl::getInstance()->ToggleOnRoute();
-                break;
-            case Qt::Key_P:
-                WayManager::getInstance()->pause();
-                break;
+            case Qt::Key_Space:
+                CameraControl::getInstance()->updateRoute();
+                updateGL();
+              break;
     }
 }
 
@@ -186,13 +184,13 @@ void GLWidget::SeveralViews(){
 }
 
 void GLWidget::OrthoView(){
-    cout << "ortho" << endl;
-    m_project = false;
+
+    cout << "psssss" << endl;
     updateGL();
 }
 
 void GLWidget::ProjView(){
-    cout << "proj" << endl;
+
     m_project = true;
     updateGL();
 
@@ -206,6 +204,7 @@ void GLWidget::FullView(){
 }
 
 void GLWidget::ChangeCamera(){
+
     CameraControl::getInstance()->ChangeVisualMode();
     updateGL();
 }

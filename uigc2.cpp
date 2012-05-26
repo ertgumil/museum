@@ -1,6 +1,7 @@
 #include "uigc2.h"
 #include "ui_uigc2.h"
 #include "lightmanager.h"
+#include "xmlruta.h"
 
 
 UIGC2::UIGC2(QWidget *parent) :
@@ -197,4 +198,25 @@ void UIGC2::on_visitantButton_released()
 void UIGC2::on_controlsButton_released()
 {
     ui->controlsWidget->setShown(false);    //desactiva el menu de controls
+}
+
+void UIGC2::on_actionComen_a_Ruta_triggered()
+{
+    QString filename = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Route"),
+        "data",
+        tr("All files (*.xml)") );
+
+    xmlRuta::getInstance()->load((filename.toStdString()));
+    CameraControl::getInstance()->StartRoute();
+
+
+
+
+}
+
+void UIGC2::on_actionAcaba_Ruta_triggered()
+{
+   CameraControl::getInstance()->StopRoute();
 }
