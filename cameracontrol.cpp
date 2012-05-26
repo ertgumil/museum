@@ -50,14 +50,13 @@ void CameraControl::ChangeVisualMode(){
 
 
     if(VisualMode){ ///Camara Grua
-        Eye[0] = 40.0f;
-        Eye[1] = 0.0f;
-        Eye[2] = 30.0f;
+        Eye[0] = -61.98f;
+        Eye[1] = -1.34f;
+        Eye[2] = -4.03f;
 
-        Target[0] = 0.0f;
-        Target[1] = 0.0f;
-       Target[2] = 0.0f;
-
+        Target[0] = 49.92f;
+        Target[1] = 0.91f;
+        Target[2] = 2.61f;
        Zoom = 40.0f;
 
        Cam[0] = 30.0f;
@@ -264,9 +263,7 @@ void CameraControl::RefreshTarget(float x,float y, float z){
         if(CollisionManager::getInstance()->TestCollisionSphere(Eye[0],Eye[1],Eye[2])){ Eye[0] = oldEye[0]; Eye[1]=oldEye[1]; Eye[2] = oldEye[2];}
 
     }
-    printf("Eye %f %f %f\n",Eye[0], Eye[1], Eye[2]);
-    printf("Target %f %f %f\n",Target[0], Target[1], Target[2]);
-    printf("Cam %f %f %f %f\n",Cam[0], Cam[1], Cam[2], Cam[3]);
+
 
 }
 

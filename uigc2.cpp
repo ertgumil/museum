@@ -151,6 +151,8 @@ void UIGC2::on_saveMuseumButton_clicked()
             tr("XML files (*.xml)") );
 
     XMLManager::getInstance()->save(filename.toStdString());
+    XMLManager::getInstance()->save("data/default.xml");
+
 }
 
 void UIGC2::on_sizeSlider_valueChanged(int value)
@@ -184,7 +186,7 @@ void UIGC2::on_visitantButton_released()
     ui->menuWidget->setShown(false); //oculta el menu per triar el mode
     ui->contextGL->setShown(true); //activa el museu
     CameraControl::getInstance()->ChangeVisualMode();
-    XMLManager::getInstance()->load("data/museum1.xml");
+    XMLManager::getInstance()->load("data/default.xml");
 }
 
 void UIGC2::on_controlsButton_released()
