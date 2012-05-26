@@ -103,3 +103,6 @@ OTHER_FILES += simple.vert \
     expat/expat.dsp \
     glm/Makefile.in \
     glm/Makefile.am
+
+RESOURCES += \
+    imagenesRutas.qrc

@@ -91,7 +91,7 @@ void UIGC2::on_createNewObjectButton_clicked()
             QString path = QFileDialog::getOpenFileName(
                 this,
                 tr("Open Document"),
-                QDir::currentPath(),
+                "models",
                 tr("Obj Files (*.obj)") );
 
             ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
@@ -135,8 +135,8 @@ void UIGC2::on_loadMuseumButton_clicked()
     QString filename = QFileDialog::getOpenFileName(
         this,
         tr("Open Document"),
-        QDir::currentPath(),
-        tr("All files (*.*)") );
+        "data",
+        tr("All files (*.xml)") );
 
     XMLManager::getInstance()->load(filename.toStdString());
 
@@ -147,8 +147,8 @@ void UIGC2::on_saveMuseumButton_clicked()
     QString filename = QFileDialog::getSaveFileName(
             this,
             tr("Save Document"),
-            QDir::currentPath(),
-            tr("All files (*)") );
+            "data",
+            tr("XML files (*.xml)") );
 
     XMLManager::getInstance()->save(filename.toStdString());
 }
@@ -183,6 +183,7 @@ void UIGC2::on_visitantButton_released()
 {
     ui->menuWidget->setShown(false); //oculta el menu per triar el mode
     ui->contextGL->setShown(true); //activa el museu
+    XMLManager::getInstance()->load("data/museum2.xml");
 }
 
 void UIGC2::on_controlsButton_released()
