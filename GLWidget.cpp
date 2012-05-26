@@ -36,12 +36,12 @@ void GLWidget::initializeGL() {
 
     isMouseReleased = true;
 
-    alphaCamera = 1.0;
-    betaCamera = 1.0;
-    xCamera = 1.0;
-    yCamera = 1.0;
+    alphaCamera = 20.0;
+    betaCamera = 79.0;
+    xCamera = 79.0;
+    yCamera = 20.0;
 
-    m_R = 1.0f;
+    m_R = 0.0f;
     m_ull_x = 1.0f;
     m_ull_y = 1.0f;
     m_ull_z = 1.0f;
@@ -49,7 +49,7 @@ void GLWidget::initializeGL() {
     float w = width();
     float h = height();
 
-    glViewport(0, 0, w, h);
+    glViewport(1, 1, w, h);
 
     this->setFocusPolicy(Qt::StrongFocus);  //Necessari pels events de teclat
 

@@ -42,12 +42,17 @@ void XMLManager::save(std::string xmlPath)
         pos = (*iter)->posicio;
         esc = (*iter)->escala;
         rot = (*iter)->rotacio;
+        std::string line1 = (*iter)->pathmodel;
+        QString lin2 = QString(line1.c_str());
+        QRegExp rx( "[a-zA-Z\/]+/models" );      // match ampersands but not &amp;
+        lin2.replace( rx, "models" );
+        qDebug("A string: %s", qPrintable(lin2));
+        line1 = lin2.toStdString();
+
 
         outfile << "  <OBJECTE";
         outfile << " name=\"" << (*iter)->name <<"\"";
-        QRegExp rx("(models/*)");
-        rx.indexIn((*iter)->pathmodel , 0);
-        outfile << " model=\"" << rx.cap(1) <<"\"";
+        outfile << " model=\"" << line1 <<"\"";
 
         outfile << " posx=\"" << pos.x() << "\"";
         outfile << " posy=\"" << pos.y() << "\"";
