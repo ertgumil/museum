@@ -184,7 +184,7 @@ void UIGC2::on_visitantButton_released()
     ui->menuWidget->setShown(false); //oculta el menu per triar el mode
     ui->contextGL->setShown(true); //activa el museu
     CameraControl::getInstance()->ChangeVisualMode();
-    XMLManager::getInstance()->load("data/museum3.xml");
+    XMLManager::getInstance()->load("data/museum2.xml");
 }
 
 void UIGC2::on_controlsButton_released()

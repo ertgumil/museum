@@ -1,7 +1,7 @@
 <MUSEU>
-  <OBJECTE name="da_vinci1" model="/home/abderra/Escritorio/grafics/museum/models/da_vinci/virgen-huso-leonardo.obj" posx="-33.1744" posy="71.4409" posz="8.48178" escx="1" escy="1" escz="1" rotw="-1" rotx="1.45825e-16" roty="-2.53297e-16" rotz="1.29074e-15" />
-  <OBJECTE name="da_vinci2" model="/home/abderra/Escritorio/grafics/museum/models/da_vinci/ultima-cena-reproduccion.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
-  <OBJECTE name="da_vinci3" model="/home/abderra/Escritorio/grafics/museum/models/da_vinci/mona-lisa-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
-  <OBJECTE name="da_vinci4" model="/home/abderra/Escritorio/grafics/museum/models/da_vinci/la-scapigliata-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
-  <OBJECTE name="da_vinci5" model="/home/abderra/Escritorio/grafics/museum/models/da_vinci/dama-armino-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="da_vinci1" model="models/da_vinci/virgen-huso-leonardo.obj" posx="-33.1744" posy="71.4409" posz="8.48178" escx="1" escy="1" escz="1" rotw="-1" rotx="1.45825e-16" roty="-2.53297e-16" rotz="1.29074e-15" />
+  <OBJECTE name="da_vinci2" model="models/da_vinci/ultima-cena-reproduccion.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="da_vinci3" model="models/da_vinci/mona-lisa-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="da_vinci4" model="models/da_vinci/la-scapigliata-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="da_vinci5" model="models/da_vinci/dama-armino-da-vinci.obj" posx="0" posy="0" posz="0" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
 </MUSEU>

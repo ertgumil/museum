@@ -45,7 +45,9 @@ void XMLManager::save(std::string xmlPath)
 
         outfile << "  <OBJECTE";
         outfile << " name=\"" << (*iter)->name <<"\"";
-        outfile << " model=\"" << (*iter)->pathmodel <<"\"";
+        QRegExp rx("(models/*)");
+        rx.indexIn((*iter)->pathmodel , 0);
+        outfile << " model=\"" << rx.cap(1) <<"\"";
 
         outfile << " posx=\"" << pos.x() << "\"";
         outfile << " posy=\"" << pos.y() << "\"";
