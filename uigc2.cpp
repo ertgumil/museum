@@ -143,8 +143,9 @@ void UIGC2::on_loadMuseumButton_clicked()
         tr("Open Document"),
         "data",
         tr("All files (*.xml)") );
-
-    XMLManager::getInstance()->load(filename.toStdString());
+    if(filename.length() > 0){
+           XMLManager::getInstance()->load(filename.toStdString());
+    }
 
 }
 
@@ -193,6 +194,7 @@ void UIGC2::on_visitantButton_released()
     CameraControl::getInstance()->ChangeVisualMode();
     ui->minimapaWidget->setShown(true);
     XMLManager::getInstance()->load("data/default.xml");
+    pointer::getInstance()->visitantOn();
 }
 
 void UIGC2::on_controlsButton_released()
@@ -210,8 +212,6 @@ void UIGC2::on_actionComen_a_Ruta_triggered()
 
     xmlRuta::getInstance()->load((filename.toStdString()));
     CameraControl::getInstance()->StartRoute();
-
-
 
 
 }

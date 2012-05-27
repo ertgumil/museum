@@ -1,4 +1,5 @@
 <MUSEU>
-  <OBJECTE name="a" model="models/picasso/sueno-picasso.obj" posx="27.3438" posy="-8.55376" posz="8" escx="1" escy="1" escz="1" rotw="-0.707107" rotx="1.06219e-16" roty="-2.40305e-16" rotz="0.707107" />
-  <OBJECTE name="b" model="models/monet/el-paseo-mujer-sombrilla-monet.obj" posx="20.4573" posy="-27.6043" posz="8" escx="1" escy="1" escz="1" rotw="1.67157e-16" rotx="6.83589e-17" roty="-5.61346e-17" rotz="1" />
+  <OBJECTE name="monalisa" model="models/gio5.obj" posx="2.94846" posy="-7.28845" posz="1" escx="0.5" escy="0.5" escz="0.5" rotw="0.707107" rotx="1.11022e-16" roty="0" rotz="0.707107" />
+  <OBJECTE name="vango" model="models/van_gogh/casa-en-campo-de-trigo-van-gogh.obj" posx="3.00594" posy="12.5574" posz="1" escx="2" escy="2" escz="2" rotw="-0.707107" rotx="8.64394e-18" roty="-8.80302e-17" rotz="0.707107" />
+  <OBJECTE name="silla" model="models/objectes/sofa3plazas.obj" posx="-50.2208" posy="-0.369801" posz="-9" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
 </MUSEU>

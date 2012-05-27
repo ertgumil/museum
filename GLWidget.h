@@ -40,6 +40,7 @@ public slots:
     void FullView();
     void ChangeCamera();
 
+
 protected:
     void initializeGL();
     void resizeGL(int w, int h);
@@ -69,7 +70,6 @@ private:
 
     float xCamera;
     float yCamera;
-
     QGLShaderProgram m_shader;
     enum viewEnum { PROJEC, ORTHO, PLANTA, ALCAT, PERFIL, ISOMETRICA, FULL };
 

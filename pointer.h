@@ -19,8 +19,10 @@ public:
     void calculPos(float x, float y);
     void calcul(float x, float y);
     void calcul2(float x, float y);
+    void visitantOn();
 private:
     static pointer* instance;
+    int visitant;
 };
 
 #endif // POINTER_H

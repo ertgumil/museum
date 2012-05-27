@@ -209,13 +209,19 @@ void pointer::calcul(float x, float y)
 }
 
 void pointer::changePos(float x, float y, int id) {
-    if(CameraControl::getInstance()->isSimsCam())
-        calcul(x,y);
-    else
-        calcul2(x,y);
+    if(visitant!=1){
+        if(CameraControl::getInstance()->isSimsCam())
+            calcul(x,y);
+        else
+            calcul2(x,y);
 
-    if(ObjectManager::getInstance()->getId() > 0)
-        ObjectManager::getInstance()->GetObject(id)->posicio = pos;
+        if(ObjectManager::getInstance()->getId() > 0)
+            ObjectManager::getInstance()->GetObject(id)->posicio = pos;
+    }
+}
+
+void pointer::visitantOn(){
+    visitant=1;
 }
 
 

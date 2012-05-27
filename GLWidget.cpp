@@ -71,6 +71,8 @@ void GLWidget::resizeGL(int w, int h) {
     CameraControl::getInstance()->ConfigureAspect(float(w)/float(h));
 }
 
+
+
 void GLWidget::paintGL() {
     glClearDepth(1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //limpiar buffers
@@ -116,7 +118,6 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
         float h = height()/2;
         int id = ObjectManager::getInstance()->getCurrentObject();
         pointer::getInstance()->changePos((w-event->x())/w,(h-event->y())/h,id);
-
         updateGL();
     }
     if (isZoom && !isMouseReleased) {
