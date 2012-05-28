@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon May 28 16:15:06 2012
+** Created: Mon May 28 16:22:40 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -30,7 +30,6 @@
 #include <QtGui/QSlider>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
-#include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 #include "GLWidget.h"
 #include "glwidgetmap.h"
@@ -101,19 +100,12 @@ public:
     glwidgetmap *minimapaWidget;
     QWidget *controlsWidget;
     QRadioButton *controlsButton;
-    QToolBar *mainToolBar;
     QMenuBar *menuBar;
     QMenu *menuOpcions;
     QMenu *menuView;
     QMenu *menuAjuda;
     QMenu *menuRutes;
     QStatusBar *statusBar;
-    QToolBar *toolBar;
-    QToolBar *toolBar_2;
-    QToolBar *toolBar_3;
-    QToolBar *toolBar_4;
-    QToolBar *toolBar_5;
-    QToolBar *toolBar_6;
 
     void setupUi(QMainWindow *UIGC2)
     {
@@ -351,7 +343,7 @@ public:
         controlsWidget->setStyleSheet(QString::fromUtf8("background-image: url(:/images/controls.png);"));
         controlsButton = new QRadioButton(controlsWidget);
         controlsButton->setObjectName(QString::fromUtf8("controlsButton"));
-        controlsButton->setGeometry(QRect(230, 80, 16, 21));
+        controlsButton->setGeometry(QRect(0, 0, 16, 21));
         controlsButton->setContextMenuPolicy(Qt::NoContextMenu);
         controlsButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
 "color: rgb(255, 0, 0);"));
@@ -359,9 +351,6 @@ public:
         horizontalLayout->addWidget(contextGL);
 
         UIGC2->setCentralWidget(centralWidget);
-        mainToolBar = new QToolBar(UIGC2);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, mainToolBar);
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
@@ -379,24 +368,6 @@ public:
         statusBar = new QStatusBar(UIGC2);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         UIGC2->setStatusBar(statusBar);
-        toolBar = new QToolBar(UIGC2);
-        toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar);
-        toolBar_2 = new QToolBar(UIGC2);
-        toolBar_2->setObjectName(QString::fromUtf8("toolBar_2"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_2);
-        toolBar_3 = new QToolBar(UIGC2);
-        toolBar_3->setObjectName(QString::fromUtf8("toolBar_3"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_3);
-        toolBar_4 = new QToolBar(UIGC2);
-        toolBar_4->setObjectName(QString::fromUtf8("toolBar_4"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_4);
-        toolBar_5 = new QToolBar(UIGC2);
-        toolBar_5->setObjectName(QString::fromUtf8("toolBar_5"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_5);
-        toolBar_6 = new QToolBar(UIGC2);
-        toolBar_6->setObjectName(QString::fromUtf8("toolBar_6"));
-        UIGC2->addToolBar(Qt::TopToolBarArea, toolBar_6);
 
         menuBar->addAction(menuOpcions->menuAction());
         menuBar->addAction(menuView->menuAction());
@@ -483,12 +454,6 @@ public:
         menuView->setTitle(QApplication::translate("UIGC2", "Vista", 0, QApplication::UnicodeUTF8));
         menuAjuda->setTitle(QApplication::translate("UIGC2", "Ajuda", 0, QApplication::UnicodeUTF8));
         menuRutes->setTitle(QApplication::translate("UIGC2", "Rutes", 0, QApplication::UnicodeUTF8));
-        toolBar->setWindowTitle(QApplication::translate("UIGC2", "toolBar", 0, QApplication::UnicodeUTF8));
-        toolBar_2->setWindowTitle(QApplication::translate("UIGC2", "toolBar_2", 0, QApplication::UnicodeUTF8));
-        toolBar_3->setWindowTitle(QApplication::translate("UIGC2", "toolBar_3", 0, QApplication::UnicodeUTF8));
-        toolBar_4->setWindowTitle(QApplication::translate("UIGC2", "toolBar_4", 0, QApplication::UnicodeUTF8));
-        toolBar_5->setWindowTitle(QApplication::translate("UIGC2", "toolBar_5", 0, QApplication::UnicodeUTF8));
-        toolBar_6->setWindowTitle(QApplication::translate("UIGC2", "toolBar_6", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

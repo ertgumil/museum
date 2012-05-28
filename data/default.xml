@@ -1,5 +1,5 @@
 <MUSEU>
   <OBJECTE name="monalisa" model="models/gio5.obj" posx="3.09301" posy="-9.11862" posz="1" escx="0.5" escy="0.5" escz="0.5" rotw="0.707107" rotx="1.11022e-16" roty="0" rotz="0.707107" />
   <OBJECTE name="vango" model="models/van_gogh/casa-en-campo-de-trigo-van-gogh.obj" posx="2.93303" posy="14.359" posz="1" escx="2" escy="2" escz="2" rotw="-0.707107" rotx="8.64394e-18" roty="-8.80302e-17" rotz="0.707107" />
-  <OBJECTE name="silla" model="models/objectes/sofa3plazas.obj" posx="-54.2417" posy="-24.8756" posz="-9.0019" escx="1" escy="1" escz="1" rotw="1" rotx="0" roty="0" rotz="0" />
+  <OBJECTE name="silla" model="models/objectes/sofa3plazas.obj" posx="-54.2417" posy="-24.8756" posz="-9.0019" escx="2" escy="2" escz="2" rotw="1" rotx="0" roty="0" rotz="0" />
 </MUSEU>
