@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon May 28 16:22:40 2012
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Mon May 28 17:03:53 2012
+**      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -152,6 +152,7 @@ public:
         tabWidget->setSizePolicy(sizePolicy);
         tabWidget->setMinimumSize(QSize(250, 0));
         tabWidget->setMaximumSize(QSize(250, 16777215));
+        tabWidget->setStyleSheet(QString::fromUtf8(""));
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         loadMuseumButton = new QPushButton(tab_3);
@@ -175,6 +176,7 @@ public:
         comboBoxObjectes = new QComboBox(tab_4);
         comboBoxObjectes->setObjectName(QString::fromUtf8("comboBoxObjectes"));
         comboBoxObjectes->setGeometry(QRect(10, 150, 221, 27));
+        comboBoxObjectes->setStyleSheet(QString::fromUtf8("selection-color: rgb(255, 0, 0);"));
         label = new QLabel(tab_4);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 130, 131, 16));
@@ -354,7 +356,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 25));
+        menuBar->setGeometry(QRect(0, 0, 892, 21));
         menuBar->setMinimumSize(QSize(10, 10));
         menuOpcions = new QMenu(menuBar);
         menuOpcions->setObjectName(QString::fromUtf8("menuOpcions"));
@@ -395,7 +397,7 @@ public:
         QObject::connect(actionTercera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(hide()));
         QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -430,7 +432,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("UIGC2", "Objectes", 0, QApplication::UnicodeUTF8));
         lightList->clear();
         lightList->insertItems(0, QStringList()
-         << QApplication::translate("UIGC2", "Number", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("UIGC2", "Numero de llum", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "0", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "1", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "2", 0, QApplication::UnicodeUTF8)
@@ -439,11 +441,11 @@ public:
          << QApplication::translate("UIGC2", "5", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "6", 0, QApplication::UnicodeUTF8)
         );
-        addLight->setText(QApplication::translate("UIGC2", "Add", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("UIGC2", "Light", 0, QApplication::UnicodeUTF8));
-        deleteLight->setText(QApplication::translate("UIGC2", "Delete", 0, QApplication::UnicodeUTF8));
-        paintLight->setText(QApplication::translate("UIGC2", "Paint", 0, QApplication::UnicodeUTF8));
-        moveLight->setText(QApplication::translate("UIGC2", "Move", 0, QApplication::UnicodeUTF8));
+        addLight->setText(QApplication::translate("UIGC2", "Afegir", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("UIGC2", "Llum", 0, QApplication::UnicodeUTF8));
+        deleteLight->setText(QApplication::translate("UIGC2", "Eliminar", 0, QApplication::UnicodeUTF8));
+        paintLight->setText(QApplication::translate("UIGC2", "Pintar", 0, QApplication::UnicodeUTF8));
+        moveLight->setText(QApplication::translate("UIGC2", "Moure", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("UIGC2", "Pos (X, Y, Z)  ", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("UIGC2", "Color (R, G, B, A)", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("UIGC2", "Llums", 0, QApplication::UnicodeUTF8));

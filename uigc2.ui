@@ -50,8 +50,11 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -135,6 +138,9 @@
             <width>221</width>
             <height>27</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">selection-color: rgb(255, 0, 0);</string>
           </property>
          </widget>
          <widget class="QLabel" name="label">
