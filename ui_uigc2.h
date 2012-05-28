@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon May 28 14:30:15 2012
+** Created: Mon May 28 16:15:06 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QDoubleSpinBox>
+#include <QtGui/QGraphicsView>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
@@ -95,7 +96,7 @@ public:
     QWidget *menuWidget;
     QPushButton *editorButton;
     QPushButton *visitantButton;
-    QLabel *modesLabel;
+    QGraphicsView *graphicsView;
     GLWidget *contextGL;
     glwidgetmap *minimapaWidget;
     QWidget *controlsWidget;
@@ -311,26 +312,30 @@ public:
         menuWidget->setObjectName(QString::fromUtf8("menuWidget"));
         menuWidget->setEnabled(true);
         menuWidget->setMinimumSize(QSize(0, 0));
-        menuWidget->setStyleSheet(QString::fromUtf8("background-image: url(:/images/menu.png);"));
+        menuWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
         editorButton = new QPushButton(menuWidget);
         editorButton->setObjectName(QString::fromUtf8("editorButton"));
         editorButton->setGeometry(QRect(160, 320, 121, 51));
         editorButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
 "font: 14pt \"Lucida Grande\";\n"
-"color: rgb(255, 0, 0);"));
+"color: rgb(255, 255, 255);"));
         visitantButton = new QPushButton(menuWidget);
         visitantButton->setObjectName(QString::fromUtf8("visitantButton"));
         visitantButton->setGeometry(QRect(160, 270, 121, 51));
         visitantButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
 "font: 14pt \"Lucida Grande\";\n"
-"color: rgb(255, 0, 0);"));
+"color: rgb(255, 255, 255);"));
         visitantButton->setDefault(false);
-        modesLabel = new QLabel(menuWidget);
-        modesLabel->setObjectName(QString::fromUtf8("modesLabel"));
-        modesLabel->setGeometry(QRect(20, 180, 171, 31));
-        QFont font;
-        font.setPointSize(12);
-        modesLabel->setFont(font);
+        graphicsView = new QGraphicsView(menuWidget);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setGeometry(QRect(0, 0, 886, 520));
+        graphicsView->setStyleSheet(QString::fromUtf8("background-image: url(:/images/menu.png);"));
+        graphicsView->setFrameShape(QFrame::NoFrame);
+        graphicsView->setLineWidth(0);
+        graphicsView->setInteractive(false);
+        graphicsView->raise();
+        editorButton->raise();
+        visitantButton->raise();
 
         horizontalLayout->addWidget(menuWidget);
 
@@ -342,7 +347,7 @@ public:
         minimapaWidget->setGeometry(QRect(10, 10, 201, 131));
         controlsWidget = new QWidget(contextGL);
         controlsWidget->setObjectName(QString::fromUtf8("controlsWidget"));
-        controlsWidget->setGeometry(QRect(10, 150, 251, 101));
+        controlsWidget->setGeometry(QRect(10, 150, 248, 96));
         controlsWidget->setStyleSheet(QString::fromUtf8("background-image: url(:/images/controls.png);"));
         controlsButton = new QRadioButton(controlsWidget);
         controlsButton->setObjectName(QString::fromUtf8("controlsButton"));
@@ -360,7 +365,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 23));
+        menuBar->setGeometry(QRect(0, 0, 892, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuOpcions = new QMenu(menuBar);
         menuOpcions->setObjectName(QString::fromUtf8("menuOpcions"));
@@ -473,7 +478,6 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("UIGC2", "Llums", 0, QApplication::UnicodeUTF8));
         editorButton->setText(QApplication::translate("UIGC2", "Editor", 0, QApplication::UnicodeUTF8));
         visitantButton->setText(QApplication::translate("UIGC2", "Visitant", 0, QApplication::UnicodeUTF8));
-        modesLabel->setText(QApplication::translate("UIGC2", "Escull quin mode vols", 0, QApplication::UnicodeUTF8));
         controlsButton->setText(QApplication::translate("UIGC2", "OK", 0, QApplication::UnicodeUTF8));
         menuOpcions->setTitle(QApplication::translate("UIGC2", "Camara", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("UIGC2", "Vista", 0, QApplication::UnicodeUTF8));
