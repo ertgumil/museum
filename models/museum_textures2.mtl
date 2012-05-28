@@ -1,9 +1,9 @@
 # Blender MTL File: ''
-# Material Count: 5
-newmtl entry_entry.ppm.001
-Ns 92.156863
+# Material Count: 8
+newmtl entry_entry.ppm.000_entry.ppm.002
+Ns 90.196078
 Ka 0.000000 0.000000 0.000000
-Kd 0.512000 0.512000 0.512000
+Kd 0.409600 0.409600 0.409600
 Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000
@@ -11,32 +11,10 @@ illum 2
 map_Kd entry.ppm
 
 
-newmtl floor_floor.ppm.001
-Ns 92.156863
+newmtl entry_entry.ppm.000_wall2.ppm
+Ns 90.196078
 Ka 0.000000 0.000000 0.000000
-Kd 0.512000 0.512000 0.512000
-Ks 0.500000 0.500000 0.500000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd floor.ppm
-
-
-newmtl marble_marble.ppm.001
-Ns 92.156863
-Ka 0.000000 0.000000 0.000000
-Kd 0.512000 0.512000 0.512000
-Ks 0.500000 0.500000 0.500000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd marble.ppm
-
-
-newmtl wall
-Ns 92.156863
-Ka 0.000000 0.000000 0.000000
-Kd 0.512000 0.512000 0.512000
+Kd 0.409600 0.409600 0.409600
 Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000
@@ -44,10 +22,65 @@ illum 2
 map_Kd wall2.ppm
 
 
-newmtl wall_wall2.ppm.001
-Ns 92.156863
+newmtl floor_floor.ppm.000_floor.ppm.002
+Ns 90.196078
 Ka 0.000000 0.000000 0.000000
-Kd 0.512000 0.512000 0.512000
+Kd 0.409600 0.409600 0.409600
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd floor.ppm
+
+
+newmtl marble_marble.ppm.000_floor.ppm
+Ns 90.196078
+Ka 0.000000 0.000000 0.000000
+Kd 0.409600 0.409600 0.409600
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd floor.ppm
+
+
+newmtl marble_marble.ppm.000_marble.ppm.002
+Ns 90.196078
+Ka 0.000000 0.000000 0.000000
+Kd 0.409600 0.409600 0.409600
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd marble.ppm
+
+
+newmtl wall.001_wall2.ppm.003
+Ns 90.196078
+Ka 0.000000 0.000000 0.000000
+Kd 0.409600 0.409600 0.409600
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd wall2.ppm
+
+
+newmtl wall_wall2.ppm.000_marble.ppm.002
+Ns 90.196078
+Ka 0.000000 0.000000 0.000000
+Kd 0.409600 0.409600 0.409600
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd marble.ppm
+
+
+newmtl wall_wall2.ppm.000_wall2.ppm.004
+Ns 90.196078
+Ka 0.000000 0.000000 0.000000
+Kd 0.409600 0.409600 0.409600
 Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000

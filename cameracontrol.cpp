@@ -67,7 +67,7 @@ void CameraControl::ChangeVisualMode(){
 
     }
     else{ /// Camara FPS
-       Eye[0] = -61.98f;
+       Eye[0] = -51.98f;
        Eye[1] = -1.34f;
        Eye[2] = -4.03f;
        Eye[2] = CollisionManager::getInstance()->TestFloorRay(Eye);

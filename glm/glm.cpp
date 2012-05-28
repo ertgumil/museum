@@ -40,6 +40,7 @@
 */
 #include "glmint.h"
 #include "collisionmanager.h"
+#include <locale>
 
 #define T(x) (model->triangles[(x)])
 
@@ -1563,6 +1564,7 @@ glmReadOBJ(const char* filename, int collision)
     GLMmodel* model;
     FILE*   file;
     int i, j;
+    setlocale(LC_ALL,"C");
 
     /* open the file */
     file = fopen(filename, "r");
