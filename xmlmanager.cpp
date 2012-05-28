@@ -18,8 +18,9 @@ XMLManager* XMLManager::getInstance()
     return instance;
 }
 
-void XMLManager::load(std::string xmlFile)
+void XMLManager::load(std::string xmlFile, QComboBox *wid)
 {
+    combo = wid;
     xmlParseFile(xmlFile);
 }
 
@@ -115,5 +116,8 @@ void XMLManager::onStartElement(const std::string &elem, MKeyValue &atts)
         QString path = QString::fromStdString(model);
 
         ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path);
+
+        if (combo != NULL)
+            combo->addItem(name);
     }
 }

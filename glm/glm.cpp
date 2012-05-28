@@ -402,7 +402,7 @@ glmReadMTL(GLMmodel* model, char* name)
                 /* Refraction index.  Values range from 1 upwards. A value
                    of 1 will cause no refraction. A higher value implies
                    refraction. */
-                __glmWarning("refraction index ignored");
+                //__glmWarning("refraction index ignored");
                 fgets(buf, sizeof(buf), file);
                 break;
             default:

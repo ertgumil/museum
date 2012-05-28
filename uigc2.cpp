@@ -143,8 +143,14 @@ void UIGC2::on_loadMuseumButton_clicked()
         tr("Open Document"),
         "data",
         tr("All files (*.xml)") );
+
+     QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+
+     ObjectManager::getInstance()->RemoveAll();
+     test->clear();
+
     if(filename.length() > 0){
-           XMLManager::getInstance()->load(filename.toStdString());
+           XMLManager::getInstance()->load(filename.toStdString(),test);
     }
 
 }
@@ -193,7 +199,10 @@ void UIGC2::on_visitantButton_released()
     ui->contextGL->setShown(true); //activa el museu
     CameraControl::getInstance()->ChangeVisualMode();
     ui->minimapaWidget->setShown(true);
-    XMLManager::getInstance()->load("data/default.xml");
+
+    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
+
+    XMLManager::getInstance()->load("data/default.xml",test);
     pointer::getInstance()->visitantOn();
 }
 
