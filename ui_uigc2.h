@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon May 28 17:19:37 2012
-**      by: Qt User Interface Compiler version 4.6.2
+** Created: Mon May 28 22:18:02 2012
+**      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -265,12 +265,14 @@ public:
         rLight = new QDoubleSpinBox(tab);
         rLight->setObjectName(QString::fromUtf8("rLight"));
         rLight->setGeometry(QRect(10, 205, 122, 25));
+        rLight->setValue(1);
         paintLight = new QPushButton(tab);
         paintLight->setObjectName(QString::fromUtf8("paintLight"));
         paintLight->setGeometry(QRect(138, 171, 101, 27));
         bLight = new QDoubleSpinBox(tab);
         bLight->setObjectName(QString::fromUtf8("bLight"));
         bLight->setGeometry(QRect(10, 237, 122, 25));
+        bLight->setValue(1);
         moveLight = new QPushButton(tab);
         moveLight->setObjectName(QString::fromUtf8("moveLight"));
         moveLight->setGeometry(QRect(94, 110, 85, 27));
@@ -289,9 +291,11 @@ public:
         aLight = new QDoubleSpinBox(tab);
         aLight->setObjectName(QString::fromUtf8("aLight"));
         aLight->setGeometry(QRect(138, 237, 121, 25));
+        aLight->setValue(1);
         gLight = new QDoubleSpinBox(tab);
         gLight->setObjectName(QString::fromUtf8("gLight"));
         gLight->setGeometry(QRect(138, 205, 121, 25));
+        gLight->setValue(1);
         yPos = new QDoubleSpinBox(tab);
         yPos->setObjectName(QString::fromUtf8("yPos"));
         yPos->setGeometry(QRect(94, 143, 85, 25));
@@ -356,7 +360,7 @@ public:
         menuBar = new QMenuBar(UIGC2);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 892, 21));
+        menuBar->setGeometry(QRect(0, 0, 892, 25));
         menuBar->setMinimumSize(QSize(10, 10));
         menuOpcions = new QMenu(menuBar);
         menuOpcions->setObjectName(QString::fromUtf8("menuOpcions"));
@@ -397,7 +401,7 @@ public:
         QObject::connect(actionTercera_persona, SIGNAL(triggered()), minimapaWidget, SLOT(hide()));
         QObject::connect(createNewObjectButton, SIGNAL(released()), contextGL, SLOT(update()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UIGC2);
@@ -432,7 +436,6 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("UIGC2", "Objectes", 0, QApplication::UnicodeUTF8));
         lightList->clear();
         lightList->insertItems(0, QStringList()
-         << QApplication::translate("UIGC2", "Numero de llum", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "0", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "1", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("UIGC2", "2", 0, QApplication::UnicodeUTF8)

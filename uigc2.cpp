@@ -22,17 +22,19 @@ UIGC2::~UIGC2()
 
 void UIGC2::on_lightList_activated(int index)   //ens diu sobre quina llum treballem
 {
-    activeLight = index-1; //-1 pq aixi tenim el 1r de la llista que no es cap llum al frame
+    activeLight = index; //-1 pq aixi tenim el 1r de la llista que no es cap llum al frame
 }
 
 void UIGC2::on_addLight_clicked()   //un cop clicat Add
 {
     LightManager::getInstance()->addLight(activeLight);
+    ui->contextGL->updateGL();
 }
 
 void UIGC2::on_deleteLight_clicked() //un cop clicat Delete
 {
     LightManager::getInstance()->deleteLight(activeLight);
+    ui->contextGL->updateGL();
 }
 
 void UIGC2::on_xPos_valueChanged(double x)  //nova posicio de la X
@@ -52,7 +54,8 @@ void UIGC2::on_zPos_valueChanged(double z) //nova posicio de la Z
 
 void UIGC2::on_moveLight_clicked()  //un cop clicat Move
 {
-    LightManager::getInstance()->changePosition(activeLight, newX, newY, newZ);
+    LightManager::getInstance()->changePosition(activeLight, ui->xPos->value(), ui->yPos->value(), ui->zPos->value());
+    ui->contextGL->updateGL();
 }
 
 void UIGC2::on_rLight_valueChanged(double r)    //nova R del color
@@ -77,7 +80,8 @@ void UIGC2::on_aLight_valueChanged(double a)    //nova Alpha del color
 
 void UIGC2::on_paintLight_clicked() //un cop clicat Paint
 {
-    LightManager::getInstance()->changeColor(activeLight, newR, newG, newB, newA);
+    LightManager::getInstance()->changeColor(activeLight, ui->rLight->value(), ui->gLight->value(), ui->bLight->value(), ui->aLight->value());
+    ui->contextGL->updateGL();
 }
 
 void UIGC2::on_createNewObjectButton_clicked()
@@ -230,4 +234,24 @@ void UIGC2::on_actionComen_a_Ruta_triggered()
 void UIGC2::on_actionAcaba_Ruta_triggered()
 {
    CameraControl::getInstance()->StopRoute();
+}
+
+void UIGC2::on_tabWidget_currentChanged(int index)
+{
+    if (index == 1)
+        LightManager::getInstance()->mode = 0;
+    if (index == 2)
+        LightManager::getInstance()->mode = 1;
+}
+
+void UIGC2::on_lightList_currentIndexChanged(int index)
+{
+    activeLight = index;
+    LightManager::getInstance()->currentLight = index;
+}
+
+void UIGC2::on_lightList_highlighted(int index)
+{
+    activeLight = index;
+    LightManager::getInstance()->currentLight = index;
 }

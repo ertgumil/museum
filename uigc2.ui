@@ -54,7 +54,7 @@
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -289,11 +289,6 @@
             <widget class="QComboBox" name="lightList">
              <item>
               <property name="text">
-               <string>Numero de llum</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
                <string>0</string>
               </property>
              </item>
@@ -383,6 +378,9 @@
             <height>25</height>
            </rect>
           </property>
+          <property name="value">
+           <double>1.000000000000000</double>
+          </property>
          </widget>
          <widget class="QPushButton" name="paintLight">
           <property name="geometry">
@@ -405,6 +403,9 @@
             <width>122</width>
             <height>25</height>
            </rect>
+          </property>
+          <property name="value">
+           <double>1.000000000000000</double>
           </property>
          </widget>
          <widget class="QPushButton" name="moveLight">
@@ -475,6 +476,9 @@
             <height>25</height>
            </rect>
           </property>
+          <property name="value">
+           <double>1.000000000000000</double>
+          </property>
          </widget>
          <widget class="QDoubleSpinBox" name="gLight">
           <property name="geometry">
@@ -484,6 +488,9 @@
             <width>121</width>
             <height>25</height>
            </rect>
+          </property>
+          <property name="value">
+           <double>1.000000000000000</double>
           </property>
          </widget>
          <widget class="QDoubleSpinBox" name="yPos">
@@ -645,7 +652,7 @@ color: rgb(255, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="minimumSize">

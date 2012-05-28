@@ -52,6 +52,9 @@ private slots:
     void on_saveMuseumButton_clicked();
 
 
+    void on_tabWidget_currentChanged(int index);
+    void on_lightList_currentIndexChanged(int index);
+    void on_lightList_highlighted(int index);
 };
 
 #endif // UIGC2_H

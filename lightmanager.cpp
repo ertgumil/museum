@@ -1,13 +1,15 @@
 #include "lightmanager.h"
 #include "math.h"
 #include "stdlib.h"
-
+#include <QtGui>
 
 
 LightManager* LightManager::instance = NULL;
 
 LightManager::LightManager()
 {
+    mode = 0;
+    currentLight = 1;
 }
 
 
@@ -56,27 +58,43 @@ void LightManager::enableLight(int nLight) //mostrar una llum
 }
 void LightManager::showLight(int nLight) //mostrar una llum
 {
+    GLfloat LightAmbient[]= { 0.5f, 0.5f, 0.5f, 1.0f };
+
     switch (nLight){
-        case 0:     glLightfv(GL_LIGHT0, GL_POSITION, luces[nLight].pos);
-                    //glLightfv(GL_LIGHT0, GL_DIFFUSE, luces[nLight].diffuse);
+    case 0:     glLightfv(GL_LIGHT0, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT0, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT0);
                     break;
-        case 1:     glLightfv(GL_LIGHT1, GL_POSITION, luces[nLight].pos);
-                   // glLightfv(GL_LIGHT1, GL_DIFFUSE, luces[nLight].diffuse);
+    case 1:     glLightfv(GL_LIGHT1, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT1, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT1);
                     break;
-        case 2:     glLightfv(GL_LIGHT2, GL_POSITION, luces[nLight].pos);
-                   // glLightfv(GL_LIGHT2, GL_DIFFUSE, luces[nLight].diffuse);
+    case 2:     glLightfv(GL_LIGHT2, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT2, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT2);
                     break;
-        case 3:     glLightfv(GL_LIGHT3, GL_POSITION, luces[nLight].pos);
-                   // glLightfv(GL_LIGHT3, GL_DIFFUSE, luces[nLight].diffuse);
+    case 3:     glLightfv(GL_LIGHT3, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT3, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT3, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT3);
                     break;
-        case 4:     glLightfv(GL_LIGHT4, GL_POSITION, luces[nLight].pos);
-                   // glLightfv(GL_LIGHT4, GL_DIFFUSE, luces[nLight].diffuse);
+    case 4:     glLightfv(GL_LIGHT4, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT4, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT4, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT4);
                     break;
-        case 5:     glLightfv(GL_LIGHT5, GL_POSITION, luces[nLight].pos);
-                    //glLightfv(GL_LIGHT5, GL_DIFFUSE, luces[nLight].diffuse);
+    case 5:     glLightfv(GL_LIGHT5, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT5, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT5, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT5);
                     break;
-        case 6:     glLightfv(GL_LIGHT6, GL_POSITION, luces[nLight].pos);
-                    //glLightfv(GL_LIGHT6, GL_DIFFUSE, luces[nLight].diffuse);
+    case 6:     glLightfv(GL_LIGHT6, GL_POSITION, luces[nLight].pos);
+                glLightfv(GL_LIGHT6, GL_AMBIENT, LightAmbient);
+                glLightfv(GL_LIGHT6, GL_DIFFUSE, luces[nLight].diffuse);
+                glEnable(GL_LIGHT6);
                     break;
     }
 }
@@ -87,11 +105,12 @@ void LightManager::addLight(int nLight) //afegir una nova llum
         luces[nLight].pos[0] = 100.0;
         luces[nLight].pos[1] = 100.0;
         luces[nLight].pos[2] = 100.0;
+        luces[nLight].pos[3] = 1.0;
 
-        luces[nLight].diffuse[0] = 0.0;
-        luces[nLight].diffuse[1] = 0.5;
-        luces[nLight].diffuse[2] = 0.0;
-        luces[nLight].diffuse[3] = 1.0;
+        luces[nLight].diffuse[0] = 1.0f;
+        luces[nLight].diffuse[1] = 1.0f;
+        luces[nLight].diffuse[2] = 1.0f;
+        luces[nLight].diffuse[3] = 1.0f;
 
         enableLight(nLight);
         showLight(nLight);
@@ -125,14 +144,19 @@ void LightManager::deleteLight(int nLight)  //desactivar una llum
 
 void LightManager::changePosition(int nLight, float x, float y, float z)    //cambiar la posicio d'una llum
 {
+    if (nLight != 0) qDebug()<<nLight<<": pos "<<x<<y<<z;
+
     luces[nLight].pos[0] = x;
     luces[nLight].pos[1] = y;
     luces[nLight].pos[2] = z;
+    luces[nLight].pos[3] = 1.0f;
     showLight(nLight);
 }
 
 void LightManager::changeColor(int nLight, float r, float g, float b, float a)  //cambiar el color d'una llum
 {
+    if (nLight != 0) qDebug()<<nLight<<": color "<<r<<g<<b<<a;
+
     luces[nLight].diffuse[0] = r;
     luces[nLight].diffuse[1] = g;
     luces[nLight].diffuse[2] = b;

@@ -210,14 +210,24 @@ void pointer::calcul(float x, float y)
 }
 
 void pointer::changePos(float x, float y, int id) {
+
+    int mode = LightManager::getInstance()->mode;
+
+    qDebug()<<pos;
+
     if(visitant!=1){
         if(CameraControl::getInstance()->isSimsCam())
             calcul(x,y);
         else
             calcul2(x,y);
 
-        if(ObjectManager::getInstance()->getId() > 0)
+        if(ObjectManager::getInstance()->getId() > 0 && mode == 0)
             ObjectManager::getInstance()->GetObject(id)->posicio = pos;
+
+        int lol = LightManager::getInstance()->currentLight;
+
+        if(mode == 1 && LightManager::getInstance()->currentLight != 0)
+            LightManager::getInstance()->changePosition(LightManager::getInstance()->currentLight,pos.x(),pos.y(),pos.z());
     }
 }
 

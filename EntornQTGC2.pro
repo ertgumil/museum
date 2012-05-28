@@ -27,7 +27,6 @@ SOURCES += main.cpp \
     lightmanager.cpp \
     object.cpp \
     objectmanager.cpp \
-    lights.cpp \
     expat/xmltok_ns.c \
     expat/xmltok_impl.c \
     expat/xmltok.c \
@@ -62,7 +61,6 @@ HEADERS += uigc2.h \
     lightmanager.h \
     object.h \
     objectmanager.h \
-    lights.h \
     expat/xmltok_impl.h \
     expat/xmltok.h \
     expat/xmlrole.h \

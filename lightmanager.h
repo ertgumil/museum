@@ -8,11 +8,22 @@
 #ifdef _WIN32
 #include <windows.h>
 #endif
+//#include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #endif
-#include <lights.h>
 #include <vector>
+
+class lights
+{
+public:
+    GLfloat pos[4];
+    GLfloat diffuse[4];
+    GLfloat mat[4];
+    GLfloat shin[];
+    int active;
+};
+
 
 class LightManager
 {
@@ -29,6 +40,8 @@ public:
     void showLight(int nLight);
 
     lights luces[7];
+    int mode;
+    int currentLight;
 
 private:
         static LightManager* instance;

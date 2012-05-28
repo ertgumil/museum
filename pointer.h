@@ -2,6 +2,7 @@
 #define POINTER_H
 
 #include "objectmanager.h"
+#include "lightmanager.h"
 #include "cameracontrol.h"
 #include "collisionmanager.h"
 #include <QtGui>

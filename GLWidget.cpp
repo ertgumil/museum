@@ -86,8 +86,8 @@ void GLWidget::paintGL() {
     ObjectManager::getInstance()->Draw();
     LightManager::getInstance()->addLight(0);
     LightManager::getInstance()->changePosition(0,CameraControl::getInstance()->getEyex(),CameraControl::getInstance()->getEyey(),CameraControl::getInstance()->getEyez());
-    LightManager::getInstance()->addLight(1);
-    LightManager::getInstance()->changePosition(1,CameraControl::getInstance()->getEyex()*(-1),CameraControl::getInstance()->getEyey()*(-1),CameraControl::getInstance()->getEyez());
+    //LightManager::getInstance()->addLight(1);
+    //LightManager::getInstance()->changePosition(1,CameraControl::getInstance()->getEyex()*(-1),CameraControl::getInstance()->getEyey()*(-1),CameraControl::getInstance()->getEyez());
 
     glFlush();  //Aplica accions
 }
