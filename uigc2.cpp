@@ -80,25 +80,31 @@ void UIGC2::on_paintLight_clicked() //un cop clicat Paint
     LightManager::getInstance()->changeColor(activeLight, newR, newG, newB, newA);
 }
 
-
-
 void UIGC2::on_createNewObjectButton_clicked()
 {
 
-        QVector3D pos = QVector3D();
-        QVector3D esc = QVector3D(1,1,1);
-        QQuaternion rot = QQuaternion();
+    QVector3D pos = QVector3D();
+    QVector3D esc = QVector3D(1,1,1);
+    QQuaternion rot = QQuaternion();
 
-            QString path = QFileDialog::getOpenFileName(
-                this,
-                tr("Open Document"),
-                "models",
-                tr("Obj Files (*.obj)") );
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Document"),
+        "models",
+        tr("Obj Files (*.obj)") );
 
-            ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
+    bool minimapa = !ui->minimapaWidget->isHidden();
 
-            QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-            test->addItem(name);
+    if (minimapa) ui->minimapaWidget->setShown(false);
+
+    ui->contextGL->updateGL();
+    ObjectManager::getInstance()->AddObject(name,pos,esc,rot,path); // Afegim l'objecte a l'escena
+
+    ui->comboBoxObjectes->addItem(name);
+    int id = ui->comboBoxObjectes->findText(name);
+    ui->comboBoxObjectes->setCurrentIndex(id);
+
+    if (minimapa) ui->minimapaWidget->setShown(true);
 
 }
 
@@ -122,8 +128,7 @@ void UIGC2::on_comboBoxObjectes_highlighted(const QString &arg1)
 void UIGC2::on_deleteObjectButton_clicked()
 {
     int id = ObjectManager::getInstance()->getId();
-    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-    QString nomCombo = test->currentText();
+    QString nomCombo = ui->comboBoxObjectes->currentText();
 
     std::string nom;
     nom = nomCombo.toStdString();
@@ -131,8 +136,8 @@ void UIGC2::on_deleteObjectButton_clicked()
     if(id > 0) {
         int id = ObjectManager::getInstance()->GetObject(nom)->id;
         ObjectManager::getInstance()->RemoveObject(id);
-        int borrar = test->findText(nomCombo);
-        test->removeItem(borrar);
+        int borrar = ui->comboBoxObjectes->findText(nomCombo);
+        ui->comboBoxObjectes->removeItem(borrar);
     }
 }
 
@@ -144,13 +149,11 @@ void UIGC2::on_loadMuseumButton_clicked()
         "data",
         tr("All files (*.xml)") );
 
-     QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-
      ObjectManager::getInstance()->RemoveAll();
-     test->clear();
+     ui->comboBoxObjectes->clear();
 
     if(filename.length() > 0){
-           XMLManager::getInstance()->load(filename.toStdString(),test);
+           XMLManager::getInstance()->load(filename.toStdString(),ui->comboBoxObjectes);
     }
 
 }
@@ -197,13 +200,14 @@ void UIGC2::on_visitantButton_released()
 {
     ui->menuWidget->setShown(false); //oculta el menu per triar el mode
     ui->contextGL->setShown(true); //activa el museu
+
+
+    //ui->contextGL->updateGL();
+    XMLManager::getInstance()->load("data/default.xml",ui->comboBoxObjectes);
+    pointer::getInstance()->visitantOn();
+
     CameraControl::getInstance()->ChangeVisualMode();
     ui->minimapaWidget->setShown(true);
-
-    QComboBox* test = this->findChild<QComboBox*>("comboBoxObjectes");
-
-    XMLManager::getInstance()->load("data/default.xml",test);
-    pointer::getInstance()->visitantOn();
 }
 
 void UIGC2::on_controlsButton_released()
@@ -221,8 +225,6 @@ void UIGC2::on_actionComen_a_Ruta_triggered()
 
     xmlRuta::getInstance()->load((filename.toStdString()));
     CameraControl::getInstance()->StartRoute();
-
-
 }
 
 void UIGC2::on_actionAcaba_Ruta_triggered()

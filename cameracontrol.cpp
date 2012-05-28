@@ -61,7 +61,7 @@ void CameraControl::ChangeVisualMode(){
        Cam[0] = 30.0f;
        Cam[1]= Cam[1];
        Cam[2] = 1.0f;
-       Cam[3] = Zoom + 40.0f;
+       Cam[3] = Zoom + 4000.0f;
        AngleCam = 1.0f;
        angleCamY = asin(Eye[2]/Eye[0]);
 

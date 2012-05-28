@@ -89,6 +89,7 @@ void pointer::calcul2(float x, float y)
     float* cam = CameraControl::getInstance()->getCamConf();
     float near = *(cam+2);
     float dist = cos((*cam)*3.14/180)*near*10;
+
     float dir[3];
     eyes[0]= *eye;
     eyes[1]= *(eye+1);

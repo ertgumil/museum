@@ -55,6 +55,8 @@ int ObjectManager::getCurrentObject()
 
 void ObjectManager::AddObject(QString nom, QVector3D pos, QVector3D esc, QQuaternion rot, QString model)
 {
+
+
     Object* nou = new Object(count,nom,pos,esc,rot,model);
 
     AddObject(nou);
