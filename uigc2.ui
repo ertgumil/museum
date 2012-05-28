@@ -51,7 +51,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <property name="accessibleName">
@@ -283,7 +283,7 @@
             <widget class="QComboBox" name="lightList">
              <item>
               <property name="text">
-               <string>Number</string>
+               <string>Numero de llum</string>
               </property>
              </item>
              <item>
@@ -326,21 +326,21 @@
            <item row="0" column="2">
             <widget class="QPushButton" name="addLight">
              <property name="text">
-              <string>Add</string>
+              <string>Afegir</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_3">
              <property name="text">
-              <string>Light</string>
+              <string>Llum</string>
              </property>
             </widget>
            </item>
            <item row="1" column="2">
             <widget class="QPushButton" name="deleteLight">
              <property name="text">
-              <string>Delete</string>
+              <string>Eliminar</string>
              </property>
             </widget>
            </item>
@@ -388,7 +388,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Paint</string>
+           <string>Pintar</string>
           </property>
          </widget>
          <widget class="QDoubleSpinBox" name="bLight">
@@ -411,7 +411,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Move</string>
+           <string>Moure</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_4">
@@ -639,7 +639,7 @@ color: rgb(255, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>892</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimumSize">
