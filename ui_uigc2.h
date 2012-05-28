@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'uigc2.ui'
 **
-** Created: Mon May 28 17:03:53 2012
+** Created: Mon May 28 17:19:37 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -309,13 +309,13 @@ public:
         menuWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
         editorButton = new QPushButton(menuWidget);
         editorButton->setObjectName(QString::fromUtf8("editorButton"));
-        editorButton->setGeometry(QRect(160, 320, 121, 51));
+        editorButton->setGeometry(QRect(80, 330, 121, 51));
         editorButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
 "font: 14pt \"Lucida Grande\";\n"
 "color: rgb(255, 255, 255);"));
         visitantButton = new QPushButton(menuWidget);
         visitantButton->setObjectName(QString::fromUtf8("visitantButton"));
-        visitantButton->setGeometry(QRect(160, 270, 121, 51));
+        visitantButton->setGeometry(QRect(80, 280, 121, 51));
         visitantButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);\n"
 "font: 14pt \"Lucida Grande\";\n"
 "color: rgb(255, 255, 255);"));

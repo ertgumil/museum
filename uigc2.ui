@@ -518,8 +518,8 @@
       <widget class="QPushButton" name="editorButton">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>320</y>
+         <x>80</x>
+         <y>330</y>
          <width>121</width>
          <height>51</height>
         </rect>
@@ -536,8 +536,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="visitantButton">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>270</y>
+         <x>80</x>
+         <y>280</y>
          <width>121</width>
          <height>51</height>
         </rect>
