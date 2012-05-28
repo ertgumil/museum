@@ -174,6 +174,7 @@ void GLWidget::keyPressEvent(QKeyEvent* event) {
             case Qt::Key_Space:
                 CameraControl::getInstance()->updateRoute();
                 updateGL();
+                test->refresh();
               break;
     }
 }
